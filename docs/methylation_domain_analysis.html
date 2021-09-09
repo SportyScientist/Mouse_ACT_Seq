@@ -479,24 +479,21 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong52bd781"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 52bd781 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong17dbd73"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 17dbd73 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong52bd781" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrong17dbd73" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 52bd781. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version 17dbd73. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
-Ignored files:
-    Ignored:    analysis/figure/
-
 Untracked files:
     Untracked:  analysis/ACT_Seq_K9_broadpeaks.Rmd
     Untracked:  data/chmm_mESC.rds
@@ -541,6 +538,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+17dbd73
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+<td>
+ChMM of the mouse brain 12d
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -641,6 +672,43 @@ pheatmap(top_mat,
             annotation_col=col_annot,
             clustering_distance_cols=&quot;correlation&quot;)</code></pre>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>###### recalculate averages
 
 averages_wt&lt;- rowMeans(tab[,grep(paste(wt_samples, collapse=&quot;|&quot;), colnames(tab))])
@@ -682,6 +750,43 @@ p &lt;- pheatmap(corr_all_raw,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-4-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-2">
+Past versions of unnamed-chunk-4-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>#as ggplot
 
 
@@ -705,6 +810,43 @@ ggplot(data = melted_cormat, aes(Var2, Var1, fill = value))+
     size = 12, hjust = 1))+
  coord_fixed()</code></pre>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-5-1">
+Past versions of unnamed-chunk-5-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-5-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>#### ALTERNATIVELY USE THE PACKAGE GUTILS
 
 target_window_list &lt;- chmm_segments
@@ -766,7 +908,7 @@ npg_cols&lt;-c(npg_pal(10)[c(1,4,8)], &quot;black&quot;)
 <h2 class="tabset tabset-fade tabset-pills">Boxplots</h2>
 <pre class="r"><code>for(i in 1:length(mt_samples)){
       cat(&#39;\n&#39;)
-      cat(&quot;##&quot;,i, &quot;\n&quot;)
+      cat(&quot;###&quot;,mt_samples[i], &quot;\n&quot;)
 
   data &lt;- sum_full_data %&gt;%
   filter(Sample == wt_samples[1] | Sample == mt_samples[i])
@@ -781,18 +923,128 @@ print(p)
       cat(&#39;\n&#39;)
 
  }</code></pre>
-</div>
-<div id="section" class="section level2">
-<h2>1</h2>
+<div id="kh2g34l" class="section level3">
+<h3>KH2G34L</h3>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-1">
+Past versions of unnamed-chunk-7-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="section-1" class="section level2">
-<h2>2</h2>
+</div>
+</div>
+<div id="kh2g34r" class="section level3">
+<h3>KH2G34R</h3>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-7-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-2">
+Past versions of unnamed-chunk-7-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="section-2" class="section level2">
-<h2>3</h2>
+</div>
+</div>
+<div id="kh2g34w" class="section level3">
+<h3>KH2G34W</h3>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-7-3.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-7-3">
+Past versions of unnamed-chunk-7-3.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-7-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
@@ -809,6 +1061,7 @@ mut_wt_cols&lt;-npg_pal(10)[c(4,1)]
 sums &lt;- sum_full_data %&gt;%
   group_by(Feature, Group, Sample)%&gt;%
   summarise(mean = mean(avg_value))</code></pre>
+</div>
 </div>
 <div id="heatmaps" class="section level2 tabset tabset-fade tabset-pills">
 <h2 class="tabset tabset-fade tabset-pills">Heatmaps</h2>
@@ -836,6 +1089,43 @@ plot_Delta &lt;- sums %&gt;%
 
 print(plot_Delta)</code></pre>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-9-1">
+Past versions of unnamed-chunk-9-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-9-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="lfc" class="section level3">
 <h3>LFC</h3>
@@ -859,11 +1149,52 @@ print(plot_Delta)</code></pre>
 
 print(plot_LFC)</code></pre>
 <p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-10-1">
+Past versions of unnamed-chunk-10-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-10-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+d124d29
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-09
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div id="seperate-violin-plots-of-features" class="section level2 tabset tabset-fade tabset-pills">
 <h2 class="tabset tabset-fade tabset-pills">Seperate Violin Plots of Features</h2>
-<pre class="r"><code>for(i in 1:length(features)){
+<pre class="r"><code>features &lt;- sum_full_data %&gt;%
+  group_by(Feature)%&gt;%
+  group_split()
+
+for(i in 1:length(features)){
       cat(&#39;\n&#39;)
     cat(&quot;###&quot;, features[[i]]$Feature[1], &quot;\n&quot;)
 
@@ -874,9 +1205,56 @@ print(plot_LFC)</code></pre>
         cat(&#39;\n&#39;)
 
  }</code></pre>
-<pre><code>Error in features[[i]]: object of type &#39;closure&#39; is not subsettable</code></pre>
+<div id="section" class="section level3">
+<h3>1</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="section-3" class="section level2 unnumbered">
+<div id="section-1" class="section level3">
+<h3>2</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-2.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-2" class="section level3">
+<h3>3</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-3.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-3" class="section level3">
+<h3>4</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-4.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-4" class="section level3">
+<h3>5</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-5.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-5" class="section level3">
+<h3>6</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-6.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-6" class="section level3">
+<h3>7</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-7.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-7" class="section level3">
+<h3>8</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-8.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-8" class="section level3">
+<h3>9</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-9.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-9" class="section level3">
+<h3>10</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-10.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-10" class="section level3">
+<h3>11</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-11.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-11" class="section level3">
+<h3>12</h3>
+<p><img src="figure/methylation_domain_analysis.Rmd/unnamed-chunk-11-12.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-12" class="section level2 unnumbered">
 <h2 class="unnumbered"></h2>
 <br>
 <p>
