@@ -10,6 +10,7 @@ output:
     code_folding: "hide"
     toc_float: true
     fig_width: 10
+    fig_height: 7
 #output: workflowr::wflow_html:
 editor_options:
   chunk_output_type: console
@@ -339,7 +340,7 @@ npg_cols<-c(npg_pal(10)[c(1,4,8)], "black")
 
 for(i in 1:length(mt_samples)){
       cat('\n')
-      cat("##",i, "\n")
+      cat("###",mt_samples[i], "\n")
 
   data <- sum_full_data %>%
   filter(Sample == wt_samples[1] | Sample == mt_samples[i])
@@ -431,6 +432,10 @@ print(plot_LFC)
 ## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}
 
 ```{r results='asis'}
+features <- sum_full_data %>%
+  group_by(Feature)%>%
+  group_split()
+
 for(i in 1:length(features)){
       cat('\n')
     cat("###", features[[i]]$Feature[1], "\n")
