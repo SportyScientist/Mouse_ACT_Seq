@@ -305,7 +305,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-10
+<strong>Last updated:</strong> 2021-09-23
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -336,30 +336,34 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree3dc9431f04ebdd162dd612695d2d7b1876a7ce07targetblank3dc9431a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/3dc9431f04ebdd162dd612695d2d7b1876a7ce07" target="_blank">3dc9431</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree2494b6d2d8db78eadc1ebdb61e7c6293a836f088targetblank2494b6da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/2494b6d2d8db78eadc1ebdb61e7c6293a836f088" target="_blank">2494b6d</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree3dc9431f04ebdd162dd612695d2d7b1876a7ce07targetblank3dc9431a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree2494b6d2d8db78eadc1ebdb61e7c6293a836f088targetblank2494b6da" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/3dc9431f04ebdd162dd612695d2d7b1876a7ce07" target="_blank">3dc9431</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/2494b6d2d8db78eadc1ebdb61e7c6293a836f088" target="_blank">2494b6d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
-    Ignored:    analysis/figure/
+    Ignored:    .RData
 
 Untracked files:
     Untracked:  analysis/ACT_Seq_K9_broadpeaks.Rmd
+    Untracked:  analysis/H3K27me3.Rmd
     Untracked:  data/chmm_mESC.rds
     Untracked:  data/chmm_segments_mm10.rds
     Untracked:  matrixcalc.sh
     Untracked:  peakfiles.csv
+
+Unstaged changes:
+    Deleted:    analysis/methylation_domain_analysis.Rmd
 
 </code></pre>
 <p>
@@ -403,6 +407,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/2494b6d2d8db78eadc1ebdb61e7c6293a836f088/analysis/index.Rmd" target="_blank">2494b6d</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-23
+</td>
+<td>
+wflow_publish(files = c(“analysis/index.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/704c149c11dff322145a2f9ed96cb8a131782af7/docs/index.html" target="_blank">704c149</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-09-10
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/3dc9431f04ebdd162dd612695d2d7b1876a7ce07/analysis/index.Rmd" target="_blank">3dc9431</a>
 </td>
 <td>
@@ -439,7 +477,11 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Welcome to my research website. <a href="methylation_domain_analysis.html">https://SportyScientist.github.io//Mouse_ACT_Seq.html</a></p>
+<p>Chromatin Analysis of histone marks in mouse ESC</p>
+<p><a href="H3K36me3.html">https://SportyScientist.github.io//Mouse_ACT_Seq.html</a></p>
+<p><a href="H3K9me3.html">https://SportyScientist.github.io//Mouse_ACT_Seq.html</a></p>
+<p><a href="H3K27me3.html">https://SportyScientist.github.io//Mouse_ACT_Seq.html</a></p>
+<p><a href="H3K27ac.html">https://SportyScientist.github.io//Mouse_ACT_Seq.html</a></p>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
