@@ -10,12 +10,12 @@ editor_options:
 
 Chromatin Analysis of histone marks in mouse ESC
 
- [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K36me3.html) 
+H3K36me: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K36me3.html) 
  
- [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K9me3.html) 
+H3K9me3: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K9me3.html) 
  
- [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27me3.html) 
+H3K27me3: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27me3.html) 
  
- [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27ac.html) 
+H3K27ac: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27ac.html) 
 
  
