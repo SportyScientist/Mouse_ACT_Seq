@@ -8,5 +8,14 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
- [https://SportyScientist.github.io//Mouse_ACT_Seq.html](methylation_domain_analysis.html) 
+Chromatin Analysis of histone marks in mouse ESC
+
+ [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K36me3.html) 
+ 
+ [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K9me3.html) 
+ 
+ [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27me3.html) 
+ 
+ [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27ac.html) 
+
+ 
