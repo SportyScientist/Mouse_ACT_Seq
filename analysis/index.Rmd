@@ -10,6 +10,8 @@ editor_options:
 
 Chromatin Analysis of histone marks in mouse ESC
 
+Comparison of 10Kb vs 1Kb Clustering: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](clustering_all_marks.html) 
+
 H3K36me: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K36me3.html) 
  
 H3K9me3: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K9me3.html) 
