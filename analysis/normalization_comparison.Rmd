@@ -17,14 +17,16 @@ editor_options:
 ---
 
 The data is ACT-Seq of H3K27ac, binned in 10kb for computing time reasons. 
+
 The data was either normalizes with 
-- BPM
-- CPM
-- per spike in with the cwlab workflow
-- SPM with MACS2
-- RPGC to an effective genome size of 2.7*10^9 bp 
-- RPKM
-- Not at all 
+
+* BPM
+* CPM
+* per spike in with the cwlab workflow
+* SPM with MACS2
+* RPGC to an effective genome size of 2.7*10^9 bp 
+* RPKM
+* Not at all 
 
 ```{r setup, include=FALSE, message=FALSE}
 
@@ -156,8 +158,10 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 
 norm <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison")
 
-#for(element in norm){
-element <- "RPKM"  
+
+
+for(element in norm){
+
 file <- paste0("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/", element, 
                "/mbw_summary_10kb_", element, ".mat") 
 
@@ -445,12 +449,12 @@ plot_seperate <- sums %>%
         axis.ticks.x = element_blank(),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
-  facet_grid(Sample~replicate, drop = T, cols = 1)+
+  facet_wrap(Sample~replicate, ncol = 1)+
   theme(strip.background=element_rect(fill="white"))
 
 print(plot_seperate)
 
-####}
+}
 
 ```
 
