@@ -26,7 +26,6 @@ The data was either normalizes with
 - RPKM
 - Not at all 
 
-
 ```{r setup, include=FALSE, message=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE)
@@ -157,7 +156,7 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 
 norm <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison")
 
-for(element in norm){
+#for(element in norm){
 element <- "RPKM"  
 file <- paste0("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/", element, 
                "/mbw_summary_10kb_", element, ".mat") 
@@ -247,7 +246,6 @@ full_data<-as.data.frame(do.call("rbind",lapply(summ_windows, mcols)))
 full_data<-gather(full_data, key="Stat", value="value", -Feature, -Region)
 full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",5)
 full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
-
 
 mt_samples<- filter(full_data, full_data$Sample != "KH2wt")
 mt_samples <- unique(mt_samples$Sample)
@@ -451,7 +449,9 @@ plot_seperate <- sums %>%
   theme(strip.background=element_rect(fill="white"))
 
 print(plot_seperate)
-#}
+
+####}
+
 ```
 
 
