@@ -495,10 +495,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreeac8a50db1fb9cac2a7c6ba61fb28e3fc9c6132d2targetblankac8a50da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/ac8a50db1fb9cac2a7c6ba61fb28e3fc9c6132d2" target="_blank">ac8a50d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreefbb88fda609ff8cec5eb62816d1e22413a57c502targetblankfbb88fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/fbb88fda609ff8cec5eb62816d1e22413a57c502" target="_blank">fbb88fd</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreeac8a50db1fb9cac2a7c6ba61fb28e3fc9c6132d2targetblankac8a50da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreefbb88fda609ff8cec5eb62816d1e22413a57c502targetblankfbb88fda" class="panel-collapse collapse">
 <div class="panel-body">
   
 <p>
@@ -506,7 +506,7 @@ Great! You are using Git for version control. Tracking code development and conn
 </p>
 
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/ac8a50db1fb9cac2a7c6ba61fb28e3fc9c6132d2" target="_blank">ac8a50d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/fbb88fda609ff8cec5eb62816d1e22413a57c502" target="_blank">fbb88fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 
 <p>
@@ -571,6 +571,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/fbb88fda609ff8cec5eb62816d1e22413a57c502/analysis/normalization_comparison.Rmd" target="_blank">fbb88fd</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-20
+</td>
+<td>
+initial try II
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/1bff7d460a7832c7c6435cf0df4135a5ef8d8878/docs/normalization_comparison.html" target="_blank">1bff7d4</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -656,10 +690,9 @@ saveRDS(mmchmm_list, &quot;data/chmm_mESC.rds&quot;)</code></pre>
 #library(&quot;regioneR&quot;)
 
 #chmm_segments &lt;- toGRanges(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed&quot;)</code></pre>
-<pre class="r"><code>
-norm &lt;- list.files(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison&quot;)
+<pre class="r"><code>norm &lt;- list.files(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison&quot;)
 
-for(element in norm){
+#for(element in norm){
 element &lt;- &quot;RPKM&quot;  
 file &lt;- paste0(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/&quot;, element, 
                &quot;/mbw_summary_10kb_&quot;, element, &quot;.mat&quot;) 
@@ -718,9 +751,9 @@ colors &lt;- list(H3F3A=c(MT = &quot;#A72608&quot;, WT = &quot;#79B791&quot;),
 pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
-            clustering_distance_cols=&quot;correlation&quot;)
-
-mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
+            clustering_distance_cols=&quot;correlation&quot;)</code></pre>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
 
 hc = hclust(as.dist(1 - mat))
 mat = mat[hc$order, hc$order]
@@ -734,9 +767,9 @@ p &lt;- pheatmap(mat,
         scale=&quot;none&quot;,cluster_cols=F,cluster_rows=F,
         na_col=&quot;white&quot;,
         show_rownames=TRUE, show_colnames=TRUE,
-        display_numbers=TRUE, number_format=&quot;%.2f&quot;)
-
-target_window_list &lt;- chmm_segments
+        display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-2.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>target_window_list &lt;- chmm_segments
 target_windows_int&lt;-lapply(target_window_list, &quot;mcols&lt;-&quot;, value=NULL)
 summ_windows&lt;-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
 
@@ -749,7 +782,6 @@ full_data&lt;-as.data.frame(do.call(&quot;rbind&quot;,lapply(summ_windows, mcols
 full_data&lt;-gather(full_data, key=&quot;Stat&quot;, value=&quot;value&quot;, -Feature, -Region)
 full_data$Sample&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,5)
 full_data$Mark&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,6)
-
 
 mt_samples&lt;- filter(full_data, full_data$Sample != &quot;KH2wt&quot;)
 mt_samples &lt;- unique(mt_samples$Sample)
@@ -791,9 +823,9 @@ for(i in mt_samples){
   
   listed[[i]] &lt;- interim
   
-}
-
-sum_full_data &lt;- bind_rows(listed)
+}</code></pre>
+<p><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot;</p>
+<pre class="r"><code>sum_full_data &lt;- bind_rows(listed)
 ######### PLOT THE SUMMARIZED DATA II
 
 npg_pal&lt;-ggsci:::pal_npg()
@@ -802,9 +834,10 @@ npg_cols&lt;-c(npg_pal(10)[c(1,4,8)], &quot;black&quot;)
 
 #### BOXPLOT PER GROUP
 
-cat(&quot;## Boxplots {.tabset .tabset-fade .tabset-pills}&quot;)
-
-for(i in 1:length(mt_samples)){
+cat(&quot;## Boxplots {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
+<div id="boxplots" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Boxplots</h2>
+<pre class="r"><code>for(i in 1:length(mt_samples)){
       cat(&#39;\n&#39;)
       cat(&quot;###&quot;,mt_samples[i], &quot;\n&quot;)
 
@@ -820,9 +853,19 @@ print(p)
 
       cat(&#39;\n&#39;)
 
- }
-
-npg_pal&lt;-ggsci:::pal_npg()
+ }</code></pre>
+<div id="kh2g34l" class="section level3">
+<h3>KH2G34L</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-3.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34w" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-4.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-5.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
 mat_pal&lt;-ggsci:::pal_material(&quot;orange&quot;)
@@ -839,12 +882,18 @@ sums &lt;- sum_full_data %&gt;%
   group_by(Feature, Group, Sample)%&gt;%
   summarise(mean = mean(avg_value))
 
-cat(&#39;\n&#39;)
-cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)
-cat(&#39;\n&#39;)
-cat(&quot;### Delta&quot;)
-cat(&#39;\n&#39;)
-########plot summarized data I
+cat(&#39;\n&#39;)</code></pre>
+<pre class="r"><code>cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
+</div>
+</div>
+<div id="heatmaps" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
+<pre class="r"><code>cat(&quot;### Delta&quot;)</code></pre>
+<div id="delta" class="section level3">
+<h3>Delta</h3>
+<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
+<pre class="r"><code>########plot summarized data I
 
 plot_Delta &lt;- sums %&gt;%
  filter(Group == &quot;Delta&quot;)%&gt;%
@@ -864,11 +913,13 @@ plot_Delta &lt;- sums %&gt;%
   facet_wrap(~Sample, nrow = 3)+
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
-print(plot_Delta)
-
-cat(&quot;### LFC&quot;)
-
-plot_LFC &lt;- sums %&gt;%
+print(plot_Delta)</code></pre>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-6.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cat(&quot;### LFC&quot;)</code></pre>
+</div>
+<div id="lfc" class="section level3">
+<h3>LFC</h3>
+<pre class="r"><code>plot_LFC &lt;- sums %&gt;%
  filter(Group == &quot;LFC&quot;)%&gt;%
  # group_by(Feature, Group)%&gt;%
   #summarise(mean = mean(mean))%&gt;% #needed to fix colour gradient
@@ -886,12 +937,14 @@ plot_LFC &lt;- sums %&gt;%
   facet_wrap(~Sample, nrow = 3)+
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
-print(plot_LFC)
-
-
-cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)
-
-features &lt;- sum_full_data %&gt;%
+print(plot_LFC)</code></pre>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-7.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
+</div>
+</div>
+<div id="seperate-violin-plots-of-features" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Seperate Violin Plots of Features</h2>
+<pre class="r"><code>features &lt;- sum_full_data %&gt;%
   group_by(Feature)%&gt;%
   filter(Group ==&quot;WT&quot;|Group ==&quot;MT&quot;)%&gt;%
   group_split()
@@ -906,12 +959,60 @@ for(i in 1:length(features)){
     print(p)
         cat(&#39;\n&#39;)
 
- }
-
-cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)
-
-
-library(stringr)
+ }</code></pre>
+<div id="section" class="section level3">
+<h3>1</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-8.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-1" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-9.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-2" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-10.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-3" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-11.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-4" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-12.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-5" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-13.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-6" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-14.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-7" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-15.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-8" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-16.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-9" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-17.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-10" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-18.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-11" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-19.png" width="960" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
+</div>
+</div>
+<div id="heatmaps-for-each-replicate" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps for each replicate</h2>
+<pre class="r"><code>library(stringr)
 
 sum_full_data &lt;- full_data %&gt;% 
     group_by(Group,Mark,Region,Feature, Sample, Stat)%&gt;% 
@@ -950,14 +1051,11 @@ plot_seperate &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_grid(Sample~replicate, drop = T, cols = 1)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))
-
-print(plot_seperate)
-#}</code></pre>
-<pre><code>Error: &lt;text&gt;:299:0: unexpected end of input
-297: print(plot_seperate)
-298: #}
-    ^</code></pre>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
+<pre><code>Error: `rows` must be `NULL` or a `vars()` list if `cols` is a `vars()` list</code></pre>
+<pre class="r"><code>print(plot_seperate)</code></pre>
+<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_seperate&#39; not found</code></pre>
+<pre class="r"><code>####}</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo"
@@ -991,61 +1089,62 @@ attached base packages:
  [8] datasets  methods   base     
 
 other attached packages:
- [1] purrr_0.3.4                            
- [2] cowplot_1.1.1                          
- [3] htmlwidgets_1.5.4                      
- [4] plotly_4.10.0                          
- [5] dplyr_1.0.7                            
- [6] RColorBrewer_1.1-2                     
- [7] hexbin_1.28.2                          
- [8] RnBeads_2.11.0                         
- [9] plyr_1.8.6                             
-[10] methylumi_2.38.0                       
-[11] minfi_1.38.0                           
-[12] bumphunter_1.34.0                      
-[13] locfit_1.5-9.4                         
-[14] iterators_1.0.13                       
-[15] foreach_1.5.1                          
-[16] Biostrings_2.60.2                      
-[17] XVector_0.32.0                         
-[18] SummarizedExperiment_1.22.0            
-[19] MatrixGenerics_1.4.3                   
-[20] FDb.InfiniumMethylation.hg19_2.2.0     
-[21] org.Hs.eg.db_3.13.0                    
-[22] TxDb.Hsapiens.UCSC.hg19.knownGene_3.2.2
-[23] GenomicFeatures_1.44.2                 
-[24] AnnotationDbi_1.54.1                   
-[25] scales_1.1.1                           
-[26] Biobase_2.52.0                         
-[27] illuminaio_0.34.0                      
-[28] matrixStats_0.61.0                     
-[29] limma_3.48.3                           
-[30] gridExtra_2.3                          
-[31] gplots_3.1.1                           
-[32] fields_12.5                            
-[33] spam_2.7-0                             
-[34] dotCall64_1.0-1                        
-[35] ff_4.0.4                               
-[36] bit_4.0.4                              
-[37] cluster_2.1.2                          
-[38] MASS_7.3-54                            
-[39] reshape2_1.4.4                         
-[40] ComplexHeatmap_2.8.0                   
-[41] gUtils_0.2.0                           
-[42] GenomicRanges_1.44.0                   
-[43] GenomeInfoDb_1.28.4                    
-[44] IRanges_2.26.0                         
-[45] S4Vectors_0.30.2                       
-[46] BiocGenerics_0.38.0                    
-[47] viridis_0.6.2                          
-[48] viridisLite_0.4.0                      
-[49] pheatmap_1.0.12                        
-[50] tidyr_1.1.4                            
-[51] ggpubr_0.4.0                           
-[52] ggsignif_0.6.3                         
-[53] ggplot2_3.3.5                          
-[54] data.table_1.14.2                      
-[55] workflowr_1.6.2                        
+ [1] stringr_1.4.0                          
+ [2] purrr_0.3.4                            
+ [3] cowplot_1.1.1                          
+ [4] htmlwidgets_1.5.4                      
+ [5] plotly_4.10.0                          
+ [6] dplyr_1.0.7                            
+ [7] RColorBrewer_1.1-2                     
+ [8] hexbin_1.28.2                          
+ [9] RnBeads_2.11.0                         
+[10] plyr_1.8.6                             
+[11] methylumi_2.38.0                       
+[12] minfi_1.38.0                           
+[13] bumphunter_1.34.0                      
+[14] locfit_1.5-9.4                         
+[15] iterators_1.0.13                       
+[16] foreach_1.5.1                          
+[17] Biostrings_2.60.2                      
+[18] XVector_0.32.0                         
+[19] SummarizedExperiment_1.22.0            
+[20] MatrixGenerics_1.4.3                   
+[21] FDb.InfiniumMethylation.hg19_2.2.0     
+[22] org.Hs.eg.db_3.13.0                    
+[23] TxDb.Hsapiens.UCSC.hg19.knownGene_3.2.2
+[24] GenomicFeatures_1.44.2                 
+[25] AnnotationDbi_1.54.1                   
+[26] scales_1.1.1                           
+[27] Biobase_2.52.0                         
+[28] illuminaio_0.34.0                      
+[29] matrixStats_0.61.0                     
+[30] limma_3.48.3                           
+[31] gridExtra_2.3                          
+[32] gplots_3.1.1                           
+[33] fields_12.5                            
+[34] spam_2.7-0                             
+[35] dotCall64_1.0-1                        
+[36] ff_4.0.4                               
+[37] bit_4.0.4                              
+[38] cluster_2.1.2                          
+[39] MASS_7.3-54                            
+[40] reshape2_1.4.4                         
+[41] ComplexHeatmap_2.8.0                   
+[42] gUtils_0.2.0                           
+[43] GenomicRanges_1.44.0                   
+[44] GenomeInfoDb_1.28.4                    
+[45] IRanges_2.26.0                         
+[46] S4Vectors_0.30.2                       
+[47] BiocGenerics_0.38.0                    
+[48] viridis_0.6.2                          
+[49] viridisLite_0.4.0                      
+[50] pheatmap_1.0.12                        
+[51] tidyr_1.1.4                            
+[52] ggpubr_0.4.0                           
+[53] ggsignif_0.6.3                         
+[54] ggplot2_3.3.5                          
+[55] data.table_1.14.2                      
+[56] workflowr_1.6.2                        
 
 loaded via a namespace (and not attached):
   [1] utf8_1.2.2                tidyselect_1.1.1         
@@ -1053,68 +1152,73 @@ loaded via a namespace (and not attached):
   [5] munsell_0.5.0             preprocessCore_1.54.0    
   [7] codetools_0.2-18          withr_2.4.2              
   [9] colorspace_2.0-2          filelock_1.0.2           
- [11] knitr_1.36                git2r_0.28.0             
- [13] GenomeInfoDbData_1.2.6    bit64_4.0.5              
- [15] rhdf5_2.36.0              rprojroot_2.0.2          
- [17] vctrs_0.3.8               generics_0.1.0           
- [19] xfun_0.27                 BiocFileCache_2.0.0      
- [21] R6_2.5.1                  doParallel_1.0.16        
- [23] clue_0.3-60               bitops_1.0-7             
- [25] rhdf5filters_1.4.0        cachem_1.0.6             
- [27] reshape_0.8.8             DelayedArray_0.18.0      
- [29] assertthat_0.2.1          promises_1.2.0.1         
- [31] BiocIO_1.2.0              gtable_0.3.0             
- [33] Cairo_1.5-12.2            rlang_0.4.12             
- [35] genefilter_1.74.1         splines_4.1.1            
- [37] GlobalOptions_0.1.2       lazyeval_0.2.2           
- [39] rtracklayer_1.52.1        rstatix_0.7.0            
- [41] GEOquery_2.60.0           broom_0.7.9              
- [43] yaml_2.2.1                abind_1.4-5              
- [45] backports_1.2.1           httpuv_1.6.3             
- [47] tools_4.1.1               nor1mix_1.3-0            
- [49] ellipsis_0.3.2            jquerylib_0.1.4          
- [51] siggenes_1.66.0           Rcpp_1.0.7               
- [53] sparseMatrixStats_1.4.2   progress_1.2.2           
- [55] zlibbioc_1.38.0           RCurl_1.98-1.5           
- [57] prettyunits_1.1.1         openssl_1.4.5            
- [59] GetoptLong_1.0.5          haven_2.4.3              
- [61] fs_1.5.0                  magrittr_2.0.1           
- [63] openxlsx_4.2.4            circlize_0.4.13          
- [65] whisker_0.4               xtable_1.8-4             
- [67] hms_1.1.1                 evaluate_0.14            
- [69] XML_3.99-0.8              rio_0.5.27               
- [71] mclust_5.4.7              readxl_1.3.1             
- [73] shape_1.4.6               compiler_4.1.1           
- [75] biomaRt_2.48.3            tibble_3.1.5             
- [77] maps_3.4.0                KernSmooth_2.23-20       
- [79] crayon_1.4.1              htmltools_0.5.2          
- [81] tzdb_0.1.2                later_1.3.0              
- [83] DBI_1.1.1                 dbplyr_2.1.1             
- [85] rappdirs_0.3.3            readr_2.0.2              
- [87] Matrix_1.3-4              car_3.0-11               
- [89] quadprog_1.5-8            forcats_0.5.1            
- [91] pkgconfig_2.0.3           GenomicAlignments_1.28.0 
- [93] foreign_0.8-81            xml2_1.3.2               
- [95] annotate_1.70.0           bslib_0.3.1              
- [97] rngtools_1.5.2            multtest_2.48.0          
- [99] beanplot_1.2              scrime_1.3.5             
-[101] doRNG_1.8.2               stringr_1.4.0            
-[103] digest_0.6.28             rmarkdown_2.11           
-[105] base64_2.0                cellranger_1.1.0         
-[107] DelayedMatrixStats_1.14.3 restfulr_0.0.13          
-[109] curl_4.3.2                Rsamtools_2.8.0          
-[111] gtools_3.9.2              rjson_0.2.20             
-[113] nlme_3.1-153              lifecycle_1.0.1          
-[115] jsonlite_1.7.2            Rhdf5lib_1.14.2          
-[117] carData_3.0-4             askpass_1.1              
-[119] fansi_0.5.0               pillar_1.6.4             
-[121] lattice_0.20-45           survival_3.2-13          
-[123] KEGGREST_1.32.0           fastmap_1.1.0            
-[125] httr_1.4.2                glue_1.4.2               
-[127] zip_2.2.0                 png_0.1-7                
-[129] stringi_1.7.5             sass_0.4.0               
-[131] HDF5Array_1.20.0          blob_1.2.2               
-[133] caTools_1.18.2            memoise_2.0.0            </code></pre>
+ [11] highr_0.9                 knitr_1.36               
+ [13] labeling_0.4.2            git2r_0.28.0             
+ [15] GenomeInfoDbData_1.2.6    farver_2.1.0             
+ [17] bit64_4.0.5               rhdf5_2.36.0             
+ [19] rprojroot_2.0.2           vctrs_0.3.8              
+ [21] generics_0.1.0            xfun_0.27                
+ [23] BiocFileCache_2.0.0       R6_2.5.1                 
+ [25] doParallel_1.0.16         clue_0.3-60              
+ [27] bitops_1.0-7              rhdf5filters_1.4.0       
+ [29] cachem_1.0.6              reshape_0.8.8            
+ [31] DelayedArray_0.18.0       assertthat_0.2.1         
+ [33] promises_1.2.0.1          BiocIO_1.2.0             
+ [35] gtable_0.3.0              Cairo_1.5-12.2           
+ [37] rlang_0.4.12              genefilter_1.74.1        
+ [39] splines_4.1.1             GlobalOptions_0.1.2      
+ [41] lazyeval_0.2.2            rtracklayer_1.52.1       
+ [43] rstatix_0.7.0             GEOquery_2.60.0          
+ [45] broom_0.7.9               yaml_2.2.1               
+ [47] abind_1.4-5               backports_1.2.1          
+ [49] httpuv_1.6.3              tools_4.1.1              
+ [51] nor1mix_1.3-0             ellipsis_0.3.2           
+ [53] jquerylib_0.1.4           siggenes_1.66.0          
+ [55] Rcpp_1.0.7                sparseMatrixStats_1.4.2  
+ [57] progress_1.2.2            zlibbioc_1.38.0          
+ [59] RCurl_1.98-1.5            prettyunits_1.1.1        
+ [61] openssl_1.4.5             GetoptLong_1.0.5         
+ [63] haven_2.4.3               fs_1.5.0                 
+ [65] magrittr_2.0.1            openxlsx_4.2.4           
+ [67] circlize_0.4.13           whisker_0.4              
+ [69] xtable_1.8-4              hms_1.1.1                
+ [71] evaluate_0.14             XML_3.99-0.8             
+ [73] rio_0.5.27                mclust_5.4.7             
+ [75] readxl_1.3.1              shape_1.4.6              
+ [77] compiler_4.1.1            biomaRt_2.48.3           
+ [79] tibble_3.1.5              maps_3.4.0               
+ [81] KernSmooth_2.23-20        crayon_1.4.1             
+ [83] htmltools_0.5.2           tzdb_0.1.2               
+ [85] later_1.3.0               DBI_1.1.1                
+ [87] dbplyr_2.1.1              rappdirs_0.3.3           
+ [89] readr_2.0.2               Matrix_1.3-4             
+ [91] car_3.0-11                quadprog_1.5-8           
+ [93] forcats_0.5.1             pkgconfig_2.0.3          
+ [95] GenomicAlignments_1.28.0  foreign_0.8-81           
+ [97] xml2_1.3.2                annotate_1.70.0          
+ [99] bslib_0.3.1               rngtools_1.5.2           
+[101] multtest_2.48.0           beanplot_1.2             
+[103] scrime_1.3.5              doRNG_1.8.2              
+[105] digest_0.6.28             rmarkdown_2.11           
+[107] base64_2.0                cellranger_1.1.0         
+[109] DelayedMatrixStats_1.14.3 restfulr_0.0.13          
+[111] curl_4.3.2                Rsamtools_2.8.0          
+[113] gtools_3.9.2              rjson_0.2.20             
+[115] nlme_3.1-153              lifecycle_1.0.1          
+[117] jsonlite_1.7.2            Rhdf5lib_1.14.2          
+[119] carData_3.0-4             askpass_1.1              
+[121] fansi_0.5.0               pillar_1.6.4             
+[123] ggsci_2.9                 lattice_0.20-45          
+[125] survival_3.2-13           KEGGREST_1.32.0          
+[127] fastmap_1.1.0             httr_1.4.2               
+[129] glue_1.4.2                zip_2.2.0                
+[131] png_0.1-7                 stringi_1.7.5            
+[133] sass_0.4.0                HDF5Array_1.20.0         
+[135] blob_1.2.2                caTools_1.18.2           
+[137] memoise_2.0.0            </code></pre>
+</div>
+
+
 </div>
 
 
