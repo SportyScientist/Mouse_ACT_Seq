@@ -158,7 +158,7 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 norm <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison")
 
 for(element in norm){
-  
+element <- "RPKM"  
 file <- paste0("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/", element, 
                "/mbw_summary_10kb_", element, ".mat") 
 
@@ -189,7 +189,7 @@ tab<-as.data.frame(mcols(windows))
 ### heatmap
 N_TOP<-20000
     
-sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 1)
+sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 5)
 
 data_log<-log2(data)
     
@@ -206,8 +206,8 @@ zmax<-zlim[2]
 top_mat[top_mat>zmax]<-zmax
 top_mat[top_mat<zmin]<-zmin
 
-col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 1))
-    
+col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)], Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5))
+
 rownames(col_annot)<-colnames(top_mat)
 colors <- list(H3F3A=c(MT = "#A72608", WT = "#79B791"),
                Sample=c(KH2G34L = "#DDD78D", KH2G34R = "#693668",
@@ -245,8 +245,8 @@ names(summ_windows)<-names(target_windows_int)
 
 full_data<-as.data.frame(do.call("rbind",lapply(summ_windows, mcols)))
 full_data<-gather(full_data, key="Stat", value="value", -Feature, -Region)
-full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",1)
-full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",2)
+full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",5)
+full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
 
 
 mt_samples<- filter(full_data, full_data$Sample != "KH2wt")
@@ -451,7 +451,7 @@ plot_seperate <- sums %>%
   theme(strip.background=element_rect(fill="white"))
 
 print(plot_seperate)
-}
+#}
 ```
 
 
