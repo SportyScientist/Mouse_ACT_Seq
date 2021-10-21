@@ -12,7 +12,7 @@
 <meta name="author" content="Marlene Ganslmeier" />
 
 
-<title>ACTSeq H3K27ac CPM Normalized</title>
+<title>ACTSeq H3K27ac RPKM Normalized</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -366,7 +366,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">ACTSeq H3K27ac CPM Normalized</h1>
+<h1 class="title toc-ignore">ACTSeq H3K27ac RPKM Normalized</h1>
 <h4 class="author">Marlene Ganslmeier</h4>
 <h4 class="date">21 October, 2021</h4>
 
@@ -495,10 +495,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree3cf3c58d90a8006a2563792702cf9c37332ff3c7targetblank3cf3c58a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/3cf3c58d90a8006a2563792702cf9c37332ff3c7" target="_blank">3cf3c58</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreedc5e3019a98876394ac05acd77c5058ef28dac88targetblankdc5e301a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/dc5e3019a98876394ac05acd77c5058ef28dac88" target="_blank">dc5e301</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree3cf3c58d90a8006a2563792702cf9c37332ff3c7targetblank3cf3c58a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreedc5e3019a98876394ac05acd77c5058ef28dac88targetblankdc5e301a" class="panel-collapse collapse">
 <div class="panel-body">
   
 <p>
@@ -506,7 +506,7 @@ Great! You are using Git for version control. Tracking code development and conn
 </p>
 
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/3cf3c58d90a8006a2563792702cf9c37332ff3c7" target="_blank">3cf3c58</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/dc5e3019a98876394ac05acd77c5058ef28dac88" target="_blank">dc5e301</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 
 <p>
@@ -516,15 +516,12 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .RData
-    Ignored:    analysis/figure/
 
 Untracked files:
     Untracked:  Rplots.pdf
     Untracked:  Untitled/
     Untracked:  analysis/ACT_Seq_K9_broadpeaks.Rmd
     Untracked:  analysis/newpipeline.Rmd
-    Untracked:  analysis/norm_comp_BPM.Rmd
-    Untracked:  analysis/norm_comp_RPGC.Rmd
     Untracked:  clustering_all_marks.Rmd
     Untracked:  code/bigwigs.sh
     Untracked:  code/matrixgeneration.sh
@@ -532,12 +529,14 @@ Untracked files:
     Untracked:  data/chmm_segments_mm10.rds
     Untracked:  figure/
     Untracked:  matrixcalc.sh
+    Untracked:  output/datasummed_normcomp.rds
     Untracked:  output/sum_full_data.Rds
     Untracked:  output/sum_full_data_predelta.Rds
     Untracked:  peakfiles.csv
 
 Unstaged changes:
     Modified:   analysis/H3K27ac.Rmd
+    Modified:   analysis/H3K27me3.Rmd
     Deleted:    analysis/methylation_domain_analysis.Rmd
     Modified:   analysis/normalization_comparison.Rmd
 
@@ -556,7 +555,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in th
 <div id="versions" class="tab-pane fade">
   
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/norm_comp_MACS2.Rmd</code>) and HTML (<code>docs/norm_comp_MACS2.html</code>) files. If you've configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/norm_comp_RPKM.Rmd</code>) and HTML (<code>docs/norm_comp_RPKM.html</code>) files. If you've configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -585,7 +584,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/3cf3c58d90a8006a2563792702cf9c37332ff3c7/analysis/norm_comp_MACS2.Rmd" target="_blank">3cf3c58</a>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/daf3012e9e4af019d871fe6b5d6930beb5b69a39/analysis/norm_comp_RPKM.Rmd" target="_blank">daf3012</a>
 </td>
 <td>
 SportyScientist
@@ -594,7 +593,24 @@ SportyScientist
 2021-10-21
 </td>
 <td>
-wflow_publish(&quot;analysis/norm_comp_MACS2.Rmd&quot;)
+wflow_publish(&quot;analysis/norm_comp_RPKM.Rmd&quot;)
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/e8935371c41621fe10f65952a1da8934cd57e652/analysis/norm_comp_RPKM.Rmd" target="_blank">e893537</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+wflow_publish(&quot;analysis/norm_comp_RPKM.Rmd&quot;)
 </td>
 </tr>
 </tbody>
@@ -635,8 +651,7 @@ saveRDS(mmchmm_list, &quot;data/chmm_mESC.rds&quot;)</code></pre>
 #chmm_segments &lt;- toGRanges(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed&quot;)</code></pre>
 <pre class="r"><code>#read in matrix from multiBigWigSummary
   
-data &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/CPM/mbw_summary_10kb_CPM.mat&quot;, stringsAsFactors=FALSE, header=TRUE, comment.char=&quot;!&quot;)
-
+data &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/RPKM/mbw_summary_10kb_RPKM.mat&quot;, stringsAsFactors=FALSE, header=TRUE, comment.char=&quot;!&quot;)
 #filter out bad reads
 data&lt;-data[-grep(&quot;chrM|chrUn|_random|_gl|dbb|_hap&quot;, data[,1]),]
 
@@ -687,7 +702,7 @@ pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
             clustering_distance_cols=&quot;correlation&quot;)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-1.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
 
 hc = hclust(as.dist(1 - mat))
@@ -703,7 +718,7 @@ p &lt;- pheatmap(mat,
         na_col=&quot;white&quot;,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-2.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>target_window_list &lt;- chmm_segments
 target_windows_int&lt;-lapply(target_window_list, &quot;mcols&lt;-&quot;, value=NULL)
 summ_windows&lt;-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
@@ -717,6 +732,7 @@ full_data&lt;-as.data.frame(do.call(&quot;rbind&quot;,lapply(summ_windows, mcols
 full_data&lt;-gather(full_data, key=&quot;Stat&quot;, value=&quot;value&quot;, -Feature, -Region)
 full_data$Sample&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,5)
 full_data$Mark&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,6)
+full_data$SequencingRun&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,4)
 
 
 mt_samples&lt;- filter(full_data, full_data$Sample != &quot;KH2wt&quot;)
@@ -730,7 +746,7 @@ full_data$log2_value&lt;-log2(full_data$value+1)
 full_data&lt;-na.omit(full_data)
 
 sum_full_data &lt;- full_data %&gt;% 
-    group_by(Group,Mark,Region,Feature, Sample)%&gt;% 
+    group_by(Group,Mark,Region,Feature, Sample, SequencingRun)%&gt;% 
     dplyr::summarize(avg_value=mean(value))
 
 
@@ -749,19 +765,37 @@ sum_full_data &lt;- sum_full_data[sum_full_data$Region %in% sites,]
 #it&#39;s very not elegant but it gets the job done - for a bigger dataset with more marks I gotta come up with an automisation
 listed &lt;-list()
 
-for(i in mt_samples){
+for(u in unique(sum_full_data$SequencingRun)){
+  var &lt;- sum_full_data%&gt;%
+  filter(SequencingRun == u)
+  
+  samples &lt;- unique(var$Sample)
+  samples &lt;- samples[-grep(&quot;*wt&quot;, samples)]
+  print(samples)
+  listed2 &lt;- list()
+  
+for(i in samples){
   print(i)
-  interim &lt;- sum_full_data%&gt;%
+  interim &lt;- var%&gt;%
   filter(&quot;KH2wt&quot; %in% Sample | Sample == i)
   
   interim &lt;- calcDiff(interim, &quot;Delta&quot;)
   interim &lt;- calcDiff(interim, &quot;LFC&quot;)
   
-  listed[[i]] &lt;- interim
+  listed2[[i]] &lt;- interim
   
+}
+ listed[[u]] &lt;- listed2 
 }</code></pre>
-<p><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot;</p>
-<pre class="r"><code>sum_full_data &lt;- bind_rows(listed)
+<p><a href="#section">1</a> KH2G34L KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R <a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34R&quot; <a href="#section">1</a> KH2G34L KH2G34W KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R <a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; <a href="#section">1</a> KH2G34L KH2G34W KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R <a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot;</p>
+<pre class="r"><code>sum_full_datax &lt;- lapply(listed, bind_rows)
+gc()</code></pre>
+<pre><code>        used   (Mb) gc trigger    (Mb)   max used    (Mb)</code></pre>
+<p>Ncells 51394459 2744.8 96523855 5155.0 70167267 3747.4 Vcells 973549025 7427.6 1537277345 11728.5 1437377107 10966.4</p>
+<pre class="r"><code>sum_full_datay &lt;- bind_rows(sum_full_datax)
+sum_full_data &lt;- sum_full_datay
+
+saveRDS(sum_full_datax, &quot;output/datasummed_norm_RPKM.rds&quot;)
 ######### PLOT THE SUMMARIZED DATA II
 
 npg_pal&lt;-ggsci:::pal_npg()
@@ -792,15 +826,15 @@ print(p)
  }</code></pre>
 <div id="kh2g34l" class="section level3">
 <h3>KH2G34L</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-3.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-3.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="kh2g34w" class="section level3">
 <h3>KH2G34W</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-4.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-4.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="kh2g34r" class="section level3">
 <h3>KH2G34R</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-5.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-5.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
@@ -815,7 +849,7 @@ mut_wt_cols&lt;-npg_pal(10)[c(4,1)]
 
 
 sums &lt;- sum_full_data %&gt;%
-  group_by(Feature, Group, Sample)%&gt;%
+  group_by(Feature, Group, Sample, SequencingRun)%&gt;%
   summarise(mean = mean(avg_value))
 
 cat(&#39;\n&#39;)</code></pre>
@@ -850,7 +884,7 @@ plot_Delta &lt;- sums %&gt;%
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
 print(plot_Delta)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-6.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-6.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cat(&quot;### LFC&quot;)</code></pre>
 </div>
 <div id="lfc" class="section level3">
@@ -874,7 +908,7 @@ print(plot_Delta)</code></pre>
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
 print(plot_LFC)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-7.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-7.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
 </div>
 </div>
@@ -898,51 +932,51 @@ for(i in 1:length(features)){
  }</code></pre>
 <div id="section" class="section level3">
 <h3>1</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-8.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-8.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-1" class="section level3">
 <h3>2</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-9.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-9.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-2" class="section level3">
 <h3>3</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-10.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-10.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-3" class="section level3">
 <h3>4</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-11.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-11.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-4" class="section level3">
 <h3>5</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-12.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-12.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-5" class="section level3">
 <h3>6</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-13.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-13.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-6" class="section level3">
 <h3>7</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-14.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-14.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-7" class="section level3">
 <h3>8</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-15.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-15.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-8" class="section level3">
 <h3>9</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-16.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-16.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-9" class="section level3">
 <h3>10</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-17.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-17.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-10" class="section level3">
 <h3>11</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-18.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-18.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="section-11" class="section level3">
 <h3>12</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-19.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-19.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
 </div>
 </div>
@@ -950,30 +984,30 @@ for(i in 1:length(features)){
 <h2>Heatmaps for each replicate</h2>
 <pre class="r"><code>library(stringr)
 
-sum_full_data &lt;- full_data %&gt;% 
-    group_by(Group,Mark,Region,Feature, Sample, Stat)%&gt;% 
-    dplyr::summarize(avg_value=mean(value))
+#sum_full_data &lt;- full_data %&gt;% 
+ #   group_by(Group,Mark,Region,Feature, Sample, Stat)%&gt;% 
+  #  dplyr::summarize(avg_value=mean(value))
 
 
-joined_data &lt;- sum_full_data %&gt;% 
-  ungroup()%&gt;%
-  group_by(Sample)%&gt;%
-  group_split()%&gt;% 
-  purrr::reduce(inner_join, by = &quot;Region&quot;)
+#joined_data &lt;- sum_full_data %&gt;% 
+ # ungroup()%&gt;%
+  #group_by(Sample)%&gt;%
+  #group_split()%&gt;% 
+  #purrr::reduce(inner_join, by = &quot;Region&quot;)
 
 
-sums &lt;- sum_full_data %&gt;%
-  group_by(Feature, Group, Sample, Stat)%&gt;%
-  summarise(mean = mean(avg_value))
+#sums &lt;- sum_full_data %&gt;%
+ # group_by(Feature, Group, Sample, Stat)%&gt;%
+  #summarise(mean = mean(avg_value))
 
 
-sums$replicate &lt;- str_sub(sums$Stat, start= -1)
-sums$replicate[grep(&quot;w&quot;, sums$replicate)] &lt;- 0
+#sums$replicate &lt;- str_sub(sums$Stat, start= -1)
+#sums$replicate[grep(&quot;w&quot;, sums$replicate)] &lt;- 0
 
 
 
-sites &lt;- joined_data$Region
-sum_full_data &lt;- sum_full_data[sum_full_data$Region %in% sites,]
+#sites &lt;- joined_data$Region
+#sum_full_data &lt;- sum_full_data[sum_full_data$Region %in% sites,]
 plot_seperate &lt;- sums %&gt;%
   ggplot(aes(Feature))+
   geom_tile(aes_string(x=&quot;Feature&quot;, y = &quot;1&quot;, fill = &quot;mean&quot;), size = 1)+
@@ -986,11 +1020,11 @@ plot_seperate &lt;- sums %&gt;%
         axis.ticks.x = element_blank(),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
-  facet_grid(Sample~replicate, drop = T)+
+  facet_grid(Sample~SequencingRun)+
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
 print(plot_seperate)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-20.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_RPKM.Rmd/RPKM-20.png" width="960" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo"
