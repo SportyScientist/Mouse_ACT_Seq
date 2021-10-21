@@ -20,4 +20,14 @@ H3K27me3: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27me3.html)
  
 H3K27ac: [https://SportyScientist.github.io//Mouse_ACT_Seq.html](H3K27ac.html) 
 
- 
+## Comparison of Normalization methods
+
+The data was either normalizes with 
+
+* BPM:  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_BPM.html) 
+* CPM:  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_CPM.html) 
+* per spike in with the cwlab workflow:  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_cwlab.html) 
+* SPM with MACS2: :  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_MACS2.html) 
+* RPGC to an effective genome size of 2.7*10^9 bp:  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_RPGC.html)  
+* RPKM:  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_RPKM.html) 
+* Not at all:  [https://SportyScientist.github.io//Mouse_ACT_Seq.html](norm_comp_None.html)  
