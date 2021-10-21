@@ -154,24 +154,32 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 #chmm_segments <- toGRanges("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed")
 ```
 
-```{r results='asis'}
-
+```{r results='asis', eval=T}
 norm <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison")
 
+paths <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison",
+           pattern = glob2rx("*mbw_summary_10kb_*.mat"),
+                         recursive = T, 
+                         full.names = TRUE)
+datas <- list()
 
 
-for(element in norm){
-
-file <- paste0("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/", element, 
-               "/mbw_summary_10kb_", element, ".mat") 
 
 
-#read in matrix from multiBigWigSummary
-  
-data <-read.table(file, stringsAsFactors=FALSE, header=TRUE, comment.char="!")
+for(i in 1:length(paths)){
+  datas[[i]] <- read.table(paths[i], stringsAsFactors=FALSE, header=TRUE, comment.char="!"
+                           )
+  NN <- norm[i]
+
+  colnames(datas[[i]]) <- c(colnames(datas[[i]][,1:3]), paste0(NN, "_", colnames(datas[[i]][, -c(1:3)]))) 
+
+  }
+
+
+data <- purrr::reduce(datas, dplyr::inner_join, by = c("X..chr.", "start", "end"))
 
 #filter out bad reads
-data<-data[-grep("chrM|chrUn|_random|_gl|dbb|_hap", data[,1]),]
+data <-data[-grep("chrM|chrUn|_random|_gl|dbb|_hap", data[,1]),]
 
 #tidy data
 coords<-data[,1:3]
@@ -209,13 +217,20 @@ zmax<-zlim[2]
 top_mat[top_mat>zmax]<-zmax
 top_mat[top_mat<zmin]<-zmin
 
-col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)], Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5))
+col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)], 
+                        Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 6), 
+                        Normalization=sapply(strsplit(split="_",colnames(top_mat)), "[", 1))
+
+colx <- brewer.pal(n = length(norm), name = "Accent")
+names(colx) <- norm
 
 rownames(col_annot)<-colnames(top_mat)
 colors <- list(H3F3A=c(MT = "#A72608", WT = "#79B791"),
                Sample=c(KH2G34L = "#DDD78D", KH2G34R = "#693668",
-                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"))
- 
+                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"), 
+                Normalization=colx)
+
+
 pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
@@ -248,8 +263,9 @@ names(summ_windows)<-names(target_windows_int)
 
 full_data<-as.data.frame(do.call("rbind",lapply(summ_windows, mcols)))
 full_data<-gather(full_data, key="Stat", value="value", -Feature, -Region)
-full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",5)
-full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
+full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
+full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",7)
+full_data$Normalization<-sapply(strsplit(full_data$Stat, split="_"),"[",1)
 
 mt_samples<- filter(full_data, full_data$Sample != "KH2wt")
 mt_samples <- unique(mt_samples$Sample)
@@ -262,7 +278,7 @@ full_data$log2_value<-log2(full_data$value+1)
 full_data<-na.omit(full_data)
 
 sum_full_data <- full_data %>% 
-    group_by(Group,Mark,Region,Feature, Sample)%>% 
+    group_by(Group,Mark,Region,Feature, Sample, Normalization)%>% 
     dplyr::summarize(avg_value=mean(value))
 
 
@@ -294,14 +310,23 @@ for(i in mt_samples){
 }
 
 sum_full_data <- bind_rows(listed)
-######### PLOT THE SUMMARIZED DATA II
+
+saveRDS(sum_full_data, "output/sum_full_data.Rds")
+```
+
+
+```{r results='asis', eval=TRUE}
+sum_full_data <- readRDS("output/sum_full_data.Rds")
+norm <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison")
 
 npg_pal<-ggsci:::pal_npg()
 npg_cols<-c(npg_pal(10)[c(1,4,8)], "black")
 
 
-#### BOXPLOT PER GROUP
+for(z in 1:length(norm)){
 
+cat("# ", norm[z], "\n")
+ 
 cat("## Boxplots {.tabset .tabset-fade .tabset-pills}")
 
 for(i in 1:length(mt_samples)){
@@ -309,7 +334,8 @@ for(i in 1:length(mt_samples)){
       cat("###",mt_samples[i], "\n")
 
   data <- sum_full_data %>%
-  filter(Sample == wt_samples[1] | Sample == mt_samples[i])
+  filter(Sample == wt_samples[1] | Sample == mt_samples[i])%>%
+  filter(Normalization == norm[z])
   
 p <-ggpubr:::ggboxplot(data, x="Feature", y= "avg_value", color="Group", 
                 palette=npg_cols)+
@@ -321,6 +347,8 @@ print(p)
       cat('\n')
 
  }
+}
+
 
 npg_pal<-ggsci:::pal_npg()
 grad_cols1<-npg_pal(10)[c(4,1)]
@@ -454,7 +482,6 @@ plot_seperate <- sums %>%
 
 print(plot_seperate)
 
-}
 
 ```
 
