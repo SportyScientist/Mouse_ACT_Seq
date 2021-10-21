@@ -146,7 +146,6 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 #read in matrix from multiBigWigSummary
   
 data <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/None/mbw_summary_10kb_None.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
-
 #filter out bad reads
 data<-data[-grep("chrM|chrUn|_random|_gl|dbb|_hap", data[,1]),]
 
@@ -213,7 +212,10 @@ p <- pheatmap(mat,
         na_col="white",
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format="%.2f")
+```
 
+
+```{r results='asis', eval = F}
 target_window_list <- chmm_segments
 target_windows_int<-lapply(target_window_list, "mcols<-", value=NULL)
 summ_windows<-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
@@ -227,6 +229,7 @@ full_data<-as.data.frame(do.call("rbind",lapply(summ_windows, mcols)))
 full_data<-gather(full_data, key="Stat", value="value", -Feature, -Region)
 full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",5)
 full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
+full_data$SequencingRun<-sapply(strsplit(full_data$Stat, split="_"),"[",4)
 
 
 mt_samples<- filter(full_data, full_data$Sample != "KH2wt")
@@ -240,7 +243,7 @@ full_data$log2_value<-log2(full_data$value+1)
 full_data<-na.omit(full_data)
 
 sum_full_data <- full_data %>% 
-    group_by(Group,Mark,Region,Feature, Sample)%>% 
+    group_by(Group,Mark,Region,Feature, Sample, SequencingRun)%>% 
     dplyr::summarize(avg_value=mean(value))
 
 
@@ -259,20 +262,44 @@ sum_full_data <- sum_full_data[sum_full_data$Region %in% sites,]
 #it's very not elegant but it gets the job done - for a bigger dataset with more marks I gotta come up with an automisation
 listed <-list()
 
-for(i in mt_samples){
+for(u in unique(sum_full_data$SequencingRun)){
+  var <- sum_full_data%>%
+  filter(SequencingRun == u)
+  
+  samples <- unique(var$Sample)
+  samples <- samples[-grep("*wt", samples)]
+  print(samples)
+  listed2 <- list()
+  
+for(i in samples){
   print(i)
-  interim <- sum_full_data%>%
+  interim <- var%>%
   filter("KH2wt" %in% Sample | Sample == i)
   
   interim <- calcDiff(interim, "Delta")
   interim <- calcDiff(interim, "LFC")
   
-  listed[[i]] <- interim
+  listed2[[i]] <- interim
   
 }
+ listed[[u]] <- listed2 
+}
 
-sum_full_data <- bind_rows(listed)
+sum_full_datax <- lapply(listed, bind_rows)
+gc()
+sum_full_datay <- bind_rows(sum_full_datax)
+sum_full_data <- sum_full_datay
+
+saveRDS(sum_full_datax, "output/datasummed_none.rds")
+```
+
+
+```{r None, results='asis', eval = T}
 ######### PLOT THE SUMMARIZED DATA II
+
+sum_full_datax <- readRDS("output/datasummed_norm_CPM.rds")
+sum_full_data <- bind_rows(sum_full_datax)
+
 
 npg_pal<-ggsci:::pal_npg()
 npg_cols<-c(npg_pal(10)[c(1,4,8)], "black")
@@ -314,7 +341,7 @@ mut_wt_cols<-npg_pal(10)[c(4,1)]
 
 
 sums <- sum_full_data %>%
-  group_by(Feature, Group, Sample)%>%
+  group_by(Feature, Group, Sample, SequencingRun)%>%
   summarise(mean = mean(avg_value))
 
 cat('\n')
@@ -391,30 +418,30 @@ cat("## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}")
 
 library(stringr)
 
-sum_full_data <- full_data %>% 
-    group_by(Group,Mark,Region,Feature, Sample, Stat)%>% 
-    dplyr::summarize(avg_value=mean(value))
+#sum_full_data <- full_data %>% 
+ #   group_by(Group,Mark,Region,Feature, Sample, Stat)%>% 
+  #  dplyr::summarize(avg_value=mean(value))
 
 
-joined_data <- sum_full_data %>% 
-  ungroup()%>%
-  group_by(Sample)%>%
-  group_split()%>% 
-  purrr::reduce(inner_join, by = "Region")
+#joined_data <- sum_full_data %>% 
+ # ungroup()%>%
+  #group_by(Sample)%>%
+  #group_split()%>% 
+  #purrr::reduce(inner_join, by = "Region")
 
 
-sums <- sum_full_data %>%
-  group_by(Feature, Group, Sample, Stat)%>%
-  summarise(mean = mean(avg_value))
+#sums <- sum_full_data %>%
+ # group_by(Feature, Group, Sample, Stat)%>%
+  #summarise(mean = mean(avg_value))
 
 
-sums$replicate <- str_sub(sums$Stat, start= -1)
-sums$replicate[grep("w", sums$replicate)] <- 0
+#sums$replicate <- str_sub(sums$Stat, start= -1)
+#sums$replicate[grep("w", sums$replicate)] <- 0
 
 
 
-sites <- joined_data$Region
-sum_full_data <- sum_full_data[sum_full_data$Region %in% sites,]
+#sites <- joined_data$Region
+#sum_full_data <- sum_full_data[sum_full_data$Region %in% sites,]
 plot_seperate <- sums %>%
   ggplot(aes(Feature))+
   geom_tile(aes_string(x="Feature", y = "1", fill = "mean"), size = 1)+
@@ -427,12 +454,13 @@ plot_seperate <- sums %>%
         axis.ticks.x = element_blank(),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
-  facet_grid(Sample~replicate, drop = T)+
+  facet_grid(Sample~SequencingRun)+
   theme(strip.background=element_rect(fill="white"))
 
 print(plot_seperate)
 
 ```
+
 
 
 
