@@ -142,7 +142,7 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 #chmm_segments <- toGRanges("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed")
 ```
 
-```{r, results='asis'}
+```{r CPM, results='asis'}
 #read in matrix from multiBigWigSummary
   
 data <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/CPM/mbw_summary_10kb_CPM.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
@@ -213,10 +213,7 @@ p <- pheatmap(mat,
         na_col="white",
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format="%.2f")
-```
 
-
-```{r results='asis', eval = F}
 target_window_list <- chmm_segments
 target_windows_int<-lapply(target_window_list, "mcols<-", value=NULL)
 summ_windows<-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
@@ -287,17 +284,10 @@ for(i in samples){
 }
 
 sum_full_datax <- lapply(listed, bind_rows)
-gc()
-sum_full_datay <- bind_rows(sum_full_datax)
-sum_full_data <- sum_full_datay
-
-saveRDS(sum_full_datax, "output/datasummed_norm_CPM.rds")
-```
-
-
-```{r CPM, results='asis', eval = T}
-sum_full_datax <- readRDS("output/datasummed_norm_CPM.rds")
 sum_full_data <- bind_rows(sum_full_datax)
+
+saveRDS(sum_full_data, "output/datasummed_norm_CPM.rds")
+
 
 ######### PLOT THE SUMMARIZED DATA II
 

@@ -283,11 +283,10 @@ for(i in samples){
 }
 
 sum_full_datax <- lapply(listed, bind_rows)
-gc()
-sum_full_datay <- bind_rows(sum_full_datax)
-sum_full_data <- sum_full_datay
 
-saveRDS(sum_full_datax, "output/datasummed_norm_BPM.rds")
+sum_full_data <- bind_rows(sum_full_datax)
+
+saveRDS(sum_full_data, "output/datasummed_norm_BPM.rds")
 ######### PLOT THE SUMMARIZED DATA II
 
 npg_pal<-ggsci:::pal_npg()

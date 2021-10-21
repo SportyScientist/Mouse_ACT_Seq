@@ -1,5 +1,5 @@
 ---
-title: "ACTSeq H3K27ac not normalized"
+title: "ACTSeq H3K27ac RPGC"
 author: "Marlene Ganslmeier"
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 output:
@@ -145,7 +145,7 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 ```{r RPGC, results='asis'}
 #read in matrix from multiBigWigSummary
   
-data <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/None/mbw_summary_10kb_None.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
+data <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/RPGC/mbw_summary_10kb_RPGC.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
 #filter out bad reads
 data<-data[-grep("chrM|chrUn|_random|_gl|dbb|_hap", data[,1]),]
 
@@ -283,11 +283,10 @@ for(i in samples){
 }
 
 sum_full_datax <- lapply(listed, bind_rows)
-gc()
-sum_full_datay <- bind_rows(sum_full_datax)
-sum_full_data <- sum_full_datay
+sum_full_data <- bind_rows(sum_full_datax)
 
-saveRDS(sum_full_datax, "output/datasummed_norm_RPGC.rds")
+saveRDS(sum_full_data, "output/datasummed_norm_RPGC.rds")
+
 ######### PLOT THE SUMMARIZED DATA II
 
 npg_pal<-ggsci:::pal_npg()
@@ -407,30 +406,6 @@ cat("## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}")
 
 library(stringr)
 
-#sum_full_data <- full_data %>% 
- #   group_by(Group,Mark,Region,Feature, Sample, Stat)%>% 
-  #  dplyr::summarize(avg_value=mean(value))
-
-
-#joined_data <- sum_full_data %>% 
- # ungroup()%>%
-  #group_by(Sample)%>%
-  #group_split()%>% 
-  #purrr::reduce(inner_join, by = "Region")
-
-
-#sums <- sum_full_data %>%
- # group_by(Feature, Group, Sample, Stat)%>%
-  #summarise(mean = mean(avg_value))
-
-
-#sums$replicate <- str_sub(sums$Stat, start= -1)
-#sums$replicate[grep("w", sums$replicate)] <- 0
-
-
-
-#sites <- joined_data$Region
-#sum_full_data <- sum_full_data[sum_full_data$Region %in% sites,]
 plot_seperate <- sums %>%
   ggplot(aes(Feature))+
   geom_tile(aes_string(x="Feature", y = "1", fill = "mean"), size = 1)+
