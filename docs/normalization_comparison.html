@@ -495,10 +495,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreefbb88fda609ff8cec5eb62816d1e22413a57c502targetblankfbb88fda"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/fbb88fda609ff8cec5eb62816d1e22413a57c502" target="_blank">fbb88fd</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree5fe9b28f6e4d83c105e629439329072ab89c238dtargetblank5fe9b28a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/5fe9b28f6e4d83c105e629439329072ab89c238d" target="_blank">5fe9b28</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreefbb88fda609ff8cec5eb62816d1e22413a57c502targetblankfbb88fda" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree5fe9b28f6e4d83c105e629439329072ab89c238dtargetblank5fe9b28a" class="panel-collapse collapse">
 <div class="panel-body">
   
 <p>
@@ -506,7 +506,7 @@ Great! You are using Git for version control. Tracking code development and conn
 </p>
 
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/fbb88fda609ff8cec5eb62816d1e22413a57c502" target="_blank">fbb88fd</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/5fe9b28f6e4d83c105e629439329072ab89c238d" target="_blank">5fe9b28</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 
 <p>
@@ -571,6 +571,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/5fe9b28f6e4d83c105e629439329072ab89c238d/analysis/normalization_comparison.Rmd" target="_blank">5fe9b28</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-20
+</td>
+<td>
+knitting of all normalizations
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/normalization_comparison.html" target="_blank">17b0575</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -670,7 +704,17 @@ initial publication
 
 
 
-<p>The data is ACT-Seq of H3K27ac, binned in 10kb for computing time reasons. The data was either normalizes with - BPM - CPM - per spike in with the cwlab workflow - SPM with MACS2 - RPGC to an effective genome size of 2.7*10^9 bp - RPKM - Not at all</p>
+<p>The data is ACT-Seq of H3K27ac, binned in 10kb for computing time reasons.</p>
+<p>The data was either normalizes with</p>
+<ul>
+<li>BPM</li>
+<li>CPM</li>
+<li>per spike in with the cwlab workflow</li>
+<li>SPM with MACS2</li>
+<li>RPGC to an effective genome size of 2.7*10^9 bp</li>
+<li>RPKM</li>
+<li>Not at all</li>
+</ul>
 <pre class="r"><code>library(rtracklayer)
 library(regioneR)
 
@@ -692,8 +736,10 @@ saveRDS(mmchmm_list, &quot;data/chmm_mESC.rds&quot;)</code></pre>
 #chmm_segments &lt;- toGRanges(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed&quot;)</code></pre>
 <pre class="r"><code>norm &lt;- list.files(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison&quot;)
 
-#for(element in norm){
-element &lt;- &quot;RPKM&quot;  
+
+
+for(element in norm){
+
 file &lt;- paste0(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/&quot;, element, 
                &quot;/mbw_summary_10kb_&quot;, element, &quot;.mat&quot;) 
 
@@ -751,9 +797,9 @@ colors &lt;- list(H3F3A=c(MT = &quot;#A72608&quot;, WT = &quot;#79B791&quot;),
 pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
-            clustering_distance_cols=&quot;correlation&quot;)</code></pre>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
+            clustering_distance_cols=&quot;correlation&quot;)
+
+mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
 
 hc = hclust(as.dist(1 - mat))
 mat = mat[hc$order, hc$order]
@@ -767,9 +813,9 @@ p &lt;- pheatmap(mat,
         scale=&quot;none&quot;,cluster_cols=F,cluster_rows=F,
         na_col=&quot;white&quot;,
         show_rownames=TRUE, show_colnames=TRUE,
-        display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-2.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>target_window_list &lt;- chmm_segments
+        display_numbers=TRUE, number_format=&quot;%.2f&quot;)
+
+target_window_list &lt;- chmm_segments
 target_windows_int&lt;-lapply(target_window_list, &quot;mcols&lt;-&quot;, value=NULL)
 summ_windows&lt;-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
 
@@ -823,9 +869,9 @@ for(i in mt_samples){
   
   listed[[i]] &lt;- interim
   
-}</code></pre>
-<p><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot;</p>
-<pre class="r"><code>sum_full_data &lt;- bind_rows(listed)
+}
+
+sum_full_data &lt;- bind_rows(listed)
 ######### PLOT THE SUMMARIZED DATA II
 
 npg_pal&lt;-ggsci:::pal_npg()
@@ -834,10 +880,9 @@ npg_cols&lt;-c(npg_pal(10)[c(1,4,8)], &quot;black&quot;)
 
 #### BOXPLOT PER GROUP
 
-cat(&quot;## Boxplots {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-<div id="boxplots" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Boxplots</h2>
-<pre class="r"><code>for(i in 1:length(mt_samples)){
+cat(&quot;## Boxplots {.tabset .tabset-fade .tabset-pills}&quot;)
+
+for(i in 1:length(mt_samples)){
       cat(&#39;\n&#39;)
       cat(&quot;###&quot;,mt_samples[i], &quot;\n&quot;)
 
@@ -853,19 +898,9 @@ print(p)
 
       cat(&#39;\n&#39;)
 
- }</code></pre>
-<div id="kh2g34l" class="section level3">
-<h3>KH2G34L</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-3.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="kh2g34w" class="section level3">
-<h3>KH2G34W</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-4.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="kh2g34r" class="section level3">
-<h3>KH2G34R</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-5.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
+ }
+
+npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
 mat_pal&lt;-ggsci:::pal_material(&quot;orange&quot;)
@@ -882,18 +917,12 @@ sums &lt;- sum_full_data %&gt;%
   group_by(Feature, Group, Sample)%&gt;%
   summarise(mean = mean(avg_value))
 
-cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
-</div>
-<div id="heatmaps" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Heatmaps</h2>
-<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>cat(&quot;### Delta&quot;)</code></pre>
-<div id="delta" class="section level3">
-<h3>Delta</h3>
-<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>########plot summarized data I
+cat(&#39;\n&#39;)
+cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)
+cat(&#39;\n&#39;)
+cat(&quot;### Delta&quot;)
+cat(&#39;\n&#39;)
+########plot summarized data I
 
 plot_Delta &lt;- sums %&gt;%
  filter(Group == &quot;Delta&quot;)%&gt;%
@@ -913,13 +942,11 @@ plot_Delta &lt;- sums %&gt;%
   facet_wrap(~Sample, nrow = 3)+
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
-print(plot_Delta)</code></pre>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-6.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>cat(&quot;### LFC&quot;)</code></pre>
-</div>
-<div id="lfc" class="section level3">
-<h3>LFC</h3>
-<pre class="r"><code>plot_LFC &lt;- sums %&gt;%
+print(plot_Delta)
+
+cat(&quot;### LFC&quot;)
+
+plot_LFC &lt;- sums %&gt;%
  filter(Group == &quot;LFC&quot;)%&gt;%
  # group_by(Feature, Group)%&gt;%
   #summarise(mean = mean(mean))%&gt;% #needed to fix colour gradient
@@ -937,14 +964,12 @@ print(plot_Delta)</code></pre>
   facet_wrap(~Sample, nrow = 3)+
   theme(strip.background=element_rect(fill=&quot;white&quot;))
 
-print(plot_LFC)</code></pre>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-7.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
-</div>
-<div id="seperate-violin-plots-of-features" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Seperate Violin Plots of Features</h2>
-<pre class="r"><code>features &lt;- sum_full_data %&gt;%
+print(plot_LFC)
+
+
+cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)
+
+features &lt;- sum_full_data %&gt;%
   group_by(Feature)%&gt;%
   filter(Group ==&quot;WT&quot;|Group ==&quot;MT&quot;)%&gt;%
   group_split()
@@ -959,60 +984,12 @@ for(i in 1:length(features)){
     print(p)
         cat(&#39;\n&#39;)
 
- }</code></pre>
-<div id="section" class="section level3">
-<h3>1</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-8.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-1" class="section level3">
-<h3>2</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-9.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-2" class="section level3">
-<h3>3</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-10.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-3" class="section level3">
-<h3>4</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-11.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-4" class="section level3">
-<h3>5</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-12.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-5" class="section level3">
-<h3>6</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-13.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-6" class="section level3">
-<h3>7</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-14.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-7" class="section level3">
-<h3>8</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-15.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-8" class="section level3">
-<h3>9</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-16.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-9" class="section level3">
-<h3>10</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-17.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-10" class="section level3">
-<h3>11</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-18.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-11" class="section level3">
-<h3>12</h3>
-<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-19.png" width="960" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
-</div>
-<div id="heatmaps-for-each-replicate" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Heatmaps for each replicate</h2>
-<pre class="r"><code>library(stringr)
+ }
+
+cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)
+
+
+library(stringr)
 
 sum_full_data &lt;- full_data %&gt;% 
     group_by(Group,Mark,Region,Feature, Sample, Stat)%&gt;% 
@@ -1050,12 +1027,1233 @@ plot_seperate &lt;- sums %&gt;%
         axis.ticks.x = element_blank(),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
-  facet_grid(Sample~replicate, drop = T, cols = 1)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error: `rows` must be `NULL` or a `vars()` list if `cols` is a `vars()` list</code></pre>
-<pre class="r"><code>print(plot_seperate)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_seperate&#39; not found</code></pre>
-<pre class="r"><code>####}</code></pre>
+  facet_wrap(Sample~replicate, ncol = 1)+
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_seperate)
+
+}</code></pre>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
+  
+Past versions of unnamed-chunk-3-1.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-1" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-1.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-2">
+  
+Past versions of unnamed-chunk-3-2.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-2" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-2.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+<p><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34L <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-3.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-3">
+  
+Past versions of unnamed-chunk-3-3.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-3" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-3.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+<div id="kh2g34w" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-4.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-4">
+  
+Past versions of unnamed-chunk-3-4.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-4" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-4.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="kh2g34r" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-5.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-5">
+  
+Past versions of unnamed-chunk-3-5.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-5" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-5.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="heatmaps" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-6.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-6">
+  
+Past versions of unnamed-chunk-3-6.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-6" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-6.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+</div>
+<div id="lfc" class="section level3">
+<h3>LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-7.png" width="960" style="display: block; margin: auto;" /></h3>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-7">
+  
+Past versions of unnamed-chunk-3-7.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-7" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-7.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+</div>
+</div>
+<div id="seperate-violin-plots-of-features" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Seperate Violin Plots of Features</h2>
+<div id="section" class="section level3">
+<h3>1</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-8.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-8">
+  
+Past versions of unnamed-chunk-3-8.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-8" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-8.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-1" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-9.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-9">
+  
+Past versions of unnamed-chunk-3-9.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-9" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-9.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-2" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-10.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-10">
+  
+Past versions of unnamed-chunk-3-10.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-10" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-10.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-3" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-11.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-11">
+  
+Past versions of unnamed-chunk-3-11.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-11" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-11.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-4" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-12.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-12">
+  
+Past versions of unnamed-chunk-3-12.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-12" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-12.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-5" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-13.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-13">
+  
+Past versions of unnamed-chunk-3-13.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-13" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-13.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-6" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-14.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-14">
+  
+Past versions of unnamed-chunk-3-14.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-14" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-14.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-7" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-15.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-15">
+  
+Past versions of unnamed-chunk-3-15.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-15" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-15.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-8" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-16.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-16">
+  
+Past versions of unnamed-chunk-3-16.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-16" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-16.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-9" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-17.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-17">
+  
+Past versions of unnamed-chunk-3-17.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-17" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-17.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-10" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-18.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-18">
+  
+Past versions of unnamed-chunk-3-18.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-18" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-18.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+
+</div>
+<div id="section-11" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-19.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+  <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig"
+  data-toggle="collapse" data-target="#fig-unnamed-chunk-3-19">
+  
+Past versions of unnamed-chunk-3-19.png
+</button>
+  </p>
+
+<div id="fig-unnamed-chunk-3-19" class="collapse">
+  <div class="table-responsive">
+  <table class="table table-condensed table-hover">
+  <thead>
+  <tr>
+  <th>
+Version
+</th>
+  <th>
+Author
+</th>
+  <th>
+Date
+</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/17b05757215f68a1bc00de77f104c49d9c26a3bb/docs/figure/normalization_comparison.Rmd/unnamed-chunk-3-19.png" target="_blank">17b0575</a>
+</td>
+  <td>
+SportyScientist
+</td>
+  <td>
+2021-10-20
+</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+</div>
+</div>
+<div id="heatmaps-for-each-replicate-.tabset-.tabset-fade-.tabset-pills1-kh2g34l" class="section level2">
+<h2>Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-20.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-21.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-22.png" width="960" style="display: block; margin: auto;" /><a href="#section">1</a> &quot;KH2G34L&quot;</h2>
+<p><a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34L <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-23.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="kh2g34w-1" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-24.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r-1" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-25.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="heatmaps-1" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta-1" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-26.png" width="960" style="display: block; margin: auto;" />### LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-27.png" width="960" style="display: block; margin: auto;" />## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills} ### 1 <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-28.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-12" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-29.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-13" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-30.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-14" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-31.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-15" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-32.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-16" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-33.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-17" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-34.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-18" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-35.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-19" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-36.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-20" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-37.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-21" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-38.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-22" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-39.png" width="960" style="display: block; margin: auto;" /> ## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-40.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-41.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-42.png" width="960" style="display: block; margin: auto;" /><a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34W <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-43.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34l" class="section level3">
+<h3>KH2G34L</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-44.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r-2" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-45.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="heatmaps-2" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta-2" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-46.png" width="960" style="display: block; margin: auto;" />### LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-47.png" width="960" style="display: block; margin: auto;" />## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills} ### 1 <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-48.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-23" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-49.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-24" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-50.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-25" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-51.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-26" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-52.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-27" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-53.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-28" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-54.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-29" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-55.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-30" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-56.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-31" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-57.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-32" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-58.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-33" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-59.png" width="960" style="display: block; margin: auto;" /> ## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-60.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-61.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-62.png" width="960" style="display: block; margin: auto;" /><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34L <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-63.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34w-2" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-64.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r-3" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-65.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="heatmaps-3" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta-3" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-66.png" width="960" style="display: block; margin: auto;" />### LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-67.png" width="960" style="display: block; margin: auto;" />## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills} ### 1 <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-68.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-34" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-69.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-35" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-70.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-36" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-71.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-37" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-72.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-38" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-73.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-39" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-74.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-40" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-75.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-41" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-76.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-42" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-77.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-43" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-78.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-44" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-79.png" width="960" style="display: block; margin: auto;" /> ## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-80.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-81.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-82.png" width="960" style="display: block; margin: auto;" /><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34L <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-83.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34w-3" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-84.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r-4" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-85.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="heatmaps-4" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta-4" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-86.png" width="960" style="display: block; margin: auto;" />### LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-87.png" width="960" style="display: block; margin: auto;" />## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills} ### 1 <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-88.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-45" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-89.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-46" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-90.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-47" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-91.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-48" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-92.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-49" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-93.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-50" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-94.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-51" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-95.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-52" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-96.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-53" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-97.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-54" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-98.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-55" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-99.png" width="960" style="display: block; margin: auto;" /> ## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-100.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-101.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-102.png" width="960" style="display: block; margin: auto;" /><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34L <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-103.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34w-4" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-104.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r-5" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-105.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="heatmaps-5" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta-5" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-106.png" width="960" style="display: block; margin: auto;" />### LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-107.png" width="960" style="display: block; margin: auto;" />## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills} ### 1 <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-108.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-56" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-109.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-57" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-110.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-58" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-111.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-59" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-112.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-60" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-113.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-61" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-114.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-62" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-115.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-63" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-116.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-64" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-117.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-65" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-118.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-66" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-119.png" width="960" style="display: block; margin: auto;" /> ## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-120.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-121.png" width="960" style="display: block; margin: auto;" /><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-122.png" width="960" style="display: block; margin: auto;" /><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot; ## Boxplots {.tabset .tabset-fade .tabset-pills} ### KH2G34L <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-123.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34w-5" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-124.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r-6" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-125.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="heatmaps-6" class="section level2 tabset tabset-fade tabset-pills">
+<h2>Heatmaps</h2>
+<div id="delta-6" class="section level3">
+<h3>Delta</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-126.png" width="960" style="display: block; margin: auto;" />### LFC<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-127.png" width="960" style="display: block; margin: auto;" />## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills} ### 1 <img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-128.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-67" class="section level3">
+<h3>2</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-129.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-68" class="section level3">
+<h3>3</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-130.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-69" class="section level3">
+<h3>4</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-131.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-70" class="section level3">
+<h3>5</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-132.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-71" class="section level3">
+<h3>6</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-133.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-72" class="section level3">
+<h3>7</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-134.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-73" class="section level3">
+<h3>8</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-135.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-74" class="section level3">
+<h3>9</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-136.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-75" class="section level3">
+<h3>10</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-137.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-76" class="section level3">
+<h3>11</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-138.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-77" class="section level3">
+<h3>12</h3>
+<p><img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-139.png" width="960" style="display: block; margin: auto;" /> ## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}<img src="figure/normalization_comparison.Rmd/unnamed-chunk-3-140.png" width="960" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo"
@@ -1219,6 +2417,7 @@ loaded via a namespace (and not attached):
 </div>
 
 
+</div>
 </div>
 
 
