@@ -12,7 +12,7 @@
 <meta name="author" content="Marlene Ganslmeier" />
 
 
-<title>ACTSeq H3K27ac CPM Normalized</title>
+<title>ACTSeq H3K27ac MACS2 Normalized</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -366,9 +366,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">ACTSeq H3K27ac CPM Normalized</h1>
+<h1 class="title toc-ignore">ACTSeq H3K27ac MACS2 Normalized</h1>
 <h4 class="author">Marlene Ganslmeier</h4>
-<h4 class="date">21 October, 2021</h4>
+<h4 class="date">22 October, 2021</h4>
 
 </div>
 
@@ -397,7 +397,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
   <p>
-<strong>Last updated:</strong> 2021-10-21
+<strong>Last updated:</strong> 2021-10-22
 </p>
   <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -495,10 +495,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree3cf3c58d90a8006a2563792702cf9c37332ff3c7targetblank3cf3c58a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/3cf3c58d90a8006a2563792702cf9c37332ff3c7" target="_blank">3cf3c58</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree4048879b72b13579f91aa55c423f8734048fc2bctargetblank4048879a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/4048879b72b13579f91aa55c423f8734048fc2bc" target="_blank">4048879</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree3cf3c58d90a8006a2563792702cf9c37332ff3c7targetblank3cf3c58a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree4048879b72b13579f91aa55c423f8734048fc2bctargetblank4048879a" class="panel-collapse collapse">
 <div class="panel-body">
   
 <p>
@@ -506,7 +506,7 @@ Great! You are using Git for version control. Tracking code development and conn
 </p>
 
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/3cf3c58d90a8006a2563792702cf9c37332ff3c7" target="_blank">3cf3c58</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/4048879b72b13579f91aa55c423f8734048fc2bc" target="_blank">4048879</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 
 <p>
@@ -516,15 +516,12 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .RData
-    Ignored:    analysis/figure/
 
 Untracked files:
     Untracked:  Rplots.pdf
     Untracked:  Untitled/
     Untracked:  analysis/ACT_Seq_K9_broadpeaks.Rmd
     Untracked:  analysis/newpipeline.Rmd
-    Untracked:  analysis/norm_comp_BPM.Rmd
-    Untracked:  analysis/norm_comp_RPGC.Rmd
     Untracked:  clustering_all_marks.Rmd
     Untracked:  code/bigwigs.sh
     Untracked:  code/matrixgeneration.sh
@@ -532,12 +529,21 @@ Untracked files:
     Untracked:  data/chmm_segments_mm10.rds
     Untracked:  figure/
     Untracked:  matrixcalc.sh
+    Untracked:  output/datasummed_none.rds
+    Untracked:  output/datasummed_norm_BPM.rds
+    Untracked:  output/datasummed_norm_CPM.rds
+    Untracked:  output/datasummed_norm_MACS2.rds
+    Untracked:  output/datasummed_norm_RPGC.rds
+    Untracked:  output/datasummed_norm_RPKM.rds
+    Untracked:  output/datasummed_norm_cwlab.rds
+    Untracked:  output/datasummed_normcomp.rds
     Untracked:  output/sum_full_data.Rds
     Untracked:  output/sum_full_data_predelta.Rds
     Untracked:  peakfiles.csv
 
 Unstaged changes:
     Modified:   analysis/H3K27ac.Rmd
+    Modified:   analysis/H3K27me3.Rmd
     Deleted:    analysis/methylation_domain_analysis.Rmd
     Modified:   analysis/normalization_comparison.Rmd
 
@@ -580,6 +586,74 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/4048879b72b13579f91aa55c423f8734048fc2bc/analysis/norm_comp_MACS2.Rmd" target="_blank">4048879</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+<td>
+let's see if this works
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/ec6a40e94f1fa451e0acabd1314454e43c28b0eb/docs/norm_comp_MACS2.html" target="_blank">ec6a40e</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/913522406d29436f18a60bde50afecf4ef1fa091/docs/norm_comp_MACS2.html" target="_blank">9135224</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/05b6291f830bc1b11db6ca7b27d76b2ba7783673/docs/norm_comp_MACS2.html" target="_blank">05b6291</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -635,8 +709,7 @@ saveRDS(mmchmm_list, &quot;data/chmm_mESC.rds&quot;)</code></pre>
 #chmm_segments &lt;- toGRanges(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed&quot;)</code></pre>
 <pre class="r"><code>#read in matrix from multiBigWigSummary
   
-data &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/CPM/mbw_summary_10kb_CPM.mat&quot;, stringsAsFactors=FALSE, header=TRUE, comment.char=&quot;!&quot;)
-
+data &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/bw_comparison/MACS2/mbw_summary_10kb_MACS2.mat&quot;, stringsAsFactors=FALSE, header=TRUE, comment.char=&quot;!&quot;)
 #filter out bad reads
 data&lt;-data[-grep(&quot;chrM|chrUn|_random|_gl|dbb|_hap&quot;, data[,1]),]
 
@@ -687,7 +760,7 @@ pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
             clustering_distance_cols=&quot;correlation&quot;)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_MACS2.Rmd/MACS2-1.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
 
 hc = hclust(as.dist(1 - mat))
@@ -703,7 +776,7 @@ p &lt;- pheatmap(mat,
         na_col=&quot;white&quot;,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="figure/norm_comp_MACS2.Rmd/MACS2-2.png" width="960" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>target_window_list &lt;- chmm_segments
 target_windows_int&lt;-lapply(target_window_list, &quot;mcols&lt;-&quot;, value=NULL)
 summ_windows&lt;-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
@@ -717,6 +790,7 @@ full_data&lt;-as.data.frame(do.call(&quot;rbind&quot;,lapply(summ_windows, mcols
 full_data&lt;-gather(full_data, key=&quot;Stat&quot;, value=&quot;value&quot;, -Feature, -Region)
 full_data$Sample&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,5)
 full_data$Mark&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,6)
+full_data$SequencingRun&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,4)
 
 
 mt_samples&lt;- filter(full_data, full_data$Sample != &quot;KH2wt&quot;)
@@ -730,7 +804,7 @@ full_data$log2_value&lt;-log2(full_data$value+1)
 full_data&lt;-na.omit(full_data)
 
 sum_full_data &lt;- full_data %&gt;% 
-    group_by(Group,Mark,Region,Feature, Sample)%&gt;% 
+    group_by(Group,Mark,Region,Feature, Sample, SequencingRun)%&gt;% 
     dplyr::summarize(avg_value=mean(value))
 
 
@@ -749,19 +823,35 @@ sum_full_data &lt;- sum_full_data[sum_full_data$Region %in% sites,]
 #it&#39;s very not elegant but it gets the job done - for a bigger dataset with more marks I gotta come up with an automisation
 listed &lt;-list()
 
-for(i in mt_samples){
+for(u in unique(sum_full_data$SequencingRun)){
+  var &lt;- sum_full_data%&gt;%
+  filter(SequencingRun == u)
+  
+  samples &lt;- unique(var$Sample)
+  samples &lt;- samples[-grep(&quot;*wt&quot;, samples)]
+  print(samples)
+  listed2 &lt;- list()
+  
+for(i in samples){
   print(i)
-  interim &lt;- sum_full_data%&gt;%
+  interim &lt;- var%&gt;%
   filter(&quot;KH2wt&quot; %in% Sample | Sample == i)
   
   interim &lt;- calcDiff(interim, &quot;Delta&quot;)
   interim &lt;- calcDiff(interim, &quot;LFC&quot;)
   
-  listed[[i]] &lt;- interim
+  listed2[[i]] &lt;- interim
   
+}
+ listed[[u]] &lt;- listed2 
 }</code></pre>
-<p><a href="#section">1</a> &quot;KH2G34L&quot; <a href="#section">1</a> &quot;KH2G34W&quot; <a href="#section">1</a> &quot;KH2G34R&quot;</p>
-<pre class="r"><code>sum_full_data &lt;- bind_rows(listed)
+<p>[1] KH2G34L KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R [1] &quot;KH2G34L&quot; [1] &quot;KH2G34R&quot;</p>
+<pre><code>Error in Ops.data.frame(input[input$Group == &quot;MT&quot;, &quot;avg_value&quot;], input[input$Group == : &#39;-&#39; only defined for equally-sized data frames</code></pre>
+<pre class="r"><code>sum_full_datax &lt;- lapply(listed, bind_rows)
+
+sum_full_data &lt;- bind_rows(sum_full_datax)
+
+saveRDS(sum_full_data, &quot;output/datasummed_norm_MACS2.rds&quot;)
 ######### PLOT THE SUMMARIZED DATA II
 
 npg_pal&lt;-ggsci:::pal_npg()
@@ -792,15 +882,9 @@ print(p)
  }</code></pre>
 <div id="kh2g34l" class="section level3">
 <h3>KH2G34L</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-3.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="kh2g34w" class="section level3">
-<h3>KH2G34W</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-4.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="kh2g34r" class="section level3">
-<h3>KH2G34R</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-5.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>Error: Problem with `filter()` input `..1`.
+ℹ Input `..1` is `Sample == wt_samples[1] | Sample == mt_samples[i]`.
+✖ object &#39;Sample&#39; not found</code></pre>
 <pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
@@ -815,10 +899,14 @@ mut_wt_cols&lt;-npg_pal(10)[c(4,1)]
 
 
 sums &lt;- sum_full_data %&gt;%
-  group_by(Feature, Group, Sample)%&gt;%
-  summarise(mean = mean(avg_value))
-
-cat(&#39;\n&#39;)</code></pre>
+  group_by(Feature, Group, Sample, SequencingRun)%&gt;%
+  summarise(mean = mean(avg_value))</code></pre>
+<pre><code>Error: Must group by variables found in `.data`.
+* Column `Feature` is not found.
+* Column `Group` is not found.
+* Column `Sample` is not found.
+* Column `SequencingRun` is not found.</code></pre>
+<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
 <pre class="r"><code>cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
 </div>
 </div>
@@ -847,10 +935,10 @@ plot_Delta &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_wrap(~Sample, nrow = 3)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))
-
-print(plot_Delta)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-6.png" width="960" style="display: block; margin: auto;" /></p>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
+<pre><code>Error in filter(., Group == &quot;Delta&quot;): object &#39;sums&#39; not found</code></pre>
+<pre class="r"><code>print(plot_Delta)</code></pre>
+<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_Delta&#39; not found</code></pre>
 <pre class="r"><code>cat(&quot;### LFC&quot;)</code></pre>
 </div>
 <div id="lfc" class="section level3">
@@ -871,10 +959,10 @@ print(plot_Delta)</code></pre>
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_wrap(~Sample, nrow = 3)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))
-
-print(plot_LFC)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-7.png" width="960" style="display: block; margin: auto;" /></p>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
+<pre><code>Error in filter(., Group == &quot;LFC&quot;): object &#39;sums&#39; not found</code></pre>
+<pre class="r"><code>print(plot_LFC)</code></pre>
+<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_LFC&#39; not found</code></pre>
 <pre class="r"><code>cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
 </div>
 </div>
@@ -883,9 +971,10 @@ print(plot_LFC)</code></pre>
 <pre class="r"><code>features &lt;- sum_full_data %&gt;%
   group_by(Feature)%&gt;%
   filter(Group ==&quot;WT&quot;|Group ==&quot;MT&quot;)%&gt;%
-  group_split()
-
-for(i in 1:length(features)){
+  group_split()</code></pre>
+<pre><code>Error: Must group by variables found in `.data`.
+* Column `Feature` is not found.</code></pre>
+<pre class="r"><code>for(i in 1:length(features)){
       cat(&#39;\n&#39;)
     cat(&quot;###&quot;, features[[i]]$Feature[1], &quot;\n&quot;)
 
@@ -896,84 +985,13 @@ for(i in 1:length(features)){
         cat(&#39;\n&#39;)
 
  }</code></pre>
-<div id="section" class="section level3">
-<h3>1</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-8.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-1" class="section level3">
-<h3>2</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-9.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-2" class="section level3">
-<h3>3</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-10.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-3" class="section level3">
-<h3>4</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-11.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-4" class="section level3">
-<h3>5</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-12.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-5" class="section level3">
-<h3>6</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-13.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-6" class="section level3">
-<h3>7</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-14.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-7" class="section level3">
-<h3>8</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-15.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-8" class="section level3">
-<h3>9</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-16.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-9" class="section level3">
-<h3>10</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-17.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-10" class="section level3">
-<h3>11</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-18.png" width="960" style="display: block; margin: auto;" /></p>
-</div>
-<div id="section-11" class="section level3">
-<h3>12</h3>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-19.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>Error in features[[i]]: object of type &#39;closure&#39; is not subsettable</code></pre>
 <pre class="r"><code>cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
 </div>
 <div id="heatmaps-for-each-replicate" class="section level2 tabset tabset-fade tabset-pills">
 <h2>Heatmaps for each replicate</h2>
 <pre class="r"><code>library(stringr)
 
-sum_full_data &lt;- full_data %&gt;% 
-    group_by(Group,Mark,Region,Feature, Sample, Stat)%&gt;% 
-    dplyr::summarize(avg_value=mean(value))
-
-
-joined_data &lt;- sum_full_data %&gt;% 
-  ungroup()%&gt;%
-  group_by(Sample)%&gt;%
-  group_split()%&gt;% 
-  purrr::reduce(inner_join, by = &quot;Region&quot;)
-
-
-sums &lt;- sum_full_data %&gt;%
-  group_by(Feature, Group, Sample, Stat)%&gt;%
-  summarise(mean = mean(avg_value))
-
-
-sums$replicate &lt;- str_sub(sums$Stat, start= -1)
-sums$replicate[grep(&quot;w&quot;, sums$replicate)] &lt;- 0
-
-
-
-sites &lt;- joined_data$Region
-sum_full_data &lt;- sum_full_data[sum_full_data$Region %in% sites,]
 plot_seperate &lt;- sums %&gt;%
   ggplot(aes(Feature))+
   geom_tile(aes_string(x=&quot;Feature&quot;, y = &quot;1&quot;, fill = &quot;mean&quot;), size = 1)+
@@ -986,11 +1004,11 @@ plot_seperate &lt;- sums %&gt;%
         axis.ticks.x = element_blank(),
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
-  facet_grid(Sample~replicate, drop = T)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))
-
-print(plot_seperate)</code></pre>
-<p><img src="figure/norm_comp_MACS2.Rmd/unnamed-chunk-3-20.png" width="960" style="display: block; margin: auto;" /></p>
+  facet_grid(Sample~SequencingRun)+
+  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
+<pre><code>Error in ggplot(., aes(Feature)): object &#39;sums&#39; not found</code></pre>
+<pre class="r"><code>print(plot_seperate)</code></pre>
+<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_seperate&#39; not found</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo"
@@ -1088,69 +1106,68 @@ loaded via a namespace (and not attached):
   [7] codetools_0.2-18          withr_2.4.2              
   [9] colorspace_2.0-2          filelock_1.0.2           
  [11] highr_0.9                 knitr_1.36               
- [13] labeling_0.4.2            git2r_0.28.0             
- [15] GenomeInfoDbData_1.2.6    farver_2.1.0             
- [17] bit64_4.0.5               rhdf5_2.36.0             
- [19] rprojroot_2.0.2           vctrs_0.3.8              
- [21] generics_0.1.0            xfun_0.27                
- [23] BiocFileCache_2.0.0       R6_2.5.1                 
- [25] doParallel_1.0.16         clue_0.3-60              
- [27] bitops_1.0-7              rhdf5filters_1.4.0       
- [29] cachem_1.0.6              reshape_0.8.8            
- [31] DelayedArray_0.18.0       assertthat_0.2.1         
- [33] promises_1.2.0.1          BiocIO_1.2.0             
- [35] gtable_0.3.0              Cairo_1.5-12.2           
- [37] rlang_0.4.12              genefilter_1.74.1        
- [39] splines_4.1.1             GlobalOptions_0.1.2      
- [41] lazyeval_0.2.2            rtracklayer_1.52.1       
- [43] rstatix_0.7.0             GEOquery_2.60.0          
- [45] broom_0.7.9               yaml_2.2.1               
- [47] abind_1.4-5               backports_1.2.1          
- [49] httpuv_1.6.3              tools_4.1.1              
- [51] nor1mix_1.3-0             ellipsis_0.3.2           
- [53] jquerylib_0.1.4           siggenes_1.66.0          
- [55] Rcpp_1.0.7                sparseMatrixStats_1.4.2  
- [57] progress_1.2.2            zlibbioc_1.38.0          
- [59] RCurl_1.98-1.5            prettyunits_1.1.1        
- [61] openssl_1.4.5             GetoptLong_1.0.5         
- [63] haven_2.4.3               fs_1.5.0                 
- [65] magrittr_2.0.1            openxlsx_4.2.4           
- [67] circlize_0.4.13           whisker_0.4              
- [69] xtable_1.8-4              hms_1.1.1                
- [71] evaluate_0.14             XML_3.99-0.8             
- [73] rio_0.5.27                mclust_5.4.7             
- [75] readxl_1.3.1              shape_1.4.6              
- [77] compiler_4.1.1            biomaRt_2.48.3           
- [79] tibble_3.1.5              maps_3.4.0               
- [81] KernSmooth_2.23-20        crayon_1.4.1             
- [83] htmltools_0.5.2           tzdb_0.1.2               
- [85] later_1.3.0               DBI_1.1.1                
- [87] dbplyr_2.1.1              rappdirs_0.3.3           
- [89] readr_2.0.2               Matrix_1.3-4             
- [91] car_3.0-11                quadprog_1.5-8           
- [93] forcats_0.5.1             pkgconfig_2.0.3          
- [95] GenomicAlignments_1.28.0  foreign_0.8-81           
- [97] xml2_1.3.2                annotate_1.70.0          
- [99] bslib_0.3.1               rngtools_1.5.2           
-[101] multtest_2.48.0           beanplot_1.2             
-[103] scrime_1.3.5              doRNG_1.8.2              
-[105] digest_0.6.28             rmarkdown_2.11           
-[107] base64_2.0                cellranger_1.1.0         
-[109] DelayedMatrixStats_1.14.3 restfulr_0.0.13          
-[111] curl_4.3.2                Rsamtools_2.8.0          
-[113] gtools_3.9.2              rjson_0.2.20             
-[115] nlme_3.1-153              lifecycle_1.0.1          
-[117] jsonlite_1.7.2            Rhdf5lib_1.14.2          
-[119] carData_3.0-4             askpass_1.1              
-[121] fansi_0.5.0               pillar_1.6.4             
-[123] ggsci_2.9                 lattice_0.20-45          
-[125] survival_3.2-13           KEGGREST_1.32.0          
-[127] fastmap_1.1.0             httr_1.4.2               
-[129] glue_1.4.2                zip_2.2.0                
-[131] png_0.1-7                 stringi_1.7.5            
-[133] sass_0.4.0                HDF5Array_1.20.0         
-[135] blob_1.2.2                caTools_1.18.2           
-[137] memoise_2.0.0            </code></pre>
+ [13] git2r_0.28.0              GenomeInfoDbData_1.2.6   
+ [15] bit64_4.0.5               rhdf5_2.36.0             
+ [17] rprojroot_2.0.2           vctrs_0.3.8              
+ [19] generics_0.1.0            xfun_0.27                
+ [21] BiocFileCache_2.0.0       R6_2.5.1                 
+ [23] doParallel_1.0.16         clue_0.3-60              
+ [25] bitops_1.0-7              rhdf5filters_1.4.0       
+ [27] cachem_1.0.6              reshape_0.8.8            
+ [29] DelayedArray_0.18.0       assertthat_0.2.1         
+ [31] promises_1.2.0.1          BiocIO_1.2.0             
+ [33] gtable_0.3.0              Cairo_1.5-12.2           
+ [35] rlang_0.4.12              genefilter_1.74.1        
+ [37] splines_4.1.1             GlobalOptions_0.1.2      
+ [39] lazyeval_0.2.2            rtracklayer_1.52.1       
+ [41] rstatix_0.7.0             GEOquery_2.60.0          
+ [43] broom_0.7.9               yaml_2.2.1               
+ [45] abind_1.4-5               backports_1.2.1          
+ [47] httpuv_1.6.3              tools_4.1.1              
+ [49] nor1mix_1.3-0             ellipsis_0.3.2           
+ [51] jquerylib_0.1.4           siggenes_1.66.0          
+ [53] Rcpp_1.0.7                sparseMatrixStats_1.4.2  
+ [55] progress_1.2.2            zlibbioc_1.38.0          
+ [57] RCurl_1.98-1.5            prettyunits_1.1.1        
+ [59] openssl_1.4.5             GetoptLong_1.0.5         
+ [61] haven_2.4.3               fs_1.5.0                 
+ [63] magrittr_2.0.1            openxlsx_4.2.4           
+ [65] circlize_0.4.13           whisker_0.4              
+ [67] xtable_1.8-4              hms_1.1.1                
+ [69] evaluate_0.14             XML_3.99-0.8             
+ [71] rio_0.5.27                mclust_5.4.7             
+ [73] readxl_1.3.1              shape_1.4.6              
+ [75] compiler_4.1.1            biomaRt_2.48.3           
+ [77] tibble_3.1.5              maps_3.4.0               
+ [79] KernSmooth_2.23-20        crayon_1.4.1             
+ [81] htmltools_0.5.2           tzdb_0.1.2               
+ [83] later_1.3.0               DBI_1.1.1                
+ [85] dbplyr_2.1.1              rappdirs_0.3.3           
+ [87] readr_2.0.2               Matrix_1.3-4             
+ [89] car_3.0-11                cli_3.0.1                
+ [91] quadprog_1.5-8            forcats_0.5.1            
+ [93] pkgconfig_2.0.3           GenomicAlignments_1.28.0 
+ [95] foreign_0.8-81            xml2_1.3.2               
+ [97] annotate_1.70.0           bslib_0.3.1              
+ [99] rngtools_1.5.2            multtest_2.48.0          
+[101] beanplot_1.2              scrime_1.3.5             
+[103] doRNG_1.8.2               digest_0.6.28            
+[105] rmarkdown_2.11            base64_2.0               
+[107] cellranger_1.1.0          DelayedMatrixStats_1.14.3
+[109] restfulr_0.0.13           curl_4.3.2               
+[111] Rsamtools_2.8.0           gtools_3.9.2             
+[113] rjson_0.2.20              nlme_3.1-153             
+[115] lifecycle_1.0.1           jsonlite_1.7.2           
+[117] Rhdf5lib_1.14.2           carData_3.0-4            
+[119] askpass_1.1               fansi_0.5.0              
+[121] pillar_1.6.4              ggsci_2.9                
+[123] lattice_0.20-45           survival_3.2-13          
+[125] KEGGREST_1.32.0           fastmap_1.1.0            
+[127] httr_1.4.2                glue_1.4.2               
+[129] zip_2.2.0                 png_0.1-7                
+[131] stringi_1.7.5             sass_0.4.0               
+[133] HDF5Array_1.20.0          blob_1.2.2               
+[135] caTools_1.18.2            memoise_2.0.0            </code></pre>
 </div>
 
 
