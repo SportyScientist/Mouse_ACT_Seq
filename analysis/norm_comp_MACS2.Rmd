@@ -240,11 +240,8 @@ full_data$log2_value<-log2(full_data$value+1)
 full_data<-na.omit(full_data)
 
 sum_full_data <- full_data %>% 
-    group_by(Group,Mark,Region,Feature, Sample, SequencingRun)%>% 
+    group_by(Group, Feature, Region, Sample, SequencingRun)%>% 
     dplyr::summarize(avg_value=mean(value))
-
-
-#in case one sample has less information, adapt to only use these regions
 
 joined_data <- sum_full_data %>% 
   ungroup()%>%
@@ -254,6 +251,43 @@ joined_data <- sum_full_data %>%
 
 sites <- joined_data$Region
 sum_full_data <- sum_full_data[sum_full_data$Region %in% sites,]
+
+cat("The dataset is somehow corrupt, which is why I couldn't compute delta/LFCs")
+if(FALSE){
+#in case one sample has less information, adapt to only use these regions
+joined_data <- sum_full_data%>%
+  ungroup()
+
+joined_data <- joined_data%>%
+   group_by(Region, Sample)
+
+joined_data <- joined_data%>%
+   group_split()
+
+joined_data <- sum_full_data %>% 
+  ungroup()%>%
+  group_by(Feature, Region)%>%
+  group_split()%>%
+  purrr::reduce(inner_join, by = "Region")
+
+sites <- joined_data$Region
+sum_full_datax <- sum_full_data[sum_full_data$Region %in% sites,]
+
+
+xx <- sum_full_data %>% 
+  ungroup()%>%
+  group_by(Sample)%>%
+  group_split()
+
+lapply(xx, function(x){
+  table(x$Feature)
+})
+
+yy <- lapply(xx, function(x){
+  x%>%
+  group_by(Group)%>%
+    group_split()
+})
 
 #calcDiff returns input
 #it's very not elegant but it gets the job done - for a bigger dataset with more marks I gotta come up with an automisation
@@ -403,8 +437,28 @@ for(i in 1:length(features)){
 
 cat("## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}")
 
-
+}
 library(stringr)
+npg_pal<-ggsci:::pal_npg()
+grad_cols1<-npg_pal(10)[c(4,1)]
+
+mat_pal<-ggsci:::pal_material("orange")
+grad_cols2<-mat_pal(10)[c(1,10)]
+
+mat_pal<-ggsci:::pal_material("indigo")
+grad_cols3<-mat_pal(10)[c(1,10)]
+
+grad_cols<-c(grad_cols3[2], grad_cols2[2])
+mut_wt_cols<-npg_pal(10)[c(4,1)]
+
+npg_pal<-ggsci:::pal_npg()
+npg_cols<-c(npg_pal(10)[c(1,4,8)], "black")
+
+
+
+sums <- sum_full_data %>%
+  group_by(Feature, Group, Sample, SequencingRun)%>%
+  summarise(mean = mean(avg_value))
 
 plot_seperate <- sums %>%
   ggplot(aes(Feature))+
