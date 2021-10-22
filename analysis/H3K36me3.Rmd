@@ -1,5 +1,5 @@
 ---
-title: "ACTSeq H3K36me3"
+title: "ACT-Seq H3K36me3"
 author: "Marlene Ganslmeier"
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 output:
@@ -39,7 +39,6 @@ library(RnBeads)
 library(hexbin)
 library(RColorBrewer)
 library(dplyr)
-library(RnBeads.hg19)
 library(plotly)
 library(htmlwidgets)
 library(cowplot)
@@ -135,6 +134,9 @@ saveRDS(mmchmm_list, "data/chmm_mESC.rds")
 
 ```{r}
 chmm_segments<-readRDS(file="data/chmm_mESC.rds")
+data_10kb <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/RPKM_bigwigs/H3K36me3/mbw_summary_10kb_H3K36me3.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
+data_1kb <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/RPKM_bigwigs/H3K36me3/mbw_summary_1kb_H3K36me3.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
+
 
 #chmm_segments_mESC <- read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed", header = FALSE, sep="\t",stringsAsFactors=FALSE, fill = T, skip = 0)
 
@@ -143,18 +145,10 @@ chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 #chmm_segments <- toGRanges("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed")
 ```
 
-```{r results='asis'}
-
-#mats <- list.files("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/matrix",
- #          pattern = glob2rx("*_mbw_summary_10kb_cwlab_wfl.mat"),
-  #                       recursive = F, 
-   #                      full.names = TRUE)
-
+```{r}
 #read in matrix from multiBigWigSummary
-  
-data <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/matrix/H3K36me3_mbw_summary_10kb_cwlab_wfl.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
-
-
+cat("# 1Kb Binning")  
+data <- data_1kb
 #filter out bad reads
 data<-data[-grep("chrM|chrUn|_random|_gl|dbb|_hap", data[,1]),]
 
@@ -177,7 +171,7 @@ tab<-as.data.frame(mcols(windows))
 ### heatmap
 N_TOP<-20000
     
-sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 1)
+sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 6)
 
 data_log<-log2(data)
     
@@ -194,7 +188,7 @@ zmax<-zlim[2]
 top_mat[top_mat>zmax]<-zmax
 top_mat[top_mat<zmin]<-zmin
 
-col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 1))
+col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5))
     
 rownames(col_annot)<-colnames(top_mat)
 colors <- list(H3F3A=c(MT = "#A72608", WT = "#79B791"),
@@ -222,6 +216,82 @@ p <- pheatmap(mat,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format="%.2f")
 
+```
+
+```{r, results='asis'}
+#read in matrix from multiBigWigSummary
+cat("# 10Kb Binning")  
+data <- data_10kb
+#filter out bad reads
+data<-data[-grep("chrM|chrUn|_random|_gl|dbb|_hap", data[,1]),]
+
+#tidy data
+coords<-data[,1:3]
+colnames(coords)<-c("chr", "start", "end")
+data<-data[,-c(1:3)]
+data<-apply(data, 2, as.numeric)
+
+
+#construct GRanges Object
+windows_full<-GenomicRanges:::GRanges(coords[,1], IRanges:::IRanges(coords[,2],coords[,3]), "*")
+mcols(windows_full)<-data
+
+windows <- windows_full
+wt_samples <- c("KH2wt")
+mt_samples <- c("KH2G34R", "KH2G34W", "KH2G34L")
+tab<-as.data.frame(mcols(windows))
+
+### heatmap
+N_TOP<-20000
+    
+sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 6)
+
+data_log<-log2(data)
+    
+data[data_log==-Inf]<-0
+rowsd<-apply(data_log, 1, sd)
+top_rows<-order(-rowsd)[seq(N_TOP)]
+
+top_mat<-data_log[top_rows,]
+
+QUANT<-0.01
+zlim <- quantile(top_mat, c(QUANT,1-QUANT), na.rm=TRUE)
+zmin<-zlim[1]
+zmax<-zlim[2]
+top_mat[top_mat>zmax]<-zmax
+top_mat[top_mat<zmin]<-zmin
+
+col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5))
+    
+rownames(col_annot)<-colnames(top_mat)
+colors <- list(H3F3A=c(MT = "#A72608", WT = "#79B791"),
+               Sample=c(KH2G34L = "#DDD78D", KH2G34R = "#693668",
+                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"))
+ 
+pheatmap(top_mat,
+            annotation_col=col_annot,
+         annotation_colors = colors,
+            clustering_distance_cols="correlation")
+
+mat<-cor(tab, method="pearson", use="pairwise.complete.obs")
+
+hc = hclust(as.dist(1 - mat))
+mat = mat[hc$order, hc$order]
+mat[upper.tri(mat)] = NA
+
+breaksList<-seq(min(mat, na.rm = T),1, by=0.05)
+
+p <- pheatmap(mat,
+        color = colorRampPalette(RColorBrewer:::brewer.pal(n = 7, name="YlGnBu"))(length(breaksList)+1),
+        breaks = breaksList,
+        scale="none",cluster_cols=F,cluster_rows=F,
+        na_col="white",
+        show_rownames=TRUE, show_colnames=TRUE,
+        display_numbers=TRUE, number_format="%.2f")
+```
+
+From here on the 10Kb binned file is used 
+```{r results='asis'}
 target_window_list <- chmm_segments
 target_windows_int<-lapply(target_window_list, "mcols<-", value=NULL)
 summ_windows<-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
@@ -233,8 +303,9 @@ names(summ_windows)<-names(target_windows_int)
 
 full_data<-as.data.frame(do.call("rbind",lapply(summ_windows, mcols)))
 full_data<-gather(full_data, key="Stat", value="value", -Feature, -Region)
-full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",1)
-full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",2)
+full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",5)
+full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
+full_data$SequencingRun<-sapply(strsplit(full_data$Stat, split="_"),"[",4)
 
 
 mt_samples<- filter(full_data, full_data$Sample != "KH2wt")
@@ -248,7 +319,7 @@ full_data$log2_value<-log2(full_data$value+1)
 full_data<-na.omit(full_data)
 
 sum_full_data <- full_data %>% 
-    group_by(Group,Mark,Region,Feature, Sample)%>% 
+    group_by(Group,Mark,Region,Feature, Sample, SequencingRun)%>% 
     dplyr::summarize(avg_value=mean(value))
 
 
@@ -267,20 +338,35 @@ sum_full_data <- sum_full_data[sum_full_data$Region %in% sites,]
 #it's very not elegant but it gets the job done - for a bigger dataset with more marks I gotta come up with an automisation
 listed <-list()
 
-for(i in mt_samples){
+for(u in unique(sum_full_data$SequencingRun)){
+  var <- sum_full_data%>%
+  filter(SequencingRun == u)
+  
+  samples <- unique(var$Sample)
+  samples <- samples[-grep("*wt", samples)]
+  print(samples)
+  listed2 <- list()
+  
+for(i in samples){
   print(i)
-  interim <- sum_full_data%>%
+  interim <- var%>%
   filter("KH2wt" %in% Sample | Sample == i)
   
   interim <- calcDiff(interim, "Delta")
   interim <- calcDiff(interim, "LFC")
   
-  listed[[i]] <- interim
+  listed2[[i]] <- interim
   
 }
+ listed[[u]] <- listed2 
+}
 
-sum_full_data <- bind_rows(listed)
-######### PLOT THE SUMMARIZED DATA II
+sum_full_datax <- lapply(listed, bind_rows)
+
+sum_full_data <- bind_rows(sum_full_datax)
+
+saveRDS(sum_full_data, "output/datasummedH3K36me3.rds")
+
 
 npg_pal<-ggsci:::pal_npg()
 npg_cols<-c(npg_pal(10)[c(1,4,8)], "black")
@@ -322,7 +408,7 @@ mut_wt_cols<-npg_pal(10)[c(4,1)]
 
 
 sums <- sum_full_data %>%
-  group_by(Feature, Group, Sample)%>%
+  group_by(Feature, Group, Sample, SequencingRun)%>%
   summarise(mean = mean(avg_value))
 
 cat('\n')
@@ -374,6 +460,7 @@ plot_LFC <- sums %>%
 
 print(plot_LFC)
 
+
 cat("## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}")
 
 features <- sum_full_data %>%
@@ -393,7 +480,30 @@ for(i in 1:length(features)){
 
  }
 
+cat("## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}")
+
+
+library(stringr)
+
+plot_seperate <- sums %>%
+  ggplot(aes(Feature))+
+  geom_tile(aes_string(x="Feature", y = "1", fill = "mean"), size = 1)+
+  scale_fill_gradient2(low=grad_cols[1], mid="white", high=grad_cols[2])+
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.x = element_text(angle = 60, size = 10, face = "bold", hjust = 1),
+        axis.title.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())+
+  facet_grid(Sample~SequencingRun)+
+  theme(strip.background=element_rect(fill="white"))
+
+print(plot_seperate)
+
 ```
+
 
 
 
