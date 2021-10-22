@@ -10,26 +10,27 @@ editor_options:
 
 Chromatin Analysis of histone marks in mouse ESC
 
-Comparison of 10Kb vs 1Kb Clustering: [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](clustering_all_marks.html) 
+Comparison of 10Kb vs 1Kb Clustering: [https://sportyscientist.github.io/GCTB_Classification/index.html](clustering_all_marks.html) 
 
-H3K36me: [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](H3K36me3.html) 
+H3K36me: [https://sportyscientist.github.io/GCTB_Classification/index.html](H3K36me3.html) 
  
-H3K9me3: [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](H3K9me3.html) 
+H3K9me3: [https://sportyscientist.github.io/GCTB_Classification/index.html](H3K9me3.html) 
  
-H3K27me3: [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](H3K27me3.html) 
+H3K27me3: [https://sportyscientist.github.io/GCTB_Classification/index.html](H3K27me3.html) 
  
-H3K27ac: [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](H3K27ac.html) 
+H3K27ac: [https://sportyscientist.github.io/GCTB_Classification/index.html](H3K27ac.html) 
 
 ## Comparison of Normalization methods
 
 The data was either normalizes with 
 
-* BPM:  [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_BPM.html) 
-* CPM:  [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_CPM.html) 
-* per spike in with the cwlab workflow:  [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_cwlab.html) 
-* SPM with MACS2: :  [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_MACS2.html) 
-* RPGC to an effective genome size of 2.7*10^9 bp: [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_RPGC.html)  
-* RPKM:  [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_RPKM.html) 
-* Not at all:  [https://SportyScientist.github.io/Mouse_ACT_Seq/index.html](norm_comp_None.html)  
+* BPM:  [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_BPM.html) 
+* CPM:  [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_CPM.html) 
+* per spike in with the cwlab workflow:  [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_cwlab.html) 
+* SPM with MACS2: :  [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_MACS2.html) 
+* RPGC to an effective genome size of 2.7*10^9 bp: [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_RPGC.html)  
+* RPKM:  [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_RPKM.html) 
+* Not at all:  [https://sportyscientist.github.io/GCTB_Classification/index.html](norm_comp_None.html)  
 
 
+[https://margan96.github.io/ACT_Seq2/index.html]
