@@ -13,7 +13,8 @@
 
 <title>Home</title>
 
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -41,6 +42,8 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -283,47 +286,42 @@ $(document).ready(function () {
 
 
 <p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report"
-  data-toggle="collapse" data-target="#workflowr-report">
-  
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
-
 <div id="workflowr-report" class="collapse">
 <ul class="nav nav-tabs">
-  <li class="active">
+<li class="active">
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
-  <li>
+<li>
 <a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
-  <li>
+<li>
 <a data-toggle="tab" href="#versions">Past versions</a>
 </li>
 </ul>
-
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
-  <p>
+<p>
 <strong>Last updated:</strong> 2021-10-22
 </p>
-  <p>
+<p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
-  <p>
+<p>
 <strong>Knit directory:</strong> <code>Mouse_ACT_Seq/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
-  <p>
-  
+<p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
   href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
 <div id="checks" class="tab-pane fade">
-  <div class="panel-group" id="workflowr-checks">
-  <div class="panel panel-default">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
 <a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
@@ -331,7 +329,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
@@ -339,24 +336,20 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree018369d2c8718a17d3d1eb8877f5a3897562d8d2targetblank018369da"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/018369d2c8718a17d3d1eb8877f5a3897562d8d2" target="_blank">018369d</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree58502f22a953dcd4b51db37ff46835275e1e6d06targetblank58502f2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/58502f22a953dcd4b51db37ff46835275e1e6d06" target="_blank">58502f2</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree018369d2c8718a17d3d1eb8877f5a3897562d8d2targetblank018369da" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree58502f22a953dcd4b51db37ff46835275e1e6d06targetblank58502f2a" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
-
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/018369d2c8718a17d3d1eb8877f5a3897562d8d2" target="_blank">018369d</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/58502f22a953dcd4b51db37ff46835275e1e6d06" target="_blank">58502f2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
-
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
-
 <pre><code>
 Ignored files:
     Ignored:    .RData
@@ -392,11 +385,9 @@ Unstaged changes:
     Modified:   analysis/normalization_comparison.Rmd
 
 </code></pre>
-
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
 </p>
-
 </div>
 </div>
 </div>
@@ -404,9 +395,9 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in th
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-  
+
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you've configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -435,6 +426,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/58502f22a953dcd4b51db37ff46835275e1e6d06/analysis/index.Rmd" target="_blank">58502f2</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+<td>
+wflow_publish("analysis/index*")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/0782f9433443ce97bc36881bf24ddf7013c5db46/docs/index.html" target="_blank">0782f94</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/018369d2c8718a17d3d1eb8877f5a3897562d8d2/analysis/index.Rmd" target="_blank">018369d</a>
 </td>
 <td>
@@ -444,7 +469,7 @@ SportyScientist
 2021-10-22
 </td>
 <td>
-wflow_publish(&quot;analysis/index.Rmd&quot;)
+wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
@@ -478,7 +503,7 @@ SportyScientist
 2021-10-21
 </td>
 <td>
-wflow_publish(&quot;analysis/index.Rmd&quot;)
+wflow_publish(“analysis/index.Rmd”)
 </td>
 </tr>
 <tr>
@@ -512,7 +537,7 @@ margan96
 2021-09-24
 </td>
 <td>
-wflow_publish(files = c(&quot;analysis/index.Rmd&quot;))
+wflow_publish(files = c(“analysis/index.Rmd”))
 </td>
 </tr>
 <tr>
@@ -546,7 +571,7 @@ margan96
 2021-09-23
 </td>
 <td>
-wflow_publish(files = c(&quot;analysis/index.Rmd&quot;))
+wflow_publish(files = c(“analysis/index.Rmd”))
 </td>
 </tr>
 <tr>
@@ -580,7 +605,7 @@ margan96
 2021-09-23
 </td>
 <td>
-wflow_publish(files = c(&quot;analysis/index.Rmd&quot;))
+wflow_publish(files = c(“analysis/index.Rmd”))
 </td>
 </tr>
 <tr>
@@ -614,7 +639,7 @@ margan96
 2021-09-10
 </td>
 <td>
-wflow_publish(c(&quot;analysis/index.Rmd&quot;))
+wflow_publish(c(“analysis/index.Rmd”))
 </td>
 </tr>
 <tr>
@@ -637,33 +662,30 @@ Start workflowr project.
 </tbody>
 </table>
 </div>
-
 <hr>
 </div>
 </div>
 </div>
-
-
-
-
 <p>Chromatin Analysis of histone marks in mouse ESC</p>
-<p>Comparison of 10Kb vs 1Kb Clustering: <a href="clustering_all_marks.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></p>
-<p>H3K36me: <a href="H3K36me3.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></p>
-<p>H3K9me3: <a href="H3K9me3.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></p>
-<p>H3K27me3: <a href="H3K27me3.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></p>
-<p>H3K27ac: <a href="H3K27ac.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></p>
+<p>Comparison of 10Kb vs 1Kb Clustering: <a href="clustering_all_marks.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></p>
+<p>H3K36me: <a href="H3K36me3.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></p>
+<p>H3K9me3: <a href="H3K9me3.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></p>
+<p>H3K27me3: <a href="H3K27me3.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></p>
+<p>H3K27ac: <a href="H3K27ac.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></p>
 <div id="comparison-of-normalization-methods" class="section level2">
 <h2>Comparison of Normalization methods</h2>
 <p>The data was either normalizes with</p>
 <ul>
-<li>BPM: <a href="norm_comp_BPM.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></li>
-<li>CPM: <a href="norm_comp_CPM.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></li>
-<li>per spike in with the cwlab workflow: <a href="norm_comp_cwlab.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></li>
-<li>SPM with MACS2: : <a href="norm_comp_MACS2.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></li>
-<li>RPGC to an effective genome size of 2.7*10^9 bp: <a href="norm_comp_RPGC.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a><br /></li>
-<li>RPKM: <a href="norm_comp_RPKM.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></li>
-<li>Not at all: <a href="norm_comp_None.html"><a href="https://SportyScientist.github.io/Mouse_ACT_Seq/index.html">https://SportyScientist.github.io/Mouse_ACT_Seq/index.html</a></a></li>
+<li>BPM: <a href="norm_comp_BPM.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></li>
+<li>CPM: <a href="norm_comp_CPM.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></li>
+<li>per spike in with the cwlab workflow: <a href="norm_comp_cwlab.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></li>
+<li>SPM with MACS2: : <a href="norm_comp_MACS2.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></li>
+<li>RPGC to an effective genome size of 2.7*10^9 bp: <a href="norm_comp_RPGC.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a><br />
+</li>
+<li>RPKM: <a href="norm_comp_RPKM.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></li>
+<li>Not at all: <a href="norm_comp_None.html">https://sportyscientist.github.io/GCTB_Classification/index.html</a></li>
 </ul>
+<p>[<a href="https://margan96.github.io/ACT_Seq2/index.html" class="uri">https://margan96.github.io/ACT_Seq2/index.html</a>]</p>
 </div>
 
 
@@ -678,6 +700,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 
