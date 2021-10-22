@@ -14,7 +14,8 @@
 
 <title>ACTSeq H3K27ac MACS2 Normalized</title>
 
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -46,6 +47,8 @@ div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -374,47 +377,42 @@ div.tocify {
 
 
 <p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report"
-  data-toggle="collapse" data-target="#workflowr-report">
-  
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
-
 <div id="workflowr-report" class="collapse">
 <ul class="nav nav-tabs">
-  <li class="active">
+<li class="active">
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
-  <li>
+<li>
 <a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
-  <li>
+<li>
 <a data-toggle="tab" href="#versions">Past versions</a>
 </li>
 </ul>
-
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
-  <p>
+<p>
 <strong>Last updated:</strong> 2021-10-22
 </p>
-  <p>
+<p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
-  <p>
+<p>
 <strong>Knit directory:</strong> <code>Mouse_ACT_Seq/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
-  <p>
-  
+<p>
 This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
   href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
 <div id="checks" class="tab-pane fade">
-  <div class="panel-group" id="workflowr-checks">
-  <div class="panel panel-default">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
 <a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
@@ -422,7 +420,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
@@ -435,8 +432,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
 <div class="panel-body">
-  
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it's best to always run the code in an empty environment.</p>
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
 </div>
 </div>
 </div>
@@ -448,7 +444,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20210715code" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>The command <code>set.seed(20210715)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
@@ -461,7 +456,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
 </div>
 </div>
@@ -474,7 +468,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongCachestrongnone" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
 </div>
 </div>
@@ -487,7 +480,6 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
@@ -495,24 +487,20 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree4048879b72b13579f91aa55c423f8734048fc2bctargetblank4048879a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/4048879b72b13579f91aa55c423f8734048fc2bc" target="_blank">4048879</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreec1e3f2e74df27de5ca3df03e0518a78b053d4742targetblankc1e3f2ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/c1e3f2e74df27de5ca3df03e0518a78b053d4742" target="_blank">c1e3f2e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree4048879b72b13579f91aa55c423f8734048fc2bctargetblank4048879a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreec1e3f2e74df27de5ca3df03e0518a78b053d4742targetblankc1e3f2ea" class="panel-collapse collapse">
 <div class="panel-body">
-  
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
-
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/4048879b72b13579f91aa55c423f8734048fc2bc" target="_blank">4048879</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/c1e3f2e74df27de5ca3df03e0518a78b053d4742" target="_blank">c1e3f2e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
-
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
-
 <pre><code>
 Ignored files:
     Ignored:    .RData
@@ -548,11 +536,9 @@ Unstaged changes:
     Modified:   analysis/normalization_comparison.Rmd
 
 </code></pre>
-
 <p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
 </p>
-
 </div>
 </div>
 </div>
@@ -560,9 +546,9 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in th
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-  
+
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/norm_comp_MACS2.Rmd</code>) and HTML (<code>docs/norm_comp_MACS2.html</code>) files. If you've configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/norm_comp_MACS2.Rmd</code>) and HTML (<code>docs/norm_comp_MACS2.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -591,6 +577,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/c1e3f2e74df27de5ca3df03e0518a78b053d4742/analysis/norm_comp_MACS2.Rmd" target="_blank">c1e3f2e</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+<td>
+wflow_publish(“analysis/norm_comp_MACS2.Rmd”)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/ad44d4300c22cb89766c7c471e4ac881b2b81eea/docs/norm_comp_MACS2.html" target="_blank">ad44d43</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/4048879b72b13579f91aa55c423f8734048fc2bc/analysis/norm_comp_MACS2.Rmd" target="_blank">4048879</a>
 </td>
 <td>
@@ -600,7 +620,7 @@ SportyScientist
 2021-10-22
 </td>
 <td>
-let's see if this works
+let’s see if this works
 </td>
 </tr>
 <tr>
@@ -668,26 +688,16 @@ SportyScientist
 2021-10-21
 </td>
 <td>
-wflow_publish(&quot;analysis/norm_comp_MACS2.Rmd&quot;)
+wflow_publish(“analysis/norm_comp_MACS2.Rmd”)
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-
 <hr>
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
 <pre class="r"><code>library(rtracklayer)
 library(regioneR)
 
@@ -761,6 +771,43 @@ pheatmap(top_mat,
          annotation_colors = colors,
             clustering_distance_cols=&quot;correlation&quot;)</code></pre>
 <p><img src="figure/norm_comp_MACS2.Rmd/MACS2-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-MACS2-1">
+Past versions of MACS2-1.png
+</button>
+</p>
+<div id="fig-MACS2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/ad44d4300c22cb89766c7c471e4ac881b2b81eea/docs/figure/norm_comp_MACS2.Rmd/MACS2-1.png" target="_blank">ad44d43</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
 
 hc = hclust(as.dist(1 - mat))
@@ -777,6 +824,43 @@ p &lt;- pheatmap(mat,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
 <p><img src="figure/norm_comp_MACS2.Rmd/MACS2-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-MACS2-2">
+Past versions of MACS2-2.png
+</button>
+</p>
+<div id="fig-MACS2-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/ad44d4300c22cb89766c7c471e4ac881b2b81eea/docs/figure/norm_comp_MACS2.Rmd/MACS2-2.png" target="_blank">ad44d43</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>target_window_list &lt;- chmm_segments
 target_windows_int&lt;-lapply(target_window_list, &quot;mcols&lt;-&quot;, value=NULL)
 summ_windows&lt;-lapply(target_windows_int, function(pkl) pkl %$% windows_full)
@@ -804,11 +888,8 @@ full_data$log2_value&lt;-log2(full_data$value+1)
 full_data&lt;-na.omit(full_data)
 
 sum_full_data &lt;- full_data %&gt;% 
-    group_by(Group,Mark,Region,Feature, Sample, SequencingRun)%&gt;% 
+    group_by(Group, Feature, Region, Sample, SequencingRun)%&gt;% 
     dplyr::summarize(avg_value=mean(value))
-
-
-#in case one sample has less information, adapt to only use these regions
 
 joined_data &lt;- sum_full_data %&gt;% 
   ungroup()%&gt;%
@@ -818,6 +899,44 @@ joined_data &lt;- sum_full_data %&gt;%
 
 sites &lt;- joined_data$Region
 sum_full_data &lt;- sum_full_data[sum_full_data$Region %in% sites,]
+
+cat(&quot;The dataset is somehow corrupt, which is why I couldn&#39;t compute delta/LFCs&quot;)</code></pre>
+<p>The dataset is somehow corrupt, which is why I couldn’t compute delta/LFCs</p>
+<pre class="r"><code>if(FALSE){
+#in case one sample has less information, adapt to only use these regions
+joined_data &lt;- sum_full_data%&gt;%
+  ungroup()
+
+joined_data &lt;- joined_data%&gt;%
+   group_by(Region, Sample)
+
+joined_data &lt;- joined_data%&gt;%
+   group_split()
+
+joined_data &lt;- sum_full_data %&gt;% 
+  ungroup()%&gt;%
+  group_by(Feature, Region)%&gt;%
+  group_split()%&gt;%
+  purrr::reduce(inner_join, by = &quot;Region&quot;)
+
+sites &lt;- joined_data$Region
+sum_full_datax &lt;- sum_full_data[sum_full_data$Region %in% sites,]
+
+
+xx &lt;- sum_full_data %&gt;% 
+  ungroup()%&gt;%
+  group_by(Sample)%&gt;%
+  group_split()
+
+lapply(xx, function(x){
+  table(x$Feature)
+})
+
+yy &lt;- lapply(xx, function(x){
+  x%&gt;%
+  group_by(Group)%&gt;%
+    group_split()
+})
 
 #calcDiff returns input
 #it&#39;s very not elegant but it gets the job done - for a bigger dataset with more marks I gotta come up with an automisation
@@ -844,10 +963,9 @@ for(i in samples){
   
 }
  listed[[u]] &lt;- listed2 
-}</code></pre>
-<p>[1] KH2G34L KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R [1] &quot;KH2G34L&quot; [1] &quot;KH2G34R&quot;</p>
-<pre><code>Error in Ops.data.frame(input[input$Group == &quot;MT&quot;, &quot;avg_value&quot;], input[input$Group == : &#39;-&#39; only defined for equally-sized data frames</code></pre>
-<pre class="r"><code>sum_full_datax &lt;- lapply(listed, bind_rows)
+}
+
+sum_full_datax &lt;- lapply(listed, bind_rows)
 
 sum_full_data &lt;- bind_rows(sum_full_datax)
 
@@ -860,10 +978,9 @@ npg_cols&lt;-c(npg_pal(10)[c(1,4,8)], &quot;black&quot;)
 
 #### BOXPLOT PER GROUP
 
-cat(&quot;## Boxplots {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-<div id="boxplots" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Boxplots</h2>
-<pre class="r"><code>for(i in 1:length(mt_samples)){
+cat(&quot;## Boxplots {.tabset .tabset-fade .tabset-pills}&quot;)
+
+for(i in 1:length(mt_samples)){
       cat(&#39;\n&#39;)
       cat(&quot;###&quot;,mt_samples[i], &quot;\n&quot;)
 
@@ -879,13 +996,9 @@ print(p)
 
       cat(&#39;\n&#39;)
 
- }</code></pre>
-<div id="kh2g34l" class="section level3">
-<h3>KH2G34L</h3>
-<pre><code>Error: Problem with `filter()` input `..1`.
-ℹ Input `..1` is `Sample == wt_samples[1] | Sample == mt_samples[i]`.
-✖ object &#39;Sample&#39; not found</code></pre>
-<pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
+ }
+
+npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
 mat_pal&lt;-ggsci:::pal_material(&quot;orange&quot;)
@@ -900,24 +1013,14 @@ mut_wt_cols&lt;-npg_pal(10)[c(4,1)]
 
 sums &lt;- sum_full_data %&gt;%
   group_by(Feature, Group, Sample, SequencingRun)%&gt;%
-  summarise(mean = mean(avg_value))</code></pre>
-<pre><code>Error: Must group by variables found in `.data`.
-* Column `Feature` is not found.
-* Column `Group` is not found.
-* Column `Sample` is not found.
-* Column `SequencingRun` is not found.</code></pre>
-<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
-</div>
-<div id="heatmaps" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Heatmaps</h2>
-<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>cat(&quot;### Delta&quot;)</code></pre>
-<div id="delta" class="section level3">
-<h3>Delta</h3>
-<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>########plot summarized data I
+  summarise(mean = mean(avg_value))
+
+cat(&#39;\n&#39;)
+cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)
+cat(&#39;\n&#39;)
+cat(&quot;### Delta&quot;)
+cat(&#39;\n&#39;)
+########plot summarized data I
 
 plot_Delta &lt;- sums %&gt;%
  filter(Group == &quot;Delta&quot;)%&gt;%
@@ -935,15 +1038,13 @@ plot_Delta &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_wrap(~Sample, nrow = 3)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error in filter(., Group == &quot;Delta&quot;): object &#39;sums&#39; not found</code></pre>
-<pre class="r"><code>print(plot_Delta)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_Delta&#39; not found</code></pre>
-<pre class="r"><code>cat(&quot;### LFC&quot;)</code></pre>
-</div>
-<div id="lfc" class="section level3">
-<h3>LFC</h3>
-<pre class="r"><code>plot_LFC &lt;- sums %&gt;%
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_Delta)
+
+cat(&quot;### LFC&quot;)
+
+plot_LFC &lt;- sums %&gt;%
  filter(Group == &quot;LFC&quot;)%&gt;%
  # group_by(Feature, Group)%&gt;%
   #summarise(mean = mean(mean))%&gt;% #needed to fix colour gradient
@@ -959,22 +1060,19 @@ plot_Delta &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_wrap(~Sample, nrow = 3)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error in filter(., Group == &quot;LFC&quot;): object &#39;sums&#39; not found</code></pre>
-<pre class="r"><code>print(plot_LFC)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_LFC&#39; not found</code></pre>
-<pre class="r"><code>cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
-</div>
-<div id="seperate-violin-plots-of-features" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Seperate Violin Plots of Features</h2>
-<pre class="r"><code>features &lt;- sum_full_data %&gt;%
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_LFC)
+
+
+cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)
+
+features &lt;- sum_full_data %&gt;%
   group_by(Feature)%&gt;%
   filter(Group ==&quot;WT&quot;|Group ==&quot;MT&quot;)%&gt;%
-  group_split()</code></pre>
-<pre><code>Error: Must group by variables found in `.data`.
-* Column `Feature` is not found.</code></pre>
-<pre class="r"><code>for(i in 1:length(features)){
+  group_split()
+
+for(i in 1:length(features)){
       cat(&#39;\n&#39;)
     cat(&quot;###&quot;, features[[i]]$Feature[1], &quot;\n&quot;)
 
@@ -984,13 +1082,32 @@ plot_Delta &lt;- sums %&gt;%
     print(p)
         cat(&#39;\n&#39;)
 
- }</code></pre>
-<pre><code>Error in features[[i]]: object of type &#39;closure&#39; is not subsettable</code></pre>
-<pre class="r"><code>cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
-</div>
-<div id="heatmaps-for-each-replicate" class="section level2 tabset tabset-fade tabset-pills">
-<h2>Heatmaps for each replicate</h2>
-<pre class="r"><code>library(stringr)
+ }
+
+cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)
+
+}
+library(stringr)
+npg_pal&lt;-ggsci:::pal_npg()
+grad_cols1&lt;-npg_pal(10)[c(4,1)]
+
+mat_pal&lt;-ggsci:::pal_material(&quot;orange&quot;)
+grad_cols2&lt;-mat_pal(10)[c(1,10)]
+
+mat_pal&lt;-ggsci:::pal_material(&quot;indigo&quot;)
+grad_cols3&lt;-mat_pal(10)[c(1,10)]
+
+grad_cols&lt;-c(grad_cols3[2], grad_cols2[2])
+mut_wt_cols&lt;-npg_pal(10)[c(4,1)]
+
+npg_pal&lt;-ggsci:::pal_npg()
+npg_cols&lt;-c(npg_pal(10)[c(1,4,8)], &quot;black&quot;)
+
+
+
+sums &lt;- sum_full_data %&gt;%
+  group_by(Feature, Group, Sample, SequencingRun)%&gt;%
+  summarise(mean = mean(avg_value))
 
 plot_seperate &lt;- sums %&gt;%
   ggplot(aes(Feature))+
@@ -1005,29 +1122,25 @@ plot_seperate &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_grid(Sample~SequencingRun)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error in ggplot(., aes(Feature)): object &#39;sums&#39; not found</code></pre>
-<pre class="r"><code>print(plot_seperate)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_seperate&#39; not found</code></pre>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_seperate)</code></pre>
+<p><img src="figure/norm_comp_MACS2.Rmd/MACS2-3.png" width="960" style="display: block; margin: auto;" /></p>
 <br>
 <p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo"
-  data-toggle="collapse" data-target="#workflowr-sessioninfo"
-  style = "display: block;">
-  
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
 </button>
 </p>
-
 <div id="workflowr-sessioninfo" class="collapse">
-
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.1 (2021-08-10)
-Platform: x86_64-conda-linux-gnu (64-bit)
+<pre><code>R version 4.0.0 (2020-04-24)
+Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: CentOS Linux 7 (Core)
 
 Matrix products: default
-BLAS/LAPACK: /omics/groups/OE0219/internal/ganslm/miniconda3/envs/R4.1/lib/libopenblasp-r0.3.17.so
+BLAS:   /usr/lib64/libblas.so.3.4.2
+LAPACK: /usr/lib64/liblapack.so.3.4.2
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -1045,33 +1158,33 @@ other attached packages:
  [1] stringr_1.4.0                          
  [2] purrr_0.3.4                            
  [3] cowplot_1.1.1                          
- [4] htmlwidgets_1.5.4                      
- [5] plotly_4.10.0                          
- [6] dplyr_1.0.7                            
+ [4] htmlwidgets_1.5.3                      
+ [5] plotly_4.9.4.1                         
+ [6] dplyr_1.0.6                            
  [7] RColorBrewer_1.1-2                     
  [8] hexbin_1.28.2                          
  [9] RnBeads_2.11.0                         
 [10] plyr_1.8.6                             
-[11] methylumi_2.38.0                       
-[12] minfi_1.38.0                           
-[13] bumphunter_1.34.0                      
+[11] methylumi_2.34.0                       
+[12] minfi_1.34.0                           
+[13] bumphunter_1.30.0                      
 [14] locfit_1.5-9.4                         
 [15] iterators_1.0.13                       
 [16] foreach_1.5.1                          
-[17] Biostrings_2.60.2                      
-[18] XVector_0.32.0                         
-[19] SummarizedExperiment_1.22.0            
-[20] MatrixGenerics_1.4.3                   
+[17] Biostrings_2.56.0                      
+[18] XVector_0.28.0                         
+[19] SummarizedExperiment_1.18.2            
+[20] DelayedArray_0.14.1                    
 [21] FDb.InfiniumMethylation.hg19_2.2.0     
-[22] org.Hs.eg.db_3.13.0                    
+[22] org.Hs.eg.db_3.11.4                    
 [23] TxDb.Hsapiens.UCSC.hg19.knownGene_3.2.2
-[24] GenomicFeatures_1.44.2                 
-[25] AnnotationDbi_1.54.1                   
+[24] GenomicFeatures_1.40.1                 
+[25] AnnotationDbi_1.50.3                   
 [26] scales_1.1.1                           
-[27] Biobase_2.52.0                         
-[28] illuminaio_0.34.0                      
-[29] matrixStats_0.61.0                     
-[30] limma_3.48.3                           
+[27] Biobase_2.48.0                         
+[28] illuminaio_0.30.0                      
+[29] matrixStats_0.59.0                     
+[30] limma_3.44.3                           
 [31] gridExtra_2.3                          
 [32] gplots_3.1.1                           
 [33] fields_12.5                            
@@ -1079,98 +1192,91 @@ other attached packages:
 [35] dotCall64_1.0-1                        
 [36] ff_4.0.4                               
 [37] bit_4.0.4                              
-[38] cluster_2.1.2                          
-[39] MASS_7.3-54                            
+[38] cluster_2.1.0                          
+[39] MASS_7.3-51.5                          
 [40] reshape2_1.4.4                         
-[41] ComplexHeatmap_2.8.0                   
+[41] ComplexHeatmap_2.4.3                   
 [42] gUtils_0.2.0                           
-[43] GenomicRanges_1.44.0                   
-[44] GenomeInfoDb_1.28.4                    
-[45] IRanges_2.26.0                         
-[46] S4Vectors_0.30.2                       
-[47] BiocGenerics_0.38.0                    
-[48] viridis_0.6.2                          
+[43] GenomicRanges_1.40.0                   
+[44] GenomeInfoDb_1.24.2                    
+[45] IRanges_2.22.2                         
+[46] S4Vectors_0.26.1                       
+[47] BiocGenerics_0.34.0                    
+[48] viridis_0.6.1                          
 [49] viridisLite_0.4.0                      
 [50] pheatmap_1.0.12                        
-[51] tidyr_1.1.4                            
+[51] tidyr_1.1.3                            
 [52] ggpubr_0.4.0                           
-[53] ggsignif_0.6.3                         
+[53] ggsignif_0.6.2                         
 [54] ggplot2_3.3.5                          
-[55] data.table_1.14.2                      
+[55] data.table_1.14.0                      
 [56] workflowr_1.6.2                        
 
 loaded via a namespace (and not attached):
-  [1] utf8_1.2.2                tidyselect_1.1.1         
-  [3] RSQLite_2.2.8             BiocParallel_1.26.2      
-  [5] munsell_0.5.0             preprocessCore_1.54.0    
-  [7] codetools_0.2-18          withr_2.4.2              
-  [9] colorspace_2.0-2          filelock_1.0.2           
- [11] highr_0.9                 knitr_1.36               
- [13] git2r_0.28.0              GenomeInfoDbData_1.2.6   
- [15] bit64_4.0.5               rhdf5_2.36.0             
- [17] rprojroot_2.0.2           vctrs_0.3.8              
- [19] generics_0.1.0            xfun_0.27                
- [21] BiocFileCache_2.0.0       R6_2.5.1                 
- [23] doParallel_1.0.16         clue_0.3-60              
- [25] bitops_1.0-7              rhdf5filters_1.4.0       
- [27] cachem_1.0.6              reshape_0.8.8            
- [29] DelayedArray_0.18.0       assertthat_0.2.1         
- [31] promises_1.2.0.1          BiocIO_1.2.0             
- [33] gtable_0.3.0              Cairo_1.5-12.2           
- [35] rlang_0.4.12              genefilter_1.74.1        
- [37] splines_4.1.1             GlobalOptions_0.1.2      
- [39] lazyeval_0.2.2            rtracklayer_1.52.1       
- [41] rstatix_0.7.0             GEOquery_2.60.0          
- [43] broom_0.7.9               yaml_2.2.1               
- [45] abind_1.4-5               backports_1.2.1          
- [47] httpuv_1.6.3              tools_4.1.1              
- [49] nor1mix_1.3-0             ellipsis_0.3.2           
- [51] jquerylib_0.1.4           siggenes_1.66.0          
- [53] Rcpp_1.0.7                sparseMatrixStats_1.4.2  
- [55] progress_1.2.2            zlibbioc_1.38.0          
- [57] RCurl_1.98-1.5            prettyunits_1.1.1        
- [59] openssl_1.4.5             GetoptLong_1.0.5         
- [61] haven_2.4.3               fs_1.5.0                 
- [63] magrittr_2.0.1            openxlsx_4.2.4           
- [65] circlize_0.4.13           whisker_0.4              
- [67] xtable_1.8-4              hms_1.1.1                
- [69] evaluate_0.14             XML_3.99-0.8             
- [71] rio_0.5.27                mclust_5.4.7             
- [73] readxl_1.3.1              shape_1.4.6              
- [75] compiler_4.1.1            biomaRt_2.48.3           
- [77] tibble_3.1.5              maps_3.4.0               
- [79] KernSmooth_2.23-20        crayon_1.4.1             
- [81] htmltools_0.5.2           tzdb_0.1.2               
- [83] later_1.3.0               DBI_1.1.1                
- [85] dbplyr_2.1.1              rappdirs_0.3.3           
- [87] readr_2.0.2               Matrix_1.3-4             
- [89] car_3.0-11                cli_3.0.1                
- [91] quadprog_1.5-8            forcats_0.5.1            
- [93] pkgconfig_2.0.3           GenomicAlignments_1.28.0 
- [95] foreign_0.8-81            xml2_1.3.2               
- [97] annotate_1.70.0           bslib_0.3.1              
- [99] rngtools_1.5.2            multtest_2.48.0          
-[101] beanplot_1.2              scrime_1.3.5             
-[103] doRNG_1.8.2               digest_0.6.28            
-[105] rmarkdown_2.11            base64_2.0               
-[107] cellranger_1.1.0          DelayedMatrixStats_1.14.3
-[109] restfulr_0.0.13           curl_4.3.2               
-[111] Rsamtools_2.8.0           gtools_3.9.2             
-[113] rjson_0.2.20              nlme_3.1-153             
-[115] lifecycle_1.0.1           jsonlite_1.7.2           
-[117] Rhdf5lib_1.14.2           carData_3.0-4            
-[119] askpass_1.1               fansi_0.5.0              
-[121] pillar_1.6.4              ggsci_2.9                
-[123] lattice_0.20-45           survival_3.2-13          
-[125] KEGGREST_1.32.0           fastmap_1.1.0            
-[127] httr_1.4.2                glue_1.4.2               
-[129] zip_2.2.0                 png_0.1-7                
-[131] stringi_1.7.5             sass_0.4.0               
-[133] HDF5Array_1.20.0          blob_1.2.2               
-[135] caTools_1.18.2            memoise_2.0.0            </code></pre>
-</div>
-
-
+  [1] utf8_1.1.4                tidyselect_1.1.1         
+  [3] RSQLite_2.2.7             BiocParallel_1.22.0      
+  [5] munsell_0.5.0             codetools_0.2-16         
+  [7] preprocessCore_1.50.0     withr_2.4.1              
+  [9] colorspace_2.0-1          highr_0.8                
+ [11] knitr_1.31                labeling_0.4.2           
+ [13] git2r_0.28.0              GenomeInfoDbData_1.2.3   
+ [15] farver_2.1.0              bit64_4.0.5              
+ [17] rhdf5_2.32.4              rprojroot_2.0.2          
+ [19] vctrs_0.3.8               generics_0.1.0           
+ [21] xfun_0.24                 BiocFileCache_1.12.1     
+ [23] R6_2.5.0                  clue_0.3-59              
+ [25] bitops_1.0-7              cachem_1.0.3             
+ [27] reshape_0.8.8             assertthat_0.2.1         
+ [29] promises_1.1.1            gtable_0.3.0             
+ [31] rlang_0.4.11              genefilter_1.70.0        
+ [33] GlobalOptions_0.1.2       splines_4.0.0            
+ [35] lazyeval_0.2.2            rtracklayer_1.48.0       
+ [37] rstatix_0.7.0             GEOquery_2.56.0          
+ [39] broom_0.7.9               yaml_2.2.1               
+ [41] abind_1.4-5               backports_1.2.1          
+ [43] httpuv_1.6.1              tools_4.0.0              
+ [45] nor1mix_1.3-0             ellipsis_0.3.2           
+ [47] jquerylib_0.1.4           siggenes_1.62.0          
+ [49] Rcpp_1.0.6                progress_1.2.2           
+ [51] zlibbioc_1.34.0           RCurl_1.98-1.3           
+ [53] prettyunits_1.1.1         openssl_1.4.3            
+ [55] GetoptLong_1.0.5          haven_2.4.1              
+ [57] fs_1.5.0                  magrittr_2.0.1           
+ [59] openxlsx_4.2.4            circlize_0.4.13          
+ [61] whisker_0.4               xtable_1.8-4             
+ [63] hms_1.1.0                 evaluate_0.14            
+ [65] XML_3.99-0.6              rio_0.5.27               
+ [67] mclust_5.4.7              readxl_1.3.1             
+ [69] shape_1.4.6               compiler_4.0.0           
+ [71] biomaRt_2.44.4            tibble_3.1.2             
+ [73] maps_3.3.0                KernSmooth_2.23-16       
+ [75] crayon_1.4.1              htmltools_0.5.1.1        
+ [77] tzdb_0.1.2                later_1.1.0.1            
+ [79] DBI_1.1.1                 dbplyr_2.1.1             
+ [81] rappdirs_0.3.3            readr_2.0.0              
+ [83] Matrix_1.3-4              car_3.0-11               
+ [85] quadprog_1.5-8            forcats_0.5.1            
+ [87] pkgconfig_2.0.3           GenomicAlignments_1.24.0 
+ [89] foreign_0.8-78            xml2_1.3.2               
+ [91] annotate_1.66.0           bslib_0.2.5.1            
+ [93] rngtools_1.5              multtest_2.44.0          
+ [95] beanplot_1.2              doRNG_1.8.2              
+ [97] scrime_1.3.5              digest_0.6.26            
+ [99] rmarkdown_2.9             base64_2.0               
+[101] cellranger_1.1.0          DelayedMatrixStats_1.10.1
+[103] curl_4.3                  Rsamtools_2.4.0          
+[105] gtools_3.9.2              rjson_0.2.20             
+[107] nlme_3.1-147              lifecycle_1.0.0          
+[109] jsonlite_1.7.2            Rhdf5lib_1.10.1          
+[111] carData_3.0-4             askpass_1.1              
+[113] fansi_0.4.1               pillar_1.6.2             
+[115] ggsci_2.9                 lattice_0.20-41          
+[117] fastmap_1.1.0             httr_1.4.2               
+[119] survival_3.1-12           glue_1.4.2               
+[121] zip_2.1.1                 png_0.1-7                
+[123] stringi_1.5.3             sass_0.4.0               
+[125] HDF5Array_1.16.1          blob_1.2.2               
+[127] caTools_1.18.2            memoise_2.0.0            </code></pre>
 </div>
 
 
@@ -1185,6 +1291,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 </div>
