@@ -135,6 +135,7 @@ saveRDS(mmchmm_list, "data/chmm_mESC.rds")
 ```{r}
 chmm_segments<-readRDS(file="data/chmm_mESC.rds")
 data_10kb <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/RPKM_bigwigs/H3K27ac/mbw_summary_10kb_H3K27ac.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
+
 data_1kb <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/RPKM_bigwigs/H3K27ac/mbw_summary_1kb_H3K27ac.mat", stringsAsFactors=FALSE, header=TRUE, comment.char="!")
 
 
@@ -145,7 +146,7 @@ data_1kb <-read.table("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSe
 #chmm_segments <- toGRanges("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed")
 ```
 
-```{r}
+```{r results='asis'}
 #read in matrix from multiBigWigSummary
 cat("# 1Kb Binning")  
 data <- data_1kb
@@ -171,7 +172,7 @@ tab<-as.data.frame(mcols(windows))
 ### heatmap
 N_TOP<-20000
     
-sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 6)
+sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 5)
 
 data_log<-log2(data)
     
@@ -188,12 +189,20 @@ zmax<-zlim[2]
 top_mat[top_mat>zmax]<-zmax
 top_mat[top_mat<zmin]<-zmin
 
-col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5))
-    
+col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],
+                        Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5),
+                        SeqRun=sapply(strsplit(split="_",colnames(top_mat)), "[", 4))
+
+col_annot$SeqRun[grep("20245", col_annot$SeqRun)] <- "Ilse20245"
+col_annot$SeqRun[grep("20250", col_annot$SeqRun)] <- "Ilse20250"
+
 rownames(col_annot)<-colnames(top_mat)
+unique(col_annot$SeqRun)
+
 colors <- list(H3F3A=c(MT = "#A72608", WT = "#79B791"),
                Sample=c(KH2G34L = "#DDD78D", KH2G34R = "#693668",
-                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"))
+                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"),
+               SeqRun=c(Ilse20790 = "#4F5D75", Ilse20245="#76BED0", Ilse20250="#BA5A31"))
  
 pheatmap(top_mat,
             annotation_col=col_annot,
@@ -201,7 +210,6 @@ pheatmap(top_mat,
             clustering_distance_cols="correlation")
 
 mat<-cor(tab, method="pearson", use="pairwise.complete.obs")
-
 hc = hclust(as.dist(1 - mat))
 mat = mat[hc$order, hc$order]
 mat[upper.tri(mat)] = NA
@@ -213,6 +221,8 @@ p <- pheatmap(mat,
         breaks = breaksList,
         scale="none",cluster_cols=F,cluster_rows=F,
         na_col="white",
+        annotation_col=col_annot,
+        annotation_colors = colors,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format="%.2f")
 
@@ -244,7 +254,7 @@ tab<-as.data.frame(mcols(windows))
 ### heatmap
 N_TOP<-20000
     
-sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 6)
+sampls_mark<-sapply(strsplit(split="_",colnames(data)), "[", 5)
 
 data_log<-log2(data)
     
@@ -261,12 +271,20 @@ zmax<-zlim[2]
 top_mat[top_mat>zmax]<-zmax
 top_mat[top_mat<zmin]<-zmin
 
-col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5))
-    
+col_annot <- data.frame(H3F3A=c("WT","MT")[1+(sampls_mark%in% mt_samples)],
+                        Sample=sapply(strsplit(split="_",colnames(top_mat)), "[", 5),
+                        SeqRun=sapply(strsplit(split="_",colnames(top_mat)), "[", 4))
+
+col_annot$SeqRun[grep("20245", col_annot$SeqRun)] <- "Ilse20245"
+col_annot$SeqRun[grep("20250", col_annot$SeqRun)] <- "Ilse20250"
+
 rownames(col_annot)<-colnames(top_mat)
+unique(col_annot$SeqRun)
+
 colors <- list(H3F3A=c(MT = "#A72608", WT = "#79B791"),
                Sample=c(KH2G34L = "#DDD78D", KH2G34R = "#693668",
-                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"))
+                        KH2G34W = "#FF8C61", KH2wt = "#FFD046"),
+               SeqRun=c(Ilse20790 = "#4F5D75", Ilse20245="#76BED0", Ilse20250="#BA5A31"))
  
 pheatmap(top_mat,
             annotation_col=col_annot,
@@ -274,7 +292,6 @@ pheatmap(top_mat,
             clustering_distance_cols="correlation")
 
 mat<-cor(tab, method="pearson", use="pairwise.complete.obs")
-
 hc = hclust(as.dist(1 - mat))
 mat = mat[hc$order, hc$order]
 mat[upper.tri(mat)] = NA
@@ -286,6 +303,8 @@ p <- pheatmap(mat,
         breaks = breaksList,
         scale="none",cluster_cols=F,cluster_rows=F,
         na_col="white",
+        annotation_col=col_annot,
+        annotation_colors = colors,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format="%.2f")
 ```
@@ -307,9 +326,12 @@ full_data$Sample<-sapply(strsplit(full_data$Stat, split="_"),"[",5)
 full_data$Mark<-sapply(strsplit(full_data$Stat, split="_"),"[",6)
 full_data$SequencingRun<-sapply(strsplit(full_data$Stat, split="_"),"[",4)
 
+full_data$SequencingRun[grep("20245", full_data$SequencingRun)] <- "Ilse20245"
+full_data$SequencingRun[grep("20250", full_data$SequencingRun)] <- "Ilse20250"
 
 mt_samples<- filter(full_data, full_data$Sample != "KH2wt")
 mt_samples <- unique(mt_samples$Sample)
+
 
 full_data$Group<-c("WT","MT")[(full_data$Sample %in% mt_samples)+1]
 full_data$Sample<-factor(full_data$Sample, levels=c(wt_samples, mt_samples))
