@@ -371,7 +371,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">ACT-Seq H3K27me3</h1>
 <h4 class="author">Marlene Ganslmeier</h4>
-<h4 class="date">22 October, 2021</h4>
+<h4 class="date">23 October, 2021</h4>
 
 </div>
 
@@ -396,7 +396,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-10-22
+<strong>Last updated:</strong> 2021-10-23
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -487,16 +487,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree1aedd8eac401413956894279f113f432862bb5e4targetblank1aedd8ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/1aedd8eac401413956894279f113f432862bb5e4" target="_blank">1aedd8e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreed3a65d2cd7a86ebf27f7542d1e5f1e221d373227targetblankd3a65d2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/d3a65d2cd7a86ebf27f7542d1e5f1e221d373227" target="_blank">d3a65d2</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree1aedd8eac401413956894279f113f432862bb5e4targetblank1aedd8ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreed3a65d2cd7a86ebf27f7542d1e5f1e221d373227targetblankd3a65d2a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/1aedd8eac401413956894279f113f432862bb5e4" target="_blank">1aedd8e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/d3a65d2cd7a86ebf27f7542d1e5f1e221d373227" target="_blank">d3a65d2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -520,6 +520,9 @@ Untracked files:
     Untracked:  data/chmm_segments_mm10.rds
     Untracked:  figure/
     Untracked:  matrixcalc.sh
+    Untracked:  output/datasummedH3K27ac.rds
+    Untracked:  output/datasummedH3K27me3.rds
+    Untracked:  output/datasummedH3K36me3.rds
     Untracked:  output/datasummedH3K9me3.rds
     Untracked:  output/datasummed_none.rds
     Untracked:  output/datasummed_norm_BPM.rds
@@ -574,6 +577,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/d3a65d2cd7a86ebf27f7542d1e5f1e221d373227/analysis/H3K27me3.Rmd" target="_blank">d3a65d2</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-23
+</td>
+<td>
+wflow_publish(c("analysis/H3K27me3.Rmd", "analysis/H3K9me3.Rmd",
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/4e66166f2b12ae5a24e5ede3da7a44dc2dbf8070/docs/H3K27me3.html" target="_blank">4e66166</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -646,6 +683,7 @@ mmchmm_list[[i]] &lt;- chmm_segments[(elementMetadata(chmm_segments)[, &quot;nam
 saveRDS(mmchmm_list, &quot;data/chmm_mESC.rds&quot;)</code></pre>
 <pre class="r"><code>chmm_segments&lt;-readRDS(file=&quot;data/chmm_mESC.rds&quot;)
 data_10kb &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/RPKM_bigwigs/H3K27me3/mbw_summary_10kb_H3K27me3.mat&quot;, stringsAsFactors=FALSE, header=TRUE, comment.char=&quot;!&quot;)
+
 data_1kb &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/RPKM_bigwigs/H3K27me3/mbw_summary_1kb_H3K27me3.mat&quot;, stringsAsFactors=FALSE, header=TRUE, comment.char=&quot;!&quot;)
 
 
@@ -656,7 +694,8 @@ data_1kb &lt;-read.table(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mou
 #chmm_segments &lt;- toGRanges(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/mESC_E14_12_dense.annotated.bed&quot;)</code></pre>
 <pre class="r"><code>#read in matrix from multiBigWigSummary
 cat(&quot;# 1Kb Binning&quot;)  </code></pre>
-<pre><code># 1Kb Binning</code></pre>
+<div id="kb-binning" class="section level1">
+<h1>1Kb Binning</h1>
 <pre class="r"><code>data &lt;- data_1kb
 #filter out bad reads
 data&lt;-data[-grep(&quot;chrM|chrUn|_random|_gl|dbb|_hap&quot;, data[,1]),]
@@ -680,7 +719,7 @@ tab&lt;-as.data.frame(mcols(windows))
 ### heatmap
 N_TOP&lt;-20000
     
-sampls_mark&lt;-sapply(strsplit(split=&quot;_&quot;,colnames(data)), &quot;[&quot;, 6)
+sampls_mark&lt;-sapply(strsplit(split=&quot;_&quot;,colnames(data)), &quot;[&quot;, 5)
 
 data_log&lt;-log2(data)
     
@@ -697,18 +736,27 @@ zmax&lt;-zlim[2]
 top_mat[top_mat&gt;zmax]&lt;-zmax
 top_mat[top_mat&lt;zmin]&lt;-zmin
 
-col_annot &lt;- data.frame(H3F3A=c(&quot;WT&quot;,&quot;MT&quot;)[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split=&quot;_&quot;,colnames(top_mat)), &quot;[&quot;, 5))
-    
+col_annot &lt;- data.frame(H3F3A=c(&quot;WT&quot;,&quot;MT&quot;)[1+(sampls_mark%in% mt_samples)],
+                        Sample=sapply(strsplit(split=&quot;_&quot;,colnames(top_mat)), &quot;[&quot;, 5),
+                        SeqRun=sapply(strsplit(split=&quot;_&quot;,colnames(top_mat)), &quot;[&quot;, 4))
+
+col_annot$SeqRun[grep(&quot;20245&quot;, col_annot$SeqRun)] &lt;- &quot;Ilse20245&quot;
+col_annot$SeqRun[grep(&quot;20250&quot;, col_annot$SeqRun)] &lt;- &quot;Ilse20250&quot;
+
 rownames(col_annot)&lt;-colnames(top_mat)
-colors &lt;- list(H3F3A=c(MT = &quot;#A72608&quot;, WT = &quot;#79B791&quot;),
+unique(col_annot$SeqRun)</code></pre>
+<p><a href="#section">1</a> “Ilse20926” “ESC” “20246”</p>
+<pre class="r"><code>colors &lt;- list(H3F3A=c(MT = &quot;#A72608&quot;, WT = &quot;#79B791&quot;),
                Sample=c(KH2G34L = &quot;#DDD78D&quot;, KH2G34R = &quot;#693668&quot;,
-                        KH2G34W = &quot;#FF8C61&quot;, KH2wt = &quot;#FFD046&quot;))
+                        KH2G34W = &quot;#FF8C61&quot;, KH2wt = &quot;#FFD046&quot;),
+               SeqRun=c(Ilse20790 = &quot;#4F5D75&quot;, Ilse20245=&quot;#76BED0&quot;, Ilse20250=&quot;#BA5A31&quot;))
  
 pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
             clustering_distance_cols=&quot;correlation&quot;)</code></pre>
-<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>Error: SeqRun: cannot map colors to some of the levels: Ilse20926, ESC, 20246</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-3-1.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
 Past versions of unnamed-chunk-3-1.png
@@ -733,6 +781,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/4e66166f2b12ae5a24e5ede3da7a44dc2dbf8070/docs/figure/H3K27me3.Rmd/unnamed-chunk-3-1.png" target="_blank">4e66166</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/74fe88918aae419f0dce8ccd081c543b3f39cf1d/docs/figure/H3K27me3.Rmd/unnamed-chunk-3-1.png" target="_blank">74fe889</a>
 </td>
 <td>
@@ -747,7 +806,6 @@ margan96
 </div>
 </div>
 <pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
-
 hc = hclust(as.dist(1 - mat))
 mat = mat[hc$order, hc$order]
 mat[upper.tri(mat)] = NA
@@ -759,9 +817,12 @@ p &lt;- pheatmap(mat,
         breaks = breaksList,
         scale=&quot;none&quot;,cluster_cols=F,cluster_rows=F,
         na_col=&quot;white&quot;,
+        annotation_col=col_annot,
+        annotation_colors = colors,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
-<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-3-2.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>Error: SeqRun: cannot map colors to some of the levels: Ilse20926, ESC, 20246</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-3-2.png" width="1440" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-2">
 Past versions of unnamed-chunk-3-2.png
@@ -786,6 +847,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/4e66166f2b12ae5a24e5ede3da7a44dc2dbf8070/docs/figure/H3K27me3.Rmd/unnamed-chunk-3-2.png" target="_blank">4e66166</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/74fe88918aae419f0dce8ccd081c543b3f39cf1d/docs/figure/H3K27me3.Rmd/unnamed-chunk-3-2.png" target="_blank">74fe889</a>
 </td>
 <td>
@@ -801,7 +873,8 @@ margan96
 </div>
 <pre class="r"><code>#read in matrix from multiBigWigSummary
 cat(&quot;# 10Kb Binning&quot;)  </code></pre>
-<div id="kb-binning" class="section level1">
+</div>
+<div id="kb-binning-1" class="section level1">
 <h1>10Kb Binning</h1>
 <pre class="r"><code>data &lt;- data_10kb
 #filter out bad reads
@@ -826,7 +899,7 @@ tab&lt;-as.data.frame(mcols(windows))
 ### heatmap
 N_TOP&lt;-20000
     
-sampls_mark&lt;-sapply(strsplit(split=&quot;_&quot;,colnames(data)), &quot;[&quot;, 6)
+sampls_mark&lt;-sapply(strsplit(split=&quot;_&quot;,colnames(data)), &quot;[&quot;, 5)
 
 data_log&lt;-log2(data)
     
@@ -843,22 +916,65 @@ zmax&lt;-zlim[2]
 top_mat[top_mat&gt;zmax]&lt;-zmax
 top_mat[top_mat&lt;zmin]&lt;-zmin
 
-col_annot &lt;- data.frame(H3F3A=c(&quot;WT&quot;,&quot;MT&quot;)[1+(sampls_mark%in% mt_samples)],                         Sample=sapply(strsplit(split=&quot;_&quot;,colnames(top_mat)), &quot;[&quot;, 5))
-    
+col_annot &lt;- data.frame(H3F3A=c(&quot;WT&quot;,&quot;MT&quot;)[1+(sampls_mark%in% mt_samples)],
+                        Sample=sapply(strsplit(split=&quot;_&quot;,colnames(top_mat)), &quot;[&quot;, 5),
+                        SeqRun=sapply(strsplit(split=&quot;_&quot;,colnames(top_mat)), &quot;[&quot;, 4))
+
+col_annot$SeqRun[grep(&quot;20245&quot;, col_annot$SeqRun)] &lt;- &quot;Ilse20245&quot;
+col_annot$SeqRun[grep(&quot;20250&quot;, col_annot$SeqRun)] &lt;- &quot;Ilse20250&quot;
+
 rownames(col_annot)&lt;-colnames(top_mat)
-colors &lt;- list(H3F3A=c(MT = &quot;#A72608&quot;, WT = &quot;#79B791&quot;),
+unique(col_annot$SeqRun)</code></pre>
+<p><a href="#section">1</a> “Ilse20926” “ESC” “20246”</p>
+<pre class="r"><code>colors &lt;- list(H3F3A=c(MT = &quot;#A72608&quot;, WT = &quot;#79B791&quot;),
                Sample=c(KH2G34L = &quot;#DDD78D&quot;, KH2G34R = &quot;#693668&quot;,
-                        KH2G34W = &quot;#FF8C61&quot;, KH2wt = &quot;#FFD046&quot;))
+                        KH2G34W = &quot;#FF8C61&quot;, KH2wt = &quot;#FFD046&quot;),
+               SeqRun=c(Ilse20790 = &quot;#4F5D75&quot;, Ilse20245=&quot;#76BED0&quot;, Ilse20250=&quot;#BA5A31&quot;))
  
 pheatmap(top_mat,
             annotation_col=col_annot,
          annotation_colors = colors,
             clustering_distance_cols=&quot;correlation&quot;)</code></pre>
-<pre><code>Error: Sample: cannot map colors to some of the levels: Ilse20926.3,
-Ilse20926.1, ESC, Ilse20926.2, 20246.2, 20246, 20246.1, Ilse20926</code></pre>
-<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>Error: SeqRun: cannot map colors to some of the levels: Ilse20926, ESC, 20246</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-4-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-1">
+Past versions of unnamed-chunk-4-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/4e66166f2b12ae5a24e5ede3da7a44dc2dbf8070/docs/figure/H3K27me3.Rmd/unnamed-chunk-4-1.png" target="_blank">4e66166</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <pre class="r"><code>mat&lt;-cor(tab, method=&quot;pearson&quot;, use=&quot;pairwise.complete.obs&quot;)
-
 hc = hclust(as.dist(1 - mat))
 mat = mat[hc$order, hc$order]
 mat[upper.tri(mat)] = NA
@@ -870,9 +986,49 @@ p &lt;- pheatmap(mat,
         breaks = breaksList,
         scale=&quot;none&quot;,cluster_cols=F,cluster_rows=F,
         na_col=&quot;white&quot;,
+        annotation_col=col_annot,
+        annotation_colors = colors,
         show_rownames=TRUE, show_colnames=TRUE,
         display_numbers=TRUE, number_format=&quot;%.2f&quot;)</code></pre>
-<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-4-2.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>Error: SeqRun: cannot map colors to some of the levels: Ilse20926, 20246, ESC</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-4-2.png" width="1440" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-4-2">
+Past versions of unnamed-chunk-4-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-4-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/4e66166f2b12ae5a24e5ede3da7a44dc2dbf8070/docs/figure/H3K27me3.Rmd/unnamed-chunk-4-2.png" target="_blank">4e66166</a>
+</td>
+<td>
+SportyScientist
+</td>
+<td>
+2021-10-22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>From here on the 10Kb binned file is used</p>
 <pre class="r"><code>target_window_list &lt;- chmm_segments
 target_windows_int&lt;-lapply(target_window_list, &quot;mcols&lt;-&quot;, value=NULL)
@@ -889,9 +1045,12 @@ full_data$Sample&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;
 full_data$Mark&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,6)
 full_data$SequencingRun&lt;-sapply(strsplit(full_data$Stat, split=&quot;_&quot;),&quot;[&quot;,4)
 
+full_data$SequencingRun[grep(&quot;20245&quot;, full_data$SequencingRun)] &lt;- &quot;Ilse20245&quot;
+full_data$SequencingRun[grep(&quot;20250&quot;, full_data$SequencingRun)] &lt;- &quot;Ilse20250&quot;
 
 mt_samples&lt;- filter(full_data, full_data$Sample != &quot;KH2wt&quot;)
 mt_samples &lt;- unique(mt_samples$Sample)
+
 
 full_data$Group&lt;-c(&quot;WT&quot;,&quot;MT&quot;)[(full_data$Sample %in% mt_samples)+1]
 full_data$Sample&lt;-factor(full_data$Sample, levels=c(wt_samples, mt_samples))
@@ -942,13 +1101,13 @@ for(i in samples){
 }
  listed[[u]] &lt;- listed2 
 }</code></pre>
-<p>factor(0) 9 Levels: KH2wt Ilse20926 Ilse20926.1 Ilse20926.2 Ilse20926.3 ESC … 20246.2</p>
+<p>factor(0) Levels: KH2wt KH2G34L KH2G34W KH2G34R histone <a href="#section">1</a> KH2G34L KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R histone <a href="#section">1</a> “KH2G34L” <a href="#section">1</a> “KH2G34R” <a href="#section">1</a> KH2G34L KH2G34W KH2G34R Levels: KH2wt KH2G34L KH2G34W KH2G34R histone <a href="#section">1</a> “KH2G34L” <a href="#section">1</a> “KH2G34W” <a href="#section">1</a> “KH2G34R”</p>
 <pre class="r"><code>sum_full_datax &lt;- lapply(listed, bind_rows)
 
 sum_full_data &lt;- bind_rows(sum_full_datax)
 
-saveRDS(sum_full_data, &quot;output/datasummedH3K27me3.rds&quot;)
-
+saveRDS(sum_full_data, &quot;output/datasummedH3K27me3.rds&quot;)</code></pre>
+<pre class="r"><code>#sum_full_data &lt;- readRDS(&quot;output/datasummedH3K27me3.rds&quot;)
 
 npg_pal&lt;-ggsci:::pal_npg()
 npg_cols&lt;-c(npg_pal(10)[c(1,4,8)], &quot;black&quot;)
@@ -976,11 +1135,21 @@ print(p)
       cat(&#39;\n&#39;)
 
  }</code></pre>
-<div id="ilse20926" class="section level3">
-<h3>Ilse20926</h3>
-<pre><code>Error: Problem with `filter()` input `..1`.
-ℹ Input `..1` is `Sample == wt_samples[1] | Sample == mt_samples[i]`.
-✖ object &#39;Sample&#39; not found</code></pre>
+<div id="kh2g34l" class="section level3">
+<h3>KH2G34L</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-1.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34w" class="section level3">
+<h3>KH2G34W</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-2.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="kh2g34r" class="section level3">
+<h3>KH2G34R</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-3.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="histone" class="section level3">
+<h3>histone</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-4.png" width="1440" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>npg_pal&lt;-ggsci:::pal_npg()
 grad_cols1&lt;-npg_pal(10)[c(4,1)]
 
@@ -996,18 +1165,14 @@ mut_wt_cols&lt;-npg_pal(10)[c(4,1)]
 
 sums &lt;- sum_full_data %&gt;%
   group_by(Feature, Group, Sample, SequencingRun)%&gt;%
-  summarise(mean = mean(avg_value))</code></pre>
-<pre><code>Error: Must group by variables found in `.data`.
-* Column `Feature` is not found.
-* Column `Group` is not found.
-* Column `Sample` is not found.
-* Column `SequencingRun` is not found.</code></pre>
-<pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
-<pre class="r"><code>cat(&quot;## Heatmaps {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
+  summarise(mean = mean(avg_value))
+
+cat(&#39;\n&#39;)</code></pre>
+<pre class="r"><code>cat(&quot;## Heatmaps MT - WT {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
 </div>
 </div>
-<div id="heatmaps" class="section level2 tabset tabset-fade tabset-pills">
-<h2 class="tabset tabset-fade tabset-pills">Heatmaps</h2>
+<div id="heatmaps-mt---wt" class="section level2 tabset tabset-fade tabset-pills">
+<h2 class="tabset tabset-fade tabset-pills">Heatmaps MT - WT</h2>
 <pre class="r"><code>cat(&#39;\n&#39;)</code></pre>
 <pre class="r"><code>cat(&quot;### Delta&quot;)</code></pre>
 <div id="delta" class="section level3">
@@ -1031,10 +1196,10 @@ plot_Delta &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_wrap(~Sample, nrow = 3)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error in filter(., Group == &quot;Delta&quot;): object &#39;sums&#39; not found</code></pre>
-<pre class="r"><code>print(plot_Delta)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_Delta&#39; not found</code></pre>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_Delta)</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-5.png" width="1440" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cat(&quot;### LFC&quot;)</code></pre>
 </div>
 <div id="lfc" class="section level3">
@@ -1055,10 +1220,10 @@ plot_Delta &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_wrap(~Sample, nrow = 3)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error in filter(., Group == &quot;LFC&quot;): object &#39;sums&#39; not found</code></pre>
-<pre class="r"><code>print(plot_LFC)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_LFC&#39; not found</code></pre>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_LFC)</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-6.png" width="1440" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cat(&quot;## Seperate Violin Plots of Features {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
 </div>
 </div>
@@ -1067,10 +1232,9 @@ plot_Delta &lt;- sums %&gt;%
 <pre class="r"><code>features &lt;- sum_full_data %&gt;%
   group_by(Feature)%&gt;%
   filter(Group ==&quot;WT&quot;|Group ==&quot;MT&quot;)%&gt;%
-  group_split()</code></pre>
-<pre><code>Error: Must group by variables found in `.data`.
-* Column `Feature` is not found.</code></pre>
-<pre class="r"><code>for(i in 1:length(features)){
+  group_split()
+
+for(i in 1:length(features)){
       cat(&#39;\n&#39;)
     cat(&quot;###&quot;, features[[i]]$Feature[1], &quot;\n&quot;)
 
@@ -1081,8 +1245,55 @@ plot_Delta &lt;- sums %&gt;%
         cat(&#39;\n&#39;)
 
  }</code></pre>
-<pre><code>Error in features[[i]]: object of type &#39;closure&#39; is not subsettable</code></pre>
+<div id="section" class="section level3">
+<h3>1</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-7.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-1" class="section level3">
+<h3>2</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-8.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-2" class="section level3">
+<h3>3</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-9.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-3" class="section level3">
+<h3>4</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-10.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-4" class="section level3">
+<h3>5</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-11.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-5" class="section level3">
+<h3>6</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-12.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-6" class="section level3">
+<h3>7</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-13.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-7" class="section level3">
+<h3>8</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-14.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-8" class="section level3">
+<h3>9</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-15.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-9" class="section level3">
+<h3>10</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-16.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-10" class="section level3">
+<h3>11</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-17.png" width="1440" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-11" class="section level3">
+<h3>12</h3>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-18.png" width="1440" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>cat(&quot;## Heatmaps for each replicate {.tabset .tabset-fade .tabset-pills}&quot;)</code></pre>
+</div>
 </div>
 <div id="heatmaps-for-each-replicate" class="section level2 tabset tabset-fade tabset-pills">
 <h2 class="tabset tabset-fade tabset-pills">Heatmaps for each replicate</h2>
@@ -1101,10 +1312,10 @@ plot_seperate &lt;- sums %&gt;%
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank())+
   facet_grid(Sample~SequencingRun)+
-  theme(strip.background=element_rect(fill=&quot;white&quot;))</code></pre>
-<pre><code>Error in ggplot(., aes(Feature)): object &#39;sums&#39; not found</code></pre>
-<pre class="r"><code>print(plot_seperate)</code></pre>
-<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;x&#39; in selecting a method for function &#39;print&#39;: object &#39;plot_seperate&#39; not found</code></pre>
+  theme(strip.background=element_rect(fill=&quot;white&quot;))
+
+print(plot_seperate)</code></pre>
+<p><img src="figure/H3K27me3.Rmd/unnamed-chunk-6-19.png" width="1440" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1183,12 +1394,13 @@ other attached packages:
 [48] viridis_0.6.2                          
 [49] viridisLite_0.4.0                      
 [50] pheatmap_1.0.12                        
-[51] tidyr_1.1.4                            
-[52] ggpubr_0.4.0                           
-[53] ggsignif_0.6.3                         
-[54] ggplot2_3.3.5                          
-[55] data.table_1.14.2                      
-[56] workflowr_1.6.2                        
+[51] magick_2.7.3                           
+[52] tidyr_1.1.4                            
+[53] ggpubr_0.4.0                           
+[54] ggsignif_0.6.3                         
+[55] ggplot2_3.3.5                          
+[56] data.table_1.14.2                      
+[57] workflowr_1.6.2                        
 
 loaded via a namespace (and not attached):
   [1] utf8_1.2.2                tidyselect_1.1.1         
@@ -1197,68 +1409,69 @@ loaded via a namespace (and not attached):
   [7] codetools_0.2-18          withr_2.4.2              
   [9] colorspace_2.0-2          filelock_1.0.2           
  [11] highr_0.9                 knitr_1.36               
- [13] git2r_0.28.0              GenomeInfoDbData_1.2.6   
- [15] bit64_4.0.5               rhdf5_2.36.0             
- [17] rprojroot_2.0.2           vctrs_0.3.8              
- [19] generics_0.1.0            xfun_0.27                
- [21] BiocFileCache_2.0.0       R6_2.5.1                 
- [23] doParallel_1.0.16         clue_0.3-60              
- [25] bitops_1.0-7              rhdf5filters_1.4.0       
- [27] cachem_1.0.6              reshape_0.8.8            
- [29] DelayedArray_0.18.0       assertthat_0.2.1         
- [31] promises_1.2.0.1          BiocIO_1.2.0             
- [33] gtable_0.3.0              Cairo_1.5-12.2           
- [35] rlang_0.4.12              genefilter_1.74.1        
- [37] splines_4.1.1             GlobalOptions_0.1.2      
- [39] lazyeval_0.2.2            rtracklayer_1.52.1       
- [41] rstatix_0.7.0             GEOquery_2.60.0          
- [43] broom_0.7.9               yaml_2.2.1               
- [45] abind_1.4-5               backports_1.2.1          
- [47] httpuv_1.6.3              tools_4.1.1              
- [49] nor1mix_1.3-0             ellipsis_0.3.2           
- [51] jquerylib_0.1.4           siggenes_1.66.0          
- [53] Rcpp_1.0.7                sparseMatrixStats_1.4.2  
- [55] progress_1.2.2            zlibbioc_1.38.0          
- [57] RCurl_1.98-1.5            prettyunits_1.1.1        
- [59] openssl_1.4.5             GetoptLong_1.0.5         
- [61] haven_2.4.3               fs_1.5.0                 
- [63] magrittr_2.0.1            openxlsx_4.2.4           
- [65] circlize_0.4.13           whisker_0.4              
- [67] xtable_1.8-4              hms_1.1.1                
- [69] evaluate_0.14             XML_3.99-0.8             
- [71] rio_0.5.27                mclust_5.4.7             
- [73] readxl_1.3.1              shape_1.4.6              
- [75] compiler_4.1.1            biomaRt_2.48.3           
- [77] tibble_3.1.5              maps_3.4.0               
- [79] KernSmooth_2.23-20        crayon_1.4.1             
- [81] htmltools_0.5.2           tzdb_0.1.2               
- [83] later_1.3.0               DBI_1.1.1                
- [85] dbplyr_2.1.1              rappdirs_0.3.3           
- [87] readr_2.0.2               Matrix_1.3-4             
- [89] car_3.0-11                cli_3.0.1                
- [91] quadprog_1.5-8            forcats_0.5.1            
- [93] pkgconfig_2.0.3           GenomicAlignments_1.28.0 
- [95] foreign_0.8-81            xml2_1.3.2               
- [97] annotate_1.70.0           bslib_0.3.1              
- [99] rngtools_1.5.2            multtest_2.48.0          
-[101] beanplot_1.2              scrime_1.3.5             
-[103] doRNG_1.8.2               digest_0.6.28            
-[105] rmarkdown_2.11.3          base64_2.0               
-[107] cellranger_1.1.0          DelayedMatrixStats_1.14.3
-[109] restfulr_0.0.13           curl_4.3.2               
-[111] Rsamtools_2.8.0           gtools_3.9.2             
-[113] rjson_0.2.20              nlme_3.1-153             
-[115] lifecycle_1.0.1           jsonlite_1.7.2           
-[117] Rhdf5lib_1.14.2           carData_3.0-4            
-[119] askpass_1.1               fansi_0.5.0              
-[121] pillar_1.6.4              ggsci_2.9                
-[123] lattice_0.20-45           survival_3.2-13          
-[125] KEGGREST_1.32.0           fastmap_1.1.0            
-[127] httr_1.4.2                glue_1.4.2               
-[129] zip_2.2.0                 png_0.1-7                
-[131] stringi_1.7.5             sass_0.4.0               
-[133] HDF5Array_1.20.0          blob_1.2.2               
-[135] caTools_1.18.2            memoise_2.0.0            </code></pre>
+ [13] labeling_0.4.2            git2r_0.28.0             
+ [15] GenomeInfoDbData_1.2.6    farver_2.1.0             
+ [17] bit64_4.0.5               rhdf5_2.36.0             
+ [19] rprojroot_2.0.2           vctrs_0.3.8              
+ [21] generics_0.1.0            xfun_0.27                
+ [23] BiocFileCache_2.0.0       R6_2.5.1                 
+ [25] doParallel_1.0.16         clue_0.3-60              
+ [27] bitops_1.0-7              rhdf5filters_1.4.0       
+ [29] cachem_1.0.6              reshape_0.8.8            
+ [31] DelayedArray_0.18.0       assertthat_0.2.1         
+ [33] promises_1.2.0.1          BiocIO_1.2.0             
+ [35] gtable_0.3.0              Cairo_1.5-12.2           
+ [37] rlang_0.4.12              genefilter_1.74.1        
+ [39] splines_4.1.1             GlobalOptions_0.1.2      
+ [41] lazyeval_0.2.2            rtracklayer_1.52.1       
+ [43] rstatix_0.7.0             GEOquery_2.60.0          
+ [45] broom_0.7.9               yaml_2.2.1               
+ [47] abind_1.4-5               backports_1.2.1          
+ [49] httpuv_1.6.3              tools_4.1.1              
+ [51] nor1mix_1.3-0             ellipsis_0.3.2           
+ [53] jquerylib_0.1.4           siggenes_1.66.0          
+ [55] Rcpp_1.0.7                sparseMatrixStats_1.4.2  
+ [57] progress_1.2.2            zlibbioc_1.38.0          
+ [59] RCurl_1.98-1.5            prettyunits_1.1.1        
+ [61] openssl_1.4.5             GetoptLong_1.0.5         
+ [63] haven_2.4.3               fs_1.5.0                 
+ [65] magrittr_2.0.1            openxlsx_4.2.4           
+ [67] circlize_0.4.13           whisker_0.4              
+ [69] xtable_1.8-4              hms_1.1.1                
+ [71] evaluate_0.14             XML_3.99-0.8             
+ [73] rio_0.5.27                mclust_5.4.7             
+ [75] readxl_1.3.1              shape_1.4.6              
+ [77] compiler_4.1.1            biomaRt_2.48.3           
+ [79] tibble_3.1.5              maps_3.4.0               
+ [81] KernSmooth_2.23-20        crayon_1.4.1             
+ [83] htmltools_0.5.2           tzdb_0.1.2               
+ [85] later_1.3.0               DBI_1.1.1                
+ [87] dbplyr_2.1.1              rappdirs_0.3.3           
+ [89] readr_2.0.2               Matrix_1.3-4             
+ [91] car_3.0-11                quadprog_1.5-8           
+ [93] forcats_0.5.1             pkgconfig_2.0.3          
+ [95] GenomicAlignments_1.28.0  foreign_0.8-81           
+ [97] xml2_1.3.2                annotate_1.70.0          
+ [99] bslib_0.3.1               rngtools_1.5.2           
+[101] multtest_2.48.0           beanplot_1.2             
+[103] scrime_1.3.5              doRNG_1.8.2              
+[105] digest_0.6.28             rmarkdown_2.11.3         
+[107] base64_2.0                cellranger_1.1.0         
+[109] DelayedMatrixStats_1.14.3 restfulr_0.0.13          
+[111] curl_4.3.2                Rsamtools_2.8.0          
+[113] gtools_3.9.2              rjson_0.2.20             
+[115] nlme_3.1-153              lifecycle_1.0.1          
+[117] jsonlite_1.7.2            Rhdf5lib_1.14.2          
+[119] carData_3.0-4             askpass_1.1              
+[121] fansi_0.5.0               pillar_1.6.4             
+[123] ggsci_2.9                 lattice_0.20-45          
+[125] survival_3.2-13           KEGGREST_1.32.0          
+[127] fastmap_1.1.0             httr_1.4.2               
+[129] glue_1.4.2                zip_2.2.0                
+[131] png_0.1-7                 stringi_1.7.5            
+[133] sass_0.4.0                HDF5Array_1.20.0         
+[135] blob_1.2.2                caTools_1.18.2           
+[137] memoise_2.0.0            </code></pre>
 </div>
 </div>
 </div>
