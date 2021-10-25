@@ -1,0 +1,267 @@
+---
+title: "Template Title"
+author: "Marlene Ganslmeier"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+output:
+  workflowr::wflow_html:
+    toc: true
+    toc_depth: 2
+    code_folding: "hide"
+    toc_float: true
+    fig_width: 15
+editor_options:
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(error = TRUE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+
+library(DiffBind)
+library(BiocParallel)
+library(dplyr)
+library(csaw)
+library(GenomicRanges)
+library(biomaRt)
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(gprofiler2)
+library(org.Hs.eg.db)
+library(Repitools)
+library(ChIPpeakAnno)
+library(reactome.db)
+library(stringr)
+
+```
+
+```{r}
+##edit name depending on what you want to compute!
+NAME <- "ACT_seq_K9me3"
+EXT <- "_dba_results.rds"
+path <- paste("/icgc/dkfzlsdf/analysis/C010/ganslm/", NAME, EXT)
+
+
+# create sample sheet 
+
+BAM_DIR = c("/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210309_120_H33_Ilse20790/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_629_HistMut_20245/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210311_219_H33_Ilse20866/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_122_HistMut_20247/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_032_HistMut_20244/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210316_239_H33_Ilse20926/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_988_HistMut_20246/runs_out",
+ "/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_548_HistMut_20250/runs_out",
+ "/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/ACTseq/cwlab_outputs/20200621_532_ACT-seq_ESC_histone_3_2/runs_out",
+ "/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/ACTseq/cwlab_outputs/20200610_204_ACT-seq_ESC_histone3/")
+
+
+PEAK_DIR <- c("/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_032_HistMut_20244",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_122_HistMut_20247",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_548_HistMut_20250",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_629_HistMut_20245",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_988_HistMut_20246",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210309_120_H33_Ilse20790",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210311_219_H33_Ilse20866",
+"/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926")
+
+
+#for H3K9me3
+
+bamReads <- list.files(path = BAM_DIR, pattern = glob2rx("*tn5correct.bam"),
+                        recursive = T, 
+                        full.names = TRUE)
+bamReads <- bamReads[grep("H3K9me3", bamReads)]
+
+
+Peaks <- list.files(path = PEAK_DIR,
+                    pattern = glob2rx("*_peaks.xls"),
+                    recursive = T, 
+                    full.names = TRUE)
+Peaks <- Peaks[grep("H3K9me3", Peaks)]
+ 
+
+SampleID <- sapply(strsplit(split="/",bamReads), "[", 10)
+
+Condition <-  sapply(strsplit(split="_", SampleID), "[", 1)
+
+Sequencingrun <- sapply(strsplit(split="/",bamReads), "[", 8)
+
+samples_K9 <- data.frame(SampleID, Tissue = "Cell_line", Factor = "H3K9me3", Condition, bamReads, Peaks, Sequencingrun, "PeakCaller" =  "macs")
+
+samples_K9
+```
+
+
+```{r}
+peaks <- dba(sampleSheet = samples_K9)
+peaks <- dba.blacklist(peaks, blacklist = DBA_BLACKLIST_HG19, greylist=FALSE)
+peaks <- dba.count(peaks)
+peaks
+plot(peaks)
+peaks <- dba.normalize(peaks)
+```
+
+# {.tabset .tabset-fade .tabset-pills}
+
+```{r results='asis'}
+## PCA
+dba.plotPCA(peaks, label= DBA_CONDITION)
+
+## MA
+dba.plotMA(peaks, bNormalized=FALSE,
+           contrast=list(wt=peaks$masks$KH2wt,
+                         G34W=peaks$masks$KH2G34W))
+```
+
+
+```{r}
+#this models the data and sets wt as "base"
+contrast <- dba.contrast(peaks, reorderMeta=list(Condition="KH2wt"))
+
+#differential analyis with standard FDR of <0.05
+diffbind <- dba.analyze(contrast)
+dba.show(diffbind, bContrasts = T)
+
+plot(diffbind, contrast = 1)
+
+db_sites <- dba.report(diffbind)
+#saveRDS(db_sites, file = "/icgc/dkfzlsdf/analysis/C010/ganslm/workflowr/ACT_Seq2/output/db_sites.rds")
+#db_sites <- readRDS("/icgc/dkfzlsdf/analysis/C010/ganslm/workflowr/ACT_Seq2/output/db_sites.rds")
+
+#plots them as Venn 
+## Venn
+dba.plotVenn(diffbind, contrast=1, bDB=TRUE, bGain=TRUE, bLoss=TRUE, bAll=FALSE)
+
+```
+
+```{r}
+gain <- db_sites[db_sites$Fold > 0]
+loss <- db_sites[db_sites$Fold < 0]
+
+# Create GRanges object with annotations from TxDb database
+annoData <- toGRanges(TxDb.Hsapiens.UCSC.hg19.knownGene, feature="gene")
+
+
+# Load mart
+ensembl <- useEnsembl(biomart = "genes",
+                     dataset = "hsapiens_gene_ensembl")
+```
+
+First look at the peaks that were gained
+
+```{r}
+genomicElementDistribution(gain, 
+                           TxDb = TxDb.Hsapiens.UCSC.hg19.knownGene,
+                           promoterRegion=c(upstream=2000, downstream=500),
+                           geneDownstream=c(upstream=0, downstream=2000),
+                           promoterLevel=list(
+                         # from 5' -> 3', fixed precedence 3' -> 5'
+                             breaks = c(-2000, -1000, -500, 0, 500),
+                             labels = c("upstream 1-2Kb", "upstream 0.5-1Kb", 
+                                        "upstream <500b", "TSS - 500b"),
+                             colors = c("#FFE5CC", "#FFCA99", 
+                                        "#FFAD65", "#FF8E32")))
+
+
+
+
+# Annotate granges with the nearest TSS
+annot <- annotatePeakInBatch(gain, 
+                               AnnotationData=annoData, 
+                               featureType = "TSS",
+                               output="nearestLocation",
+                               PeakLocForDistance = "start")
+
+annot <- addGeneIDs(annot, mart = ensembl, feature_id_type = "ensembl_gene_id",
+                      IDs2Add = c("entrezgene_id", "description"))
+
+annot.copy <- annot
+annot.copy$score <- 1
+
+binOverFeature(annot, annot.copy, annotationData=annoData,
+               radius=5000, nbins=10, FUN=c(sum, length),
+               ylab=c("score", "count"), 
+               main=c("Distribution of aggregated peak scores around TSS", 
+                      "Distribution of aggregated peak numbers around TSS"))
+
+if(require(TxDb.Hsapiens.UCSC.hg19.knownGene)){
+    aCR<-assignChromosomeRegion(annot, nucleotideLevel=FALSE, 
+                           precedence=c("Promoters", "immediateDownstream", 
+                                         "fiveUTRs", "threeUTRs", 
+                                         "Exons", "Introns"), 
+                           TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene)
+    barplot(aCR$percentage)
+}
+
+
+pie1(table(annot$insideFeature))
+
+over <- getEnrichedGO(annot, orgAnn="org.Hs.eg.db", condense=TRUE, feature_id_type ="entrez_id")
+enrichmentPlot(over)
+over
+
+path <- getEnrichedPATH(annot, "org.Hs.eg.db", "reactome.db", maxP=.05, feature_id_type ="entrez_id")
+path <- separate(path, path.term, sep = ":", into = c(NA, "path.term"))
+path
+enrichmentPlot(path)
+
+```
+gain of peaks --> silencing --> peaks gained whee beta-catenin complex is deactivated --> beta catenin is upregulated --> cancer
+
+```{r}
+genomicElementDistribution(loss, 
+                           TxDb = TxDb.Hsapiens.UCSC.hg19.knownGene,
+                           promoterRegion=c(upstream=2000, downstream=500),
+                           geneDownstream=c(upstream=0, downstream=2000),
+                           promoterLevel=list(
+                         # from 5' -> 3', fixed precedence 3' -> 5'
+                             breaks = c(-2000, -1000, -500, 0, 500),
+                             labels = c("upstream 1-2Kb", "upstream 0.5-1Kb", 
+                                        "upstream <500b", "TSS - 500b"),
+                             colors = c("#FFE5CC", "#FFCA99", 
+                                        "#FFAD65", "#FF8E32")))
+
+
+
+
+# Annotate granges with the nearest TSS
+annot <- annotatePeakInBatch(loss, 
+                               AnnotationData=annoData, 
+                               featureType = "TSS",
+                               output="nearestLocation",
+                               PeakLocForDistance = "start")
+
+annot <- addGeneIDs(annot, mart = ensembl, feature_id_type = "ensembl_gene_id",
+                      IDs2Add = c("entrezgene_id", "description"))
+
+annot.copy <- annot
+annot.copy$score <- 1
+
+binOverFeature(annot, annot.copy, annotationData=annoData,
+               radius=5000, nbins=10, FUN=c(sum, length),
+               ylab=c("score", "count"), 
+               main=c("Distribution of aggregated peak scores around TSS", 
+                      "Distribution of aggregated peak numbers around TSS"))
+
+if(require(TxDb.Hsapiens.UCSC.hg19.knownGene)){
+    aCR<-assignChromosomeRegion(annot, nucleotideLevel=FALSE, 
+                           precedence=c("Promoters", "immediateDownstream", 
+                                         "fiveUTRs", "threeUTRs", 
+                                         "Exons", "Introns"), 
+                           TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene)
+    barplot(aCR$percentage)
+}
+
+
+pie1(table(annot$insideFeature))
+
+over <- getEnrichedGO(annot, orgAnn="org.Hs.eg.db", condense=TRUE, feature_id_type ="entrez_id")
+enrichmentPlot(over)
+
+path <- getEnrichedPATH(annot, "org.Hs.eg.db", "reactome.db", maxP=.05, feature_id_type ="entrez_id")
+path <- separate(path, path.term, sep = ":", into = c(NA, "path.term"))
+enrichmentPlot(path)
+
+```
