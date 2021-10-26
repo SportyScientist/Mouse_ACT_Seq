@@ -371,7 +371,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Template Title</h1>
 <h4 class="author">Marlene Ganslmeier</h4>
-<h4 class="date">25 October, 2021</h4>
+<h4 class="date">r format(Sys.time(), “%d %B, %Y, %H:%M”)</h4>
 
 </div>
 
@@ -396,7 +396,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-10-25
+<strong>Last updated:</strong> 2021-10-26
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -487,16 +487,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreece64c649cfee3a1d9fbf79ac7e59bcd1225f3cdbtargetblankce64c64a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/ce64c649cfee3a1d9fbf79ac7e59bcd1225f3cdb" target="_blank">ce64c64</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree77d8854190e6fefdaebc71a1db2afd4f3ba5f949targetblank77d8854a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/77d8854190e6fefdaebc71a1db2afd4f3ba5f949" target="_blank">77d8854</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreece64c649cfee3a1d9fbf79ac7e59bcd1225f3cdbtargetblankce64c64a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree77d8854190e6fefdaebc71a1db2afd4f3ba5f949targetblank77d8854a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/ce64c649cfee3a1d9fbf79ac7e59bcd1225f3cdb" target="_blank">ce64c64</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/77d8854190e6fefdaebc71a1db2afd4f3ba5f949" target="_blank">77d8854</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -579,6 +579,40 @@ Message
 <tbody>
 <tr>
 <td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/77d8854190e6fefdaebc71a1db2afd4f3ba5f949/analysis/Diffbind_K9me3.Rmd" target="_blank">77d8854</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-10-26
+</td>
+<td>
+wflow_publish("analysis/Diffbind_K9me3.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/a1d1587884677617c9c7de1f08a6905c19ab791f/docs/Diffbind_K9me3.html" target="_blank">a1d1587</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-10-25
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 html
 </td>
 <td>
@@ -618,13 +652,7 @@ initial publish
 </div>
 </div>
 </div>
-<pre class="r"><code>##edit name depending on what you want to compute!
-NAME &lt;- &quot;ACT_seq_K9me3&quot;
-EXT &lt;- &quot;_dba_results.rds&quot;
-path &lt;- paste(&quot;/icgc/dkfzlsdf/analysis/C010/ganslm/&quot;, NAME, EXT)
-
-
-# create sample sheet 
+<pre class="r"><code># create sample sheet 
 
 BAM_DIR = c(&quot;/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210309_120_H33_Ilse20790/runs_out&quot;,
  &quot;/icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_629_HistMut_20245/runs_out&quot;,
@@ -645,364 +673,132 @@ PEAK_DIR &lt;- c(&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSe
 &quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_988_HistMut_20246&quot;,
 &quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210309_120_H33_Ilse20790&quot;,
 &quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210311_219_H33_Ilse20866&quot;,
-&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926&quot;)
-
-
-#for H3K9me3
+&quot;/omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926&quot;)</code></pre>
+<pre class="r"><code>#for H3K9me3
 
 bamReads &lt;- list.files(path = BAM_DIR, pattern = glob2rx(&quot;*tn5correct.bam&quot;),
                         recursive = T, 
                         full.names = TRUE)
 bamReads &lt;- bamReads[grep(&quot;H3K9me3&quot;, bamReads)]
-
-
 Peaks &lt;- list.files(path = PEAK_DIR,
                     pattern = glob2rx(&quot;*_peaks.xls&quot;),
                     recursive = T, 
                     full.names = TRUE)
 Peaks &lt;- Peaks[grep(&quot;H3K9me3&quot;, Peaks)]
- 
-
 SampleID &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads), &quot;[&quot;, 10)
-
 Condition &lt;-  sapply(strsplit(split=&quot;_&quot;, SampleID), &quot;[&quot;, 1)
+Replicate &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads), &quot;[&quot;, 8)
+xx &lt;- unique(Replicate)
 
-Sequencingrun &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads), &quot;[&quot;, 8)
+Replicate[grep(xx[1], Replicate)] &lt;- 1
+Replicate[grep(xx[2], Replicate)] &lt;- 2
+Replicate[grep(xx[3], Replicate)] &lt;- 3
 
-samples_K9 &lt;- data.frame(SampleID, Tissue = &quot;Cell_line&quot;, Factor = &quot;H3K9me3&quot;, Condition, bamReads, Peaks, Sequencingrun, &quot;PeakCaller&quot; =  &quot;macs&quot;)
+H3K9me3 &lt;- data.frame(SampleID, Tissue = &quot;Cell_line&quot;, Factor = &quot;H3K9me3&quot;, Condition, bamReads, Peaks, Replicate, &quot;PeakCaller&quot; =  &quot;macs&quot;)</code></pre>
+<pre class="r"><code>#for H3K27ac
 
-samples_K9</code></pre>
-<pre><code>          SampleID    Tissue  Factor Condition
-1  KH2G34L_H3K9me3 Cell_line H3K9me3   KH2G34L
-2  KH2G34R_H3K9me3 Cell_line H3K9me3   KH2G34R
-3  KH2G34W_H3K9me3 Cell_line H3K9me3   KH2G34W
-4    KH2wt_H3K9me3 Cell_line H3K9me3     KH2wt
-5  KH2G34L_H3K9me3 Cell_line H3K9me3   KH2G34L
-6  KH2G34R_H3K9me3 Cell_line H3K9me3   KH2G34R
-7    KH2wt_H3K9me3 Cell_line H3K9me3     KH2wt
-8  KH2G34L_H3K9me3 Cell_line H3K9me3   KH2G34L
-9  KH2G34R_H3K9me3 Cell_line H3K9me3   KH2G34R
-10 KH2G34W_H3K9me3 Cell_line H3K9me3   KH2G34W
-11   KH2wt_H3K9me3 Cell_line H3K9me3     KH2wt
-                                                                                                                                                 bamReads
-1  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_548_HistMut_20250/runs_out/KH2G34L_H3K9me3/KH2G34L_H3K9me3_filt_tn5correct.bam
-2  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_548_HistMut_20250/runs_out/KH2G34R_H3K9me3/KH2G34R_H3K9me3_filt_tn5correct.bam
-3  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_548_HistMut_20250/runs_out/KH2G34W_H3K9me3/KH2G34W_H3K9me3_filt_tn5correct.bam
-4      /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_548_HistMut_20250/runs_out/KH2wt_H3K9me3/KH2wt_H3K9me3_filt_tn5correct.bam
-5  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_629_HistMut_20245/runs_out/KH2G34L_H3K9me3/KH2G34L_H3K9me3_filt_tn5correct.bam
-6  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_629_HistMut_20245/runs_out/KH2G34R_H3K9me3/KH2G34R_H3K9me3_filt_tn5correct.bam
-7      /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_629_HistMut_20245/runs_out/KH2wt_H3K9me3/KH2wt_H3K9me3_filt_tn5correct.bam
-8  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210309_120_H33_Ilse20790/runs_out/KH2G34L_H3K9me3/KH2G34L_H3K9me3_filt_tn5correct.bam
-9  /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210309_120_H33_Ilse20790/runs_out/KH2G34R_H3K9me3/KH2G34R_H3K9me3_filt_tn5correct.bam
-10 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210309_120_H33_Ilse20790/runs_out/KH2G34W_H3K9me3/KH2G34W_H3K9me3_filt_tn5correct.bam
-11     /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210309_120_H33_Ilse20790/runs_out/KH2wt_H3K9me3/KH2wt_H3K9me3_filt_tn5correct.bam
-                                                                                                                                 Peaks
-1  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_548_HistMut_20250/KH2G34L_H3K9me3_filt_tn5correct_peaks.xls
-2  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_548_HistMut_20250/KH2G34R_H3K9me3_filt_tn5correct_peaks.xls
-3  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_548_HistMut_20250/KH2G34W_H3K9me3_filt_tn5correct_peaks.xls
-4    /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_548_HistMut_20250/KH2wt_H3K9me3_filt_tn5correct_peaks.xls
-5  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_629_HistMut_20245/KH2G34L_H3K9me3_filt_tn5correct_peaks.xls
-6  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_629_HistMut_20245/KH2G34R_H3K9me3_filt_tn5correct_peaks.xls
-7    /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_629_HistMut_20245/KH2wt_H3K9me3_filt_tn5correct_peaks.xls
-8  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210309_120_H33_Ilse20790/KH2G34L_H3K9me3_filt_tn5correct_peaks.xls
-9  /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210309_120_H33_Ilse20790/KH2G34R_H3K9me3_filt_tn5correct_peaks.xls
-10 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210309_120_H33_Ilse20790/KH2G34W_H3K9me3_filt_tn5correct_peaks.xls
-11   /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210309_120_H33_Ilse20790/KH2wt_H3K9me3_filt_tn5correct_peaks.xls
-                Sequencingrun PeakCaller
-1  20201225_548_HistMut_20250       macs
-2  20201225_548_HistMut_20250       macs
-3  20201225_548_HistMut_20250       macs
-4  20201225_548_HistMut_20250       macs
-5  20201225_629_HistMut_20245       macs
-6  20201225_629_HistMut_20245       macs
-7  20201225_629_HistMut_20245       macs
-8  20210309_120_H33_Ilse20790       macs
-9  20210309_120_H33_Ilse20790       macs
-10 20210309_120_H33_Ilse20790       macs
-11 20210309_120_H33_Ilse20790       macs</code></pre>
-<pre class="r"><code>peaks &lt;- dba(sampleSheet = samples_K9)
+bamReads &lt;- list.files(path = BAM_DIR, pattern = glob2rx(&quot;*tn5correct.bam&quot;),
+                        recursive = T, 
+                        full.names = TRUE)
+bamReads &lt;- bamReads[grep(&quot;H3K27ac&quot;, bamReads)]
+Peaks &lt;- list.files(path = PEAK_DIR,
+                    pattern = glob2rx(&quot;*_peaks.xls&quot;),
+                    recursive = T, 
+                    full.names = TRUE)
+Peaks &lt;- Peaks[grep(&quot;H3K27ac&quot;, Peaks)]
+SampleID &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads), &quot;[&quot;, 10)
+Condition &lt;-  sapply(strsplit(split=&quot;_&quot;, SampleID), &quot;[&quot;, 1)
+Replicate &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads), &quot;[&quot;, 8)
+
+xx &lt;- unique(Replicate)
+
+Replicate[grep(xx[1], Replicate)] &lt;- 1
+Replicate[grep(xx[2], Replicate)] &lt;- 2
+Replicate[grep(xx[3], Replicate)] &lt;- 3
+
+
+H3K27ac &lt;- data.frame(SampleID, Tissue = &quot;Cell_line&quot;, Factor = &quot;H3K27ac&quot;, Condition, bamReads, Peaks, Replicate, &quot;PeakCaller&quot; =  &quot;macs&quot;)</code></pre>
+<pre class="r"><code>#for H3K27me3
+
+bamReads &lt;- list.files(path = BAM_DIR, pattern = glob2rx(&quot;*tn5correct.bam&quot;),
+                        recursive = T, 
+                        full.names = TRUE)
+bamReads &lt;- bamReads[grep(&quot;H3K27me3&quot;, bamReads)]
+Peaks &lt;- list.files(path = PEAK_DIR,
+                    pattern = glob2rx(&quot;*_peaks.xls&quot;),
+                    recursive = T, 
+                    full.names = TRUE)
+Peaks &lt;- Peaks[grep(&quot;H3K27me3&quot;, Peaks)]
+SampleID &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads[1:7]), &quot;[&quot;, 10)
+Condition &lt;-  sapply(strsplit(split=&quot;_&quot;, SampleID), &quot;[&quot;, 1)
+Replicate &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads[1:7]), &quot;[&quot;, 8)
+xx &lt;- unique(Replicate)
+
+Replicate[grep(xx[1], Replicate)] &lt;- 1
+Replicate[grep(xx[2], Replicate)] &lt;- 2
+Replicate[grep(xx[3], Replicate)] &lt;- 3
+
+H3K27me3 &lt;- data.frame(SampleID, Tissue = &quot;Cell_line&quot;, Factor = &quot;H3K27me3&quot;, Condition, bamReads[1:7], Peaks, Replicate, &quot;PeakCaller&quot; =  &quot;macs&quot;)</code></pre>
+<pre class="r"><code>#for H3K36me3
+
+bamReads &lt;- list.files(path = BAM_DIR, pattern = glob2rx(&quot;*tn5correct.bam&quot;),
+                        recursive = T, 
+                        full.names = TRUE)
+bamReads &lt;- bamReads[grep(&quot;H3K36me3&quot;, bamReads)]
+Peaks &lt;- list.files(path = PEAK_DIR,
+                    pattern = glob2rx(&quot;*_peaks.xls&quot;),
+                    recursive = T, 
+                    full.names = TRUE)
+Peaks &lt;- Peaks[grep(&quot;H3K36me3&quot;, Peaks)]
+SampleID &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads[1:7]), &quot;[&quot;, 10)
+Condition &lt;-  sapply(strsplit(split=&quot;_&quot;, SampleID), &quot;[&quot;, 1)
+Replicate &lt;- sapply(strsplit(split=&quot;/&quot;,bamReads[1:7]), &quot;[&quot;, 8)
+xx &lt;- unique(Replicate)
+
+Replicate[grep(xx[1], Replicate)] &lt;- 1
+Replicate[grep(xx[2], Replicate)] &lt;- 2
+Replicate[grep(xx[3], Replicate)] &lt;- 3
+
+H3K36me3 &lt;- data.frame(SampleID, Tissue = &quot;Cell_line&quot;, Factor = &quot;H3K36me3&quot;, Condition, bamReads[1:7], Peaks, Replicate, &quot;PeakCaller&quot; =  &quot;macs&quot;)</code></pre>
+<pre class="r"><code>
+marks &lt;- c(H3K36me3, H3K27ac, H3K27me3, H3K9me3)
+
+for(sheet in marks){
+peaks &lt;- dba(sampleSheet = sheet)
 peaks &lt;- dba.blacklist(peaks, blacklist = DBA_BLACKLIST_HG19, greylist=FALSE)
 peaks &lt;- dba.count(peaks)
-peaks</code></pre>
-<pre><code>11 Samples, 131698 sites in matrix:
-                ID    Tissue  Factor Condition    Reads FRiP
-1  KH2G34L_H3K9me3 Cell_line H3K9me3   KH2G34L  8807181 0.14
-2  KH2G34R_H3K9me3 Cell_line H3K9me3   KH2G34R  9879046 0.26
-3  KH2G34W_H3K9me3 Cell_line H3K9me3   KH2G34W 11120888 0.22
-4    KH2wt_H3K9me3 Cell_line H3K9me3     KH2wt  8214506 0.14
-5  KH2G34L_H3K9me3 Cell_line H3K9me3   KH2G34L 13816092 0.19
-6  KH2G34R_H3K9me3 Cell_line H3K9me3   KH2G34R  8779759 0.15
-7    KH2wt_H3K9me3 Cell_line H3K9me3     KH2wt 15837093 0.10
-8  KH2G34L_H3K9me3 Cell_line H3K9me3   KH2G34L 13210888 0.08
-9  KH2G34R_H3K9me3 Cell_line H3K9me3   KH2G34R  7615363 0.09
-10 KH2G34W_H3K9me3 Cell_line H3K9me3   KH2G34W  9254629 0.19
-11   KH2wt_H3K9me3 Cell_line H3K9me3     KH2wt 10927494 0.24</code></pre>
-<pre class="r"><code>plot(peaks)</code></pre>
-<p><img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-2-1.png" width="1440" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-2-1">
-Past versions of unnamed-chunk-2-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-2-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/ce64c649cfee3a1d9fbf79ac7e59bcd1225f3cdb/docs/figure/Diffbind_K9me3.Rmd/unnamed-chunk-2-1.png" target="_blank">ce64c64</a>
-</td>
-<td>
-margan96
-</td>
-<td>
-2021-10-25
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>peaks &lt;- dba.normalize(peaks)</code></pre>
-<div id="section" class="section level1 tabset tabset-fade tabset-pills">
-<h1 class="tabset tabset-fade tabset-pills"></h1>
-<pre class="r"><code>## PCA
-dba.plotPCA(peaks, label= DBA_CONDITION)</code></pre>
-<p><img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-3-1.png" width="1440" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-1">
-Past versions of unnamed-chunk-3-1.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-3-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/ce64c649cfee3a1d9fbf79ac7e59bcd1225f3cdb/docs/figure/Diffbind_K9me3.Rmd/unnamed-chunk-3-1.png" target="_blank">ce64c64</a>
-</td>
-<td>
-margan96
-</td>
-<td>
-2021-10-25
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>## MA
-dba.plotMA(peaks, bNormalized=FALSE,
-           contrast=list(wt=peaks$masks$KH2wt,
-                         G34W=peaks$masks$KH2G34W))</code></pre>
-<p><img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-3-2.png" width="1440" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-3-2">
-Past versions of unnamed-chunk-3-2.png
-</button>
-</p>
-<div id="fig-unnamed-chunk-3-2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/ce64c649cfee3a1d9fbf79ac7e59bcd1225f3cdb/docs/figure/Diffbind_K9me3.Rmd/unnamed-chunk-3-2.png" target="_blank">ce64c64</a>
-</td>
-<td>
-margan96
-</td>
-<td>
-2021-10-25
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<pre class="r"><code>#this models the data and sets wt as &quot;base&quot;
-contrast &lt;- dba.contrast(peaks, reorderMeta=list(Condition=&quot;KH2wt&quot;))
+plot(peaks)
+peaks &lt;- dba.normalize(peaks)
+peaks
+## PCA
+dba.plotPCA(peaks, label= DBA_CONDITION)
+
+## MA
+dba.plotMA(peaks, bNormalized=FALSE)
+
+#this models the data and sets wt as &quot;base&quot;
+contrast &lt;- dba.contrast(peaks, design = &quot;~Condition + Replicate&quot;)
 
 #differential analyis with standard FDR of &lt;0.05
 diffbind &lt;- dba.analyze(contrast)
-dba.show(diffbind, bContrasts = T)</code></pre>
-<pre><code>     Factor   Group Samples  Group2 Samples2 DB.DESeq2
-1 Condition KH2G34L       3 KH2G34R        3         0
-2 Condition KH2G34L       3   KH2wt        3         0
-3 Condition KH2G34R       3   KH2wt        3         0</code></pre>
-<pre class="r"><code>plot(diffbind, contrast = 1)</code></pre>
-<pre><code>Error: Unable to plot -- no sites within threshold</code></pre>
-<pre class="r"><code>db_sites &lt;- dba.report(diffbind)
+dba.show(diffbind, bContrasts = T)
+
+plot(diffbind, contrast = 1)
+
+db_sites &lt;- dba.report(diffbind)
+db_sites
 #saveRDS(db_sites, file = &quot;/icgc/dkfzlsdf/analysis/C010/ganslm/workflowr/ACT_Seq2/output/db_sites.rds&quot;)
 #db_sites &lt;- readRDS(&quot;/icgc/dkfzlsdf/analysis/C010/ganslm/workflowr/ACT_Seq2/output/db_sites.rds&quot;)
 
 #plots them as Venn 
 ## Venn
-dba.plotVenn(diffbind, contrast=1, bDB=TRUE, bGain=TRUE, bLoss=TRUE, bAll=FALSE)</code></pre>
-<pre><code>Error: No valid contrasts/methods specified.</code></pre>
-<pre class="r"><code>gain &lt;- db_sites[db_sites$Fold &gt; 0]
-loss &lt;- db_sites[db_sites$Fold &lt; 0]
-
-# Create GRanges object with annotations from TxDb database
-annoData &lt;- toGRanges(TxDb.Hsapiens.UCSC.hg19.knownGene, feature=&quot;gene&quot;)
-
-
-# Load mart
-ensembl &lt;- useEnsembl(biomart = &quot;genes&quot;,
-                     dataset = &quot;hsapiens_gene_ensembl&quot;)</code></pre>
-<p>First look at the peaks that were gained</p>
-<pre class="r"><code>genomicElementDistribution(gain, 
-                           TxDb = TxDb.Hsapiens.UCSC.hg19.knownGene,
-                           promoterRegion=c(upstream=2000, downstream=500),
-                           geneDownstream=c(upstream=0, downstream=2000),
-                           promoterLevel=list(
-                         # from 5&#39; -&gt; 3&#39;, fixed precedence 3&#39; -&gt; 5&#39;
-                             breaks = c(-2000, -1000, -500, 0, 500),
-                             labels = c(&quot;upstream 1-2Kb&quot;, &quot;upstream 0.5-1Kb&quot;, 
-                                        &quot;upstream &lt;500b&quot;, &quot;TSS - 500b&quot;),
-                             colors = c(&quot;#FFE5CC&quot;, &quot;#FFCA99&quot;, 
-                                        &quot;#FFAD65&quot;, &quot;#FF8E32&quot;)))</code></pre>
-<pre><code>Error in genomicElementDistribution(gain, TxDb = TxDb.Hsapiens.UCSC.hg19.knownGene, : peaks must be an object of GRanges or GRangesList</code></pre>
-<pre class="r"><code># Annotate granges with the nearest TSS
-annot &lt;- annotatePeakInBatch(gain, 
-                               AnnotationData=annoData, 
-                               featureType = &quot;TSS&quot;,
-                               output=&quot;nearestLocation&quot;,
-                               PeakLocForDistance = &quot;start&quot;)</code></pre>
-<pre><code>Error in annotatePeakInBatch(gain, AnnotationData = annoData, featureType = &quot;TSS&quot;, : No valid myPeakList passed in. It needs to be GRanges object</code></pre>
-<pre class="r"><code>annot &lt;- addGeneIDs(annot, mart = ensembl, feature_id_type = &quot;ensembl_gene_id&quot;,
-                      IDs2Add = c(&quot;entrezgene_id&quot;, &quot;description&quot;))</code></pre>
-<pre><code>Error in is(annotatedPeak, &quot;GRanges&quot;): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>annot.copy &lt;- annot</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>annot.copy$score &lt;- 1</code></pre>
-<pre><code>Error in annot.copy$score &lt;- 1: object &#39;annot.copy&#39; not found</code></pre>
-<pre class="r"><code>binOverFeature(annot, annot.copy, annotationData=annoData,
-               radius=5000, nbins=10, FUN=c(sum, length),
-               ylab=c(&quot;score&quot;, &quot;count&quot;), 
-               main=c(&quot;Distribution of aggregated peak scores around TSS&quot;, 
-                      &quot;Distribution of aggregated peak numbers around TSS&quot;))</code></pre>
-<pre><code>Error in binOverFeature(annot, annot.copy, annotationData = annoData, : object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>if(require(TxDb.Hsapiens.UCSC.hg19.knownGene)){
-    aCR&lt;-assignChromosomeRegion(annot, nucleotideLevel=FALSE, 
-                           precedence=c(&quot;Promoters&quot;, &quot;immediateDownstream&quot;, 
-                                         &quot;fiveUTRs&quot;, &quot;threeUTRs&quot;, 
-                                         &quot;Exons&quot;, &quot;Introns&quot;), 
-                           TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene)
-    barplot(aCR$percentage)
+dba.plotVenn(diffbind, contrast=1, bDB=TRUE, bGain=TRUE, bLoss=TRUE, bAll=FALSE)
+}
 }</code></pre>
-<pre><code>Error in assignChromosomeRegion(annot, nucleotideLevel = FALSE, precedence = c(&quot;Promoters&quot;, : object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>pie1(table(annot$insideFeature))</code></pre>
-<pre><code>Error in eval(quote(list(...)), env): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>over &lt;- getEnrichedGO(annot, orgAnn=&quot;org.Hs.eg.db&quot;, condense=TRUE, feature_id_type =&quot;entrez_id&quot;)</code></pre>
-<pre><code>Error in is(annotatedPeak, &quot;GRangesList&quot;): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>enrichmentPlot(over)</code></pre>
-<pre><code>Error in is.data.frame(res): object &#39;over&#39; not found</code></pre>
-<pre class="r"><code>over</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;over&#39; not found</code></pre>
-<pre class="r"><code>path &lt;- getEnrichedPATH(annot, &quot;org.Hs.eg.db&quot;, &quot;reactome.db&quot;, maxP=.05, feature_id_type =&quot;entrez_id&quot;)</code></pre>
-<pre><code>Error in getEnrichedPATH(annot, &quot;org.Hs.eg.db&quot;, &quot;reactome.db&quot;, maxP = 0.05, : object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>path &lt;- separate(path, path.term, sep = &quot;:&quot;, into = c(NA, &quot;path.term&quot;))</code></pre>
-<pre><code>Error in separate(path, path.term, sep = &quot;:&quot;, into = c(NA, &quot;path.term&quot;)): could not find function &quot;separate&quot;</code></pre>
-<pre class="r"><code>path</code></pre>
-<pre><code>[1] &quot;/icgc/dkfzlsdf/analysis/C010/ganslm/ ACT_seq_K9me3 _dba_results.rds&quot;</code></pre>
-<pre class="r"><code>enrichmentPlot(path)</code></pre>
-<pre><code>Error: $ operator is invalid for atomic vectors</code></pre>
-<p>gain of peaks –&gt; silencing –&gt; peaks gained whee beta-catenin complex is deactivated –&gt; beta catenin is upregulated –&gt; cancer</p>
-<pre class="r"><code>genomicElementDistribution(loss, 
-                           TxDb = TxDb.Hsapiens.UCSC.hg19.knownGene,
-                           promoterRegion=c(upstream=2000, downstream=500),
-                           geneDownstream=c(upstream=0, downstream=2000),
-                           promoterLevel=list(
-                         # from 5&#39; -&gt; 3&#39;, fixed precedence 3&#39; -&gt; 5&#39;
-                             breaks = c(-2000, -1000, -500, 0, 500),
-                             labels = c(&quot;upstream 1-2Kb&quot;, &quot;upstream 0.5-1Kb&quot;, 
-                                        &quot;upstream &lt;500b&quot;, &quot;TSS - 500b&quot;),
-                             colors = c(&quot;#FFE5CC&quot;, &quot;#FFCA99&quot;, 
-                                        &quot;#FFAD65&quot;, &quot;#FF8E32&quot;)))</code></pre>
-<pre><code>Error in genomicElementDistribution(loss, TxDb = TxDb.Hsapiens.UCSC.hg19.knownGene, : peaks must be an object of GRanges or GRangesList</code></pre>
-<pre class="r"><code># Annotate granges with the nearest TSS
-annot &lt;- annotatePeakInBatch(loss, 
-                               AnnotationData=annoData, 
-                               featureType = &quot;TSS&quot;,
-                               output=&quot;nearestLocation&quot;,
-                               PeakLocForDistance = &quot;start&quot;)</code></pre>
-<pre><code>Error in annotatePeakInBatch(loss, AnnotationData = annoData, featureType = &quot;TSS&quot;, : No valid myPeakList passed in. It needs to be GRanges object</code></pre>
-<pre class="r"><code>annot &lt;- addGeneIDs(annot, mart = ensembl, feature_id_type = &quot;ensembl_gene_id&quot;,
-                      IDs2Add = c(&quot;entrezgene_id&quot;, &quot;description&quot;))</code></pre>
-<pre><code>Error in is(annotatedPeak, &quot;GRanges&quot;): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>annot.copy &lt;- annot</code></pre>
-<pre><code>Error in eval(expr, envir, enclos): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>annot.copy$score &lt;- 1</code></pre>
-<pre><code>Error in annot.copy$score &lt;- 1: object &#39;annot.copy&#39; not found</code></pre>
-<pre class="r"><code>binOverFeature(annot, annot.copy, annotationData=annoData,
-               radius=5000, nbins=10, FUN=c(sum, length),
-               ylab=c(&quot;score&quot;, &quot;count&quot;), 
-               main=c(&quot;Distribution of aggregated peak scores around TSS&quot;, 
-                      &quot;Distribution of aggregated peak numbers around TSS&quot;))</code></pre>
-<pre><code>Error in binOverFeature(annot, annot.copy, annotationData = annoData, : object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>if(require(TxDb.Hsapiens.UCSC.hg19.knownGene)){
-    aCR&lt;-assignChromosomeRegion(annot, nucleotideLevel=FALSE, 
-                           precedence=c(&quot;Promoters&quot;, &quot;immediateDownstream&quot;, 
-                                         &quot;fiveUTRs&quot;, &quot;threeUTRs&quot;, 
-                                         &quot;Exons&quot;, &quot;Introns&quot;), 
-                           TxDb=TxDb.Hsapiens.UCSC.hg19.knownGene)
-    barplot(aCR$percentage)
-}</code></pre>
-<pre><code>Error in assignChromosomeRegion(annot, nucleotideLevel = FALSE, precedence = c(&quot;Promoters&quot;, : object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>pie1(table(annot$insideFeature))</code></pre>
-<pre><code>Error in eval(quote(list(...)), env): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>over &lt;- getEnrichedGO(annot, orgAnn=&quot;org.Hs.eg.db&quot;, condense=TRUE, feature_id_type =&quot;entrez_id&quot;)</code></pre>
-<pre><code>Error in is(annotatedPeak, &quot;GRangesList&quot;): object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>enrichmentPlot(over)</code></pre>
-<pre><code>Error in is.data.frame(res): object &#39;over&#39; not found</code></pre>
-<pre class="r"><code>path &lt;- getEnrichedPATH(annot, &quot;org.Hs.eg.db&quot;, &quot;reactome.db&quot;, maxP=.05, feature_id_type =&quot;entrez_id&quot;)</code></pre>
-<pre><code>Error in getEnrichedPATH(annot, &quot;org.Hs.eg.db&quot;, &quot;reactome.db&quot;, maxP = 0.05, : object &#39;annot&#39; not found</code></pre>
-<pre class="r"><code>path &lt;- separate(path, path.term, sep = &quot;:&quot;, into = c(NA, &quot;path.term&quot;))</code></pre>
-<pre><code>Error in separate(path, path.term, sep = &quot;:&quot;, into = c(NA, &quot;path.term&quot;)): could not find function &quot;separate&quot;</code></pre>
-<pre class="r"><code>enrichmentPlot(path)</code></pre>
-<pre><code>Error: $ operator is invalid for atomic vectors</code></pre>
+<pre><code>Error: &lt;text&gt;:35:1: unexpected &#39;}&#39;
+34: }
+35: }
+    ^</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1061,59 +857,57 @@ loaded via a namespace (and not attached):
   [4] htmlwidgets_1.5.4        grid_4.1.1               munsell_0.5.0           
   [7] base64url_1.4            preprocessCore_1.54.0    systemPipeR_1.26.3      
  [10] withr_2.4.2              colorspace_2.0-2         Category_2.58.0         
- [13] filelock_1.0.2           highr_0.9                knitr_1.36              
- [16] git2r_0.28.0             bbmle_1.0.24             GenomeInfoDbData_1.2.6  
- [19] mixsqp_0.3-43            hwriter_1.3.2            bit64_4.0.5             
- [22] pheatmap_1.0.12          rprojroot_2.0.2          coda_0.19-4             
- [25] batchtools_0.9.15        vctrs_0.3.8              generics_0.1.0          
- [28] lambda.r_1.2.4           xfun_0.27                BiocFileCache_2.0.0     
- [31] regioneR_1.24.0          R6_2.5.1                 apeglm_1.14.0           
- [34] invgamma_1.1             locfit_1.5-9.4           rsvg_2.1.2              
- [37] AnnotationFilter_1.16.0  bitops_1.0-7             cachem_1.0.6            
- [40] DelayedArray_0.18.0      assertthat_0.2.1         Ringo_1.56.0            
- [43] promises_1.2.0.1         BiocIO_1.2.0             scales_1.1.1            
- [46] gtable_0.3.0             affy_1.70.0              ensembldb_2.16.4        
- [49] rlang_0.4.12             genefilter_1.74.0        splines_4.1.1           
- [52] rtracklayer_1.52.1       lazyeval_0.2.2           brew_1.0-6              
- [55] checkmate_2.0.0          BiocManager_1.30.16      yaml_2.2.1              
- [58] backports_1.2.1          httpuv_1.6.3             RBGL_1.68.0             
- [61] tools_4.1.1              ggplot2_3.3.5            affyio_1.62.0           
- [64] ellipsis_0.3.2           gplots_3.1.1             Rsolnp_1.16             
- [67] jquerylib_0.1.4          RColorBrewer_1.1-2       DNAcopy_1.66.0          
- [70] Rcpp_1.0.7               plyr_1.8.6               progress_1.2.2          
- [73] zlibbioc_1.38.0          purrr_0.3.4              RCurl_1.98-1.5          
- [76] prettyunits_1.1.1        ashr_2.2-47              cluster_2.1.2           
- [79] ggrepel_0.9.1            fs_1.5.0                 magrittr_2.0.1          
- [82] futile.options_1.0.1     data.table_1.14.2        truncnorm_1.0-8         
- [85] mvtnorm_1.1-3            SQUAREM_2021.1           whisker_0.4             
- [88] amap_0.8-18              ProtGenerics_1.24.0      hms_1.1.1               
- [91] evaluate_0.14            xtable_1.8-4             XML_3.99-0.8            
- [94] VennDiagram_1.6.20       emdbook_1.3.12           jpeg_0.1-9              
- [97] compiler_4.1.1           bdsmatrix_1.3-4          tibble_3.1.5            
-[100] KernSmooth_2.23-20       V8_3.4.2                 crayon_1.4.1            
-[103] htmltools_0.5.2          GOstats_2.58.0           later_1.3.0             
-[106] geneplotter_1.70.0       tidyr_1.1.4              DBI_1.1.1               
-[109] formatR_1.11             dbplyr_2.1.1             MASS_7.3-54             
-[112] rappdirs_0.3.3           ShortRead_1.50.0         Matrix_1.3-4            
-[115] vsn_3.60.0               metapod_1.0.0            pkgconfig_2.0.3         
-[118] GenomicAlignments_1.28.0 numDeriv_2016.8-1.1      plotly_4.10.0           
-[121] InteractionSet_1.20.0    xml2_1.3.2               annotate_1.70.0         
-[124] bslib_0.3.1              multtest_2.48.0          XVector_0.32.0          
-[127] AnnotationForge_1.34.1   VariantAnnotation_1.38.0 digest_0.6.28           
-[130] graph_1.70.0             Biostrings_2.60.2        rmarkdown_2.11.3        
-[133] edgeR_3.34.1             GSEABase_1.54.0          restfulr_0.0.13         
-[136] GreyListChIP_1.24.0      curl_4.3.2               Rsamtools_2.8.0         
-[139] gtools_3.9.2             rjson_0.2.20             lifecycle_1.0.1         
-[142] jsonlite_1.7.2           futile.logger_1.4.3      viridisLite_0.4.0       
-[145] limma_3.48.3             BSgenome_1.60.0          fansi_0.5.0             
-[148] pillar_1.6.4             lattice_0.20-45          KEGGREST_1.32.0         
-[151] fastmap_1.1.0            httr_1.4.2               survival_3.2-13         
-[154] GO.db_3.13.0             glue_1.4.2               png_0.1-7               
-[157] bit_4.0.4                Rgraphviz_2.36.0         stringi_1.7.5           
-[160] sass_0.4.0               blob_1.2.2               DESeq2_1.32.0           
-[163] latticeExtra_0.6-29      caTools_1.18.2           memoise_2.0.0           
-[166] gsmoothr_0.1.7           DOT_0.1                  irlba_2.3.3             </code></pre>
-</div>
+ [13] filelock_1.0.2           knitr_1.36               git2r_0.28.0            
+ [16] bbmle_1.0.24             GenomeInfoDbData_1.2.6   mixsqp_0.3-43           
+ [19] hwriter_1.3.2            bit64_4.0.5              pheatmap_1.0.12         
+ [22] rprojroot_2.0.2          coda_0.19-4              batchtools_0.9.15       
+ [25] vctrs_0.3.8              generics_0.1.0           lambda.r_1.2.4          
+ [28] xfun_0.27                BiocFileCache_2.0.0      regioneR_1.24.0         
+ [31] R6_2.5.1                 apeglm_1.14.0            invgamma_1.1            
+ [34] locfit_1.5-9.4           rsvg_2.1.2               AnnotationFilter_1.16.0 
+ [37] bitops_1.0-7             cachem_1.0.6             DelayedArray_0.18.0     
+ [40] assertthat_0.2.1         Ringo_1.56.0             promises_1.2.0.1        
+ [43] BiocIO_1.2.0             scales_1.1.1             gtable_0.3.0            
+ [46] affy_1.70.0              ensembldb_2.16.4         rlang_0.4.12            
+ [49] genefilter_1.74.0        splines_4.1.1            rtracklayer_1.52.1      
+ [52] lazyeval_0.2.2           brew_1.0-6               checkmate_2.0.0         
+ [55] BiocManager_1.30.16      yaml_2.2.1               backports_1.2.1         
+ [58] httpuv_1.6.3             RBGL_1.68.0              tools_4.1.1             
+ [61] ggplot2_3.3.5            affyio_1.62.0            ellipsis_0.3.2          
+ [64] gplots_3.1.1             Rsolnp_1.16              jquerylib_0.1.4         
+ [67] RColorBrewer_1.1-2       DNAcopy_1.66.0           Rcpp_1.0.7              
+ [70] plyr_1.8.6               progress_1.2.2           zlibbioc_1.38.0         
+ [73] purrr_0.3.4              RCurl_1.98-1.5           prettyunits_1.1.1       
+ [76] ashr_2.2-47              cluster_2.1.2            ggrepel_0.9.1           
+ [79] fs_1.5.0                 magrittr_2.0.1           futile.options_1.0.1    
+ [82] data.table_1.14.2        truncnorm_1.0-8          mvtnorm_1.1-3           
+ [85] SQUAREM_2021.1           whisker_0.4              amap_0.8-18             
+ [88] ProtGenerics_1.24.0      hms_1.1.1                evaluate_0.14           
+ [91] xtable_1.8-4             XML_3.99-0.8             VennDiagram_1.6.20      
+ [94] emdbook_1.3.12           jpeg_0.1-9               compiler_4.1.1          
+ [97] bdsmatrix_1.3-4          tibble_3.1.5             KernSmooth_2.23-20      
+[100] V8_3.4.2                 crayon_1.4.1             htmltools_0.5.2         
+[103] GOstats_2.58.0           later_1.3.0              tidyr_1.1.4             
+[106] DBI_1.1.1                formatR_1.11             dbplyr_2.1.1            
+[109] MASS_7.3-54              rappdirs_0.3.3           ShortRead_1.50.0        
+[112] Matrix_1.3-4             vsn_3.60.0               metapod_1.0.0           
+[115] pkgconfig_2.0.3          GenomicAlignments_1.28.0 numDeriv_2016.8-1.1     
+[118] plotly_4.10.0            InteractionSet_1.20.0    xml2_1.3.2              
+[121] annotate_1.70.0          bslib_0.3.1              multtest_2.48.0         
+[124] XVector_0.32.0           AnnotationForge_1.34.1   VariantAnnotation_1.38.0
+[127] digest_0.6.28            graph_1.70.0             Biostrings_2.60.2       
+[130] rmarkdown_2.11.3         edgeR_3.34.1             GSEABase_1.54.0         
+[133] restfulr_0.0.13          GreyListChIP_1.24.0      curl_4.3.2              
+[136] Rsamtools_2.8.0          gtools_3.9.2             rjson_0.2.20            
+[139] lifecycle_1.0.1          jsonlite_1.7.2           futile.logger_1.4.3     
+[142] viridisLite_0.4.0        limma_3.48.3             BSgenome_1.60.0         
+[145] fansi_0.5.0              pillar_1.6.4             lattice_0.20-45         
+[148] KEGGREST_1.32.0          fastmap_1.1.0            httr_1.4.2              
+[151] survival_3.2-13          GO.db_3.13.0             glue_1.4.2              
+[154] png_0.1-7                bit_4.0.4                Rgraphviz_2.36.0        
+[157] stringi_1.7.5            sass_0.4.0               blob_1.2.2              
+[160] latticeExtra_0.6-29      caTools_1.18.2           memoise_2.0.0           
+[163] gsmoothr_0.1.7           DOT_0.1                  irlba_2.3.3             </code></pre>
 </div>
 
 
