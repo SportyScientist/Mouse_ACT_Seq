@@ -165,8 +165,9 @@ H3K36me3 <- data.frame(SampleID, Tissue = "Cell_line", Factor = "H3K36me3", Cond
 ```{r results = 'asis'} 
 
 marks <- c(H3K36me3, H3K27ac, H3K27me3, H3K9me3)
-
 for(sheet in marks){
+sheet
+cat("#", sheet[1,3])  
 peaks <- dba(sampleSheet = sheet)
 peaks <- dba.blacklist(peaks, blacklist = DBA_BLACKLIST_HG19, greylist=FALSE)
 peaks <- dba.count(peaks)
@@ -197,6 +198,6 @@ db_sites
 ## Venn
 dba.plotVenn(diffbind, contrast=1, bDB=TRUE, bGain=TRUE, bLoss=TRUE, bAll=FALSE)
 }
-}
+
 
 ```
