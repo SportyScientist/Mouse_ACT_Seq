@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Marlene Ganslmeier" />
+<meta name="author" content="Marlene Ganslmeier and Pavlo Lutsik" />
 
 
-<title>Template Title</title>
+<title>Diffbind analysis mESC ACT-Seq</title>
 
 <script src="site_libs/header-attrs-2.11.3/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -369,9 +369,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Template Title</h1>
-<h4 class="author">Marlene Ganslmeier</h4>
-<h4 class="date">r format(Sys.time(), “%d %B, %Y, %H:%M”)</h4>
+<h1 class="title toc-ignore">Diffbind analysis mESC ACT-Seq</h1>
+<h4 class="author">Marlene Ganslmeier and Pavlo Lutsik</h4>
+<h4 class="date">26 October, 2021, 14:58</h4>
 
 </div>
 
@@ -487,16 +487,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreecf0be9a5d8253c8e030f002a015c4803a4bf5492targetblankcf0be9aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/cf0be9a5d8253c8e030f002a015c4803a4bf5492" target="_blank">cf0be9a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree6450383429d96dca6b098da89dd48430bdeb41datargetblank6450383a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/6450383429d96dca6b098da89dd48430bdeb41da" target="_blank">6450383</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtreecf0be9a5d8253c8e030f002a015c4803a4bf5492targetblankcf0be9aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomSportyScientistMouseACTSeqtree6450383429d96dca6b098da89dd48430bdeb41datargetblank6450383a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/cf0be9a5d8253c8e030f002a015c4803a4bf5492" target="_blank">cf0be9a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/SportyScientist/Mouse_ACT_Seq/tree/6450383429d96dca6b098da89dd48430bdeb41da" target="_blank">6450383</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -577,6 +577,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/6450383429d96dca6b098da89dd48430bdeb41da/analysis/Diffbind_K9me3.Rmd" target="_blank">6450383</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-10-26
+</td>
+<td>
+wflow_publish("analysis/Diffbind_K9me3.Rmd")
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/SportyScientist/Mouse_ACT_Seq/5569714ade50934eae8fd2544de9081e94c95ef9/docs/Diffbind_K9me3.html" target="_blank">5569714</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-10-26
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -829,9 +863,10 @@ Replicate[grep(xx[3], Replicate)] &lt;- 3
 
 H3K36me3 &lt;- data.frame(SampleID, Tissue = &quot;Cell_line&quot;, Factor = &quot;H3K36me3&quot;, Condition, bamReads[1:7], Peaks, Replicate, &quot;PeakCaller&quot; =  &quot;macs&quot;)</code></pre>
 <pre class="r"><code>marks &lt;- list(H3K36me3, H3K27ac, H3K27me3, H3K9me3)
-for(sheet in marks){
-print(sheet)
-cat(&quot;#&quot;, sheet[1,3])  
+
+for(H3K36me3 in marks){
+sheet = H3K36me3
+cat(&quot;# &quot;, sheet[1,3])  
 
 peaks &lt;- dba(sampleSheet = sheet)
 peaks &lt;- dba.blacklist(peaks, blacklist = DBA_BLACKLIST_HG19, greylist=FALSE)
@@ -843,7 +878,7 @@ peaks
 dba.plotPCA(peaks, label= DBA_CONDITION)
 
 ## MA
-dba.plotMA(peaks, bNormalized=FALSE)
+#dba.plotMA(peaks, bNormalized=FALSE)
 
 #this models the data and sets wt as &quot;base&quot;
 contrast &lt;- dba.contrast(peaks, design = &quot;~Condition + Replicate&quot;)
@@ -856,17 +891,91 @@ plot(diffbind, contrast = 1)
 
 db_sites &lt;- dba.report(diffbind)
 db_sites
-#saveRDS(db_sites, file = &quot;/icgc/dkfzlsdf/analysis/C010/ganslm/workflowr/ACT_Seq2/output/db_sites.rds&quot;)
+saveRDS(db_sites, file = &quot;output/db_sites_H3K36me3.rds&quot;)
 #db_sites &lt;- readRDS(&quot;/icgc/dkfzlsdf/analysis/C010/ganslm/workflowr/ACT_Seq2/output/db_sites.rds&quot;)
 
 #plots them as Venn 
 ## Venn
 dba.plotVenn(diffbind, contrast=1, bDB=TRUE, bGain=TRUE, bLoss=TRUE, bAll=FALSE)
 }</code></pre>
-<pre><code>      SampleID    Tissue   Factor Condition</code></pre>
-<p>1 KH2G34L_H3K36me3 Cell_line H3K36me3 KH2G34L 2 KH2G34R_H3K36me3 Cell_line H3K36me3 KH2G34R 3 KH2wt_H3K36me3 Cell_line H3K36me3 KH2wt 4 KH2G34L_H3K36me3 Cell_line H3K36me3 KH2G34L 5 KH2G34R_H3K36me3 Cell_line H3K36me3 KH2G34R 6 KH2G34W_H3K36me3 Cell_line H3K36me3 KH2G34W 7 KH2wt_H3K36me3 Cell_line H3K36me3 KH2wt bamReads.1.7. 1 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_988_HistMut_20246/runs_out/KH2G34L_H3K36me3/KH2G34L_H3K36me3_filt_tn5correct.bam 2 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_988_HistMut_20246/runs_out/KH2G34R_H3K36me3/KH2G34R_H3K36me3_filt_tn5correct.bam 3 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20201225_988_HistMut_20246/runs_out/KH2wt_H3K36me3/KH2wt_H3K36me3_filt_tn5correct.bam 4 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210316_239_H33_Ilse20926/runs_out/KH2G34L_H3K36me3/KH2G34L_H3K36me3_filt_tn5correct.bam 5 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210316_239_H33_Ilse20926/runs_out/KH2G34R_H3K36me3/KH2G34R_H3K36me3_filt_tn5correct.bam 6 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210316_239_H33_Ilse20926/runs_out/KH2G34W_H3K36me3/KH2G34W_H3K36me3_filt_tn5correct.bam 7 /icgc/dkfzlsdf/analysis/C010/cwlab_processing_out2/canepi-srv1/20210316_239_H33_Ilse20926/runs_out/KH2wt_H3K36me3/KH2wt_H3K36me3_filt_tn5correct.bam Peaks 1 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_988_HistMut_20246/KH2G34L_H3K36me3_filt_tn5correct_peaks.xls 2 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_988_HistMut_20246/KH2G34R_H3K36me3_filt_tn5correct_peaks.xls 3 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20201225_988_HistMut_20246/KH2wt_H3K36me3_filt_tn5correct_peaks.xls 4 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926/KH2G34L_H3K36me3_filt_tn5correct_peaks.xls 5 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926/KH2G34R_H3K36me3_filt_tn5correct_peaks.xls 6 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926/KH2G34W_H3K36me3_filt_tn5correct_peaks.xls 7 /omics/groups/OE0219/internal/ganslm/Analysis/Mouse_ActSeq/New/20210316_239_H33_Ilse20926/KH2wt_H3K36me3_filt_tn5correct_peaks.xls Replicate PeakCaller 1 1 macs 2 1 macs 3 1 macs 4 2 macs 5 2 macs 6 2 macs 7 2 macs # H3K36me3<img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-6-1.png" width="1440" style="display: block; margin: auto;" /></p>
-<pre><code>Error: Specified contrast number is greater than number of contrasts</code></pre>
-<p><img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-6-2.png" width="1440" style="display: block; margin: auto;" /></p>
+<div id="h3k36me3" class="section level1">
+<h1>H3K36me3<img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></h1>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-1">
+Past versions of unnamed-chunk-6-1.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/5569714ade50934eae8fd2544de9081e94c95ef9/docs/figure/Diffbind_K9me3.Rmd/unnamed-chunk-6-1.png" target="_blank">5569714</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-10-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>Error in h(simpleError(msg, call)): error in evaluating the argument &#39;obj&#39; in selecting a method for function &#39;unname&#39;: lazy-load database &#39;/omics/groups/OE0219/internal/ganslm/miniconda3/envs/R4.1/lib/R/library/genefilter/R/genefilter.rdb&#39; is corrupt</code></pre>
+<p><img src="figure/Diffbind_K9me3.Rmd/unnamed-chunk-6-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-unnamed-chunk-6-2">
+Past versions of unnamed-chunk-6-2.png
+</button>
+</p>
+<div id="fig-unnamed-chunk-6-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/SportyScientist/Mouse_ACT_Seq/blob/5569714ade50934eae8fd2544de9081e94c95ef9/docs/figure/Diffbind_K9me3.Rmd/unnamed-chunk-6-2.png" target="_blank">5569714</a>
+</td>
+<td>
+margan96
+</td>
+<td>
+2021-10-26
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -895,30 +1004,31 @@ attached base packages:
 [8] methods   base     
 
 other attached packages:
- [1] stringr_1.4.0                          
- [2] reactome.db_1.76.0                     
- [3] ChIPpeakAnno_3.26.4                    
- [4] Repitools_1.38.0                       
- [5] org.Hs.eg.db_3.13.0                    
- [6] gprofiler2_0.2.1                       
- [7] TxDb.Hsapiens.UCSC.hg19.knownGene_3.2.2
- [8] GenomicFeatures_1.44.2                 
- [9] AnnotationDbi_1.54.1                   
-[10] biomaRt_2.48.3                         
-[11] csaw_1.26.0                            
-[12] dplyr_1.0.7                            
-[13] BiocParallel_1.26.2                    
-[14] DiffBind_3.2.7                         
-[15] SummarizedExperiment_1.22.0            
-[16] Biobase_2.52.0                         
-[17] MatrixGenerics_1.4.3                   
-[18] matrixStats_0.61.0                     
-[19] GenomicRanges_1.44.0                   
-[20] GenomeInfoDb_1.28.4                    
-[21] IRanges_2.26.0                         
-[22] S4Vectors_0.30.2                       
-[23] BiocGenerics_0.38.0                    
-[24] workflowr_1.6.2                        
+ [1] DT_0.19                                
+ [2] stringr_1.4.0                          
+ [3] reactome.db_1.76.0                     
+ [4] ChIPpeakAnno_3.26.4                    
+ [5] Repitools_1.38.0                       
+ [6] org.Hs.eg.db_3.13.0                    
+ [7] gprofiler2_0.2.1                       
+ [8] TxDb.Hsapiens.UCSC.hg19.knownGene_3.2.2
+ [9] GenomicFeatures_1.44.2                 
+[10] AnnotationDbi_1.54.1                   
+[11] biomaRt_2.48.3                         
+[12] csaw_1.26.0                            
+[13] dplyr_1.0.7                            
+[14] BiocParallel_1.26.2                    
+[15] DiffBind_3.2.7                         
+[16] SummarizedExperiment_1.22.0            
+[17] Biobase_2.52.0                         
+[18] MatrixGenerics_1.4.3                   
+[19] matrixStats_0.61.0                     
+[20] GenomicRanges_1.44.0                   
+[21] GenomeInfoDb_1.28.4                    
+[22] IRanges_2.26.0                         
+[23] S4Vectors_0.30.2                       
+[24] BiocGenerics_0.38.0                    
+[25] workflowr_1.6.2                        
 
 loaded via a namespace (and not attached):
   [1] utf8_1.2.2               tidyselect_1.1.1         RSQLite_2.2.8           
@@ -929,7 +1039,7 @@ loaded via a namespace (and not attached):
  [16] git2r_0.28.0             bbmle_1.0.24             GenomeInfoDbData_1.2.6  
  [19] mixsqp_0.3-43            hwriter_1.3.2            bit64_4.0.5             
  [22] pheatmap_1.0.12          rprojroot_2.0.2          coda_0.19-4             
- [25] batchtools_0.9.15        vctrs_0.3.8              generics_0.1.0          
+ [25] batchtools_0.9.15        vctrs_0.3.8              generics_0.1.1          
  [28] lambda.r_1.2.4           xfun_0.27                BiocFileCache_2.0.0     
  [31] regioneR_1.24.0          R6_2.5.1                 apeglm_1.14.0           
  [34] invgamma_1.1             locfit_1.5-9.4           rsvg_2.1.2              
@@ -937,7 +1047,7 @@ loaded via a namespace (and not attached):
  [40] DelayedArray_0.18.0      assertthat_0.2.1         Ringo_1.56.0            
  [43] promises_1.2.0.1         BiocIO_1.2.0             scales_1.1.1            
  [46] gtable_0.3.0             affy_1.70.0              ensembldb_2.16.4        
- [49] rlang_0.4.12             genefilter_1.74.0        splines_4.1.1           
+ [49] rlang_0.4.12             genefilter_1.74.1        splines_4.1.1           
  [52] rtracklayer_1.52.1       lazyeval_0.2.2           brew_1.0-6              
  [55] checkmate_2.0.0          BiocManager_1.30.16      yaml_2.2.1              
  [58] backports_1.2.1          httpuv_1.6.3             RBGL_1.68.0             
@@ -977,6 +1087,7 @@ loaded via a namespace (and not attached):
 [160] sass_0.4.0               blob_1.2.2               DESeq2_1.32.0           
 [163] latticeExtra_0.6-29      caTools_1.18.2           memoise_2.0.0           
 [166] gsmoothr_0.1.7           DOT_0.1                  irlba_2.3.3             </code></pre>
+</div>
 </div>
 
 
